@@ -45,6 +45,8 @@ function MySQLGetData($sql) {
 	return $data;
 }
 
+//MySQL
+
 function MySQLRunSQL($sql) { 
 	$link = mysqli_connect(SAE_MYSQL_HOST_M,SAE_MYSQL_USER,SAE_MYSQL_PASS,SAE_MYSQL_DB,SAE_MYSQL_PORT);
 

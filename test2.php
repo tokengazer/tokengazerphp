@@ -36,6 +36,8 @@ function explainTable($str) {
 			// break;
 		}
 		array_pop($row);
+		$row[0] = getSonString2($row[1], ' (', ')');
+		$row[1] = explode($row[1], ' ')[0];
 		$resList[] = $row;
 		// break;
 	}
