@@ -26,3 +26,50 @@ function getSonString2($parent,$start,$end) {
     }
     return $a2[0];
 }
+
+function MySQLGetData($sql) {
+	$mysqli = mysqli_connect(SAE_MYSQL_HOST_M,SAE_MYSQL_USER,SAE_MYSQL_PASS,SAE_MYSQL_DB,SAE_MYSQL_PORT);
+	if ($mysqli->connect_error) {
+	    $mysqli->close();
+	    return false;
+	} 
+	$mysqli->query("SET NAMES utf8");
+	$ret = $mysqli->query($sql);
+    $data = array();
+    if($ret) {
+	    while($row = mysqli_fetch_array($ret,MYSQLI_ASSOC)) {
+	    	$data[] = $row;
+	    }
+    }
+    $mysqli->close();
+	return $data;
+}
+
+function MySQLRunSQL($sql) { 
+	$link = mysqli_connect(SAE_MYSQL_HOST_M,SAE_MYSQL_USER,SAE_MYSQL_PASS,SAE_MYSQL_DB,SAE_MYSQL_PORT);
+
+	if($link) {
+	    //mysqli_select_db('umms',$link);
+		$link->query("SET NAMES utf8");
+	    $ret = mysqli_query($link, $sql);
+	    mysqli_close($link);
+		return $ret;
+	} else {
+		return false;
+	}
+}
+
+function MySQLRunSQLBatch($sqlArray) { 
+	$link = mysqli_connect(SAE_MYSQL_HOST_M,SAE_MYSQL_USER,SAE_MYSQL_PASS,SAE_MYSQL_DB,SAE_MYSQL_PORT);
+	if($link) {
+	    //mysqli_select_db('umms',$link);
+		$link->query("SET NAMES utf8");
+	    foreach ($sqlArray as $sql) {
+			$ret = mysqli_query($link, $sql);
+		}
+	    mysqli_close($link);
+		return $ret;
+	} else {
+		return false;
+	}
+}

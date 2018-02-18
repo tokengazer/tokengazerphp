@@ -24,4 +24,12 @@ foreach ($rowList as $row) {
 	$resList[] = $row;
 	// break;
 }
-echo json_encode($resList);
+
+foreach ($resList as $res) {
+	$symbol = $res[2];
+	$name = $res[1];
+	$sql = "insert into `basic_token_list` (`symbol`,`name`) values ('".$symbol."','".$name."');";
+	MySQLRunSQL($sql);
+	echo $symbol.',';
+}
+// echo json_encode($resList);
