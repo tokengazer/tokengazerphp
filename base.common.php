@@ -4,7 +4,7 @@ function getToeknListFromDB() {
 	$data = MySQLGetData($sql);
 	$res = array();
 	foreach ($data as $row) {
-		$res[] = $row[0];
+		$res[] = $row['symbol'];
 	}
 	return $res;
 }
