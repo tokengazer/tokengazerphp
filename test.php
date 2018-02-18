@@ -24,6 +24,7 @@ foreach ($rowList as $row) {
 	$resList[] = $row;
 	// break;
 }
+array_pop($resList);
 
 // foreach ($resList as $res) {
 // 	$symbol = $res[2];
