@@ -4,6 +4,9 @@ include('bootstraps.php');
 $url = 'https://icorating.com/ico/?filter=all';
 $content = file_get_contents_https($url);
 
+$tokenList = getToeknListFromDB();
+echo json_encode($tokenList);
+
 $head1 = '<h2>Investment Rating</h2>';
 $end1 = '</tbody>';
 $str1 = getSonString($content, $head1, $end1);
