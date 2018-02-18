@@ -25,11 +25,24 @@ foreach ($rowList as $row) {
 	// break;
 }
 
-foreach ($resList as $res) {
-	$symbol = $res[2];
-	$name = $res[1];
-	$sql = "insert into `basic_token_list` (`symbol`,`name`) values ('".$symbol."','".$name."');";
-	MySQLRunSQL($sql);
-	echo $symbol.',';
-}
+// foreach ($resList as $res) {
+// 	$symbol = $res[2];
+// 	$name = $res[1];
+// 	$sql = "insert into `basic_token_list` (`symbol`,`name`) values ('".$symbol."','".$name."');";
+// 	MySQLRunSQL($sql);
+// 	echo $symbol.',';
+// }
 // echo json_encode($resList);
+
+$sql = "select * from `basic_token_list`";
+$table = MySQLGetData($sql);
+if(count($resList) > count($table)) {
+	for($i = count($table); $i < count($resList); $i++) {
+		$res = $resList[$i];
+		$symbol = $res[2];
+		$name = $res[1];
+		$sql = "insert into `basic_token_list` (`symbol`,`name`) values ('".$symbol."','".$name."');";
+		MySQLRunSQL($sql);
+		echo $symbol.',';
+	}
+}
