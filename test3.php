@@ -1,8 +1,8 @@
 <?php
 include('bootstraps.php');
 
-// $url = 'https://github.com/ethereum/go-ethereum';
-$url = $_GET['url'];
+$url = 'https://github.com/ethereum/go-ethereum';
+//$url = $_GET['url'];
 $content = file_get_contents_https($url);
 
 $str = getSonString($content, '<ul class="numbers-summary">', '</ul>');
