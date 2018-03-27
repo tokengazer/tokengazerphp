@@ -34,7 +34,7 @@ echo $p;
 if($p==8){
 return false;
 }
-header("Location http://2.tokenworm.applinzi.com/coinmarketcap.php?p=".$page);
+header("Location http://tokenworm.applinzi.com/coinmarketcap.php?p=".$page);
 // 初始化SaeKV对象
 //访问授权应用的数据
 
