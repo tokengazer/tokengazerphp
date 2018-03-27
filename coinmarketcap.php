@@ -1,41 +1,68 @@
 <?php
 include('bootstraps.php');
-$url = 'https://tokenmarket.net/blockchain/all-assets';
-$content = file_get_contents($url);
-$counts=explode("<small>Showing <strong>",$content)[1];
-$counts=explode("</strong> assets</small>",$counts)[0];
-$pages= ceil($counts/20);
+
+if(isset($_GET['p'])){
+$p=$_GET['p'];
+}
+else{
+$p='';
+}
 $kv = new SaeKV();
 $ret = $kv->init("xowlw2kmk2");
 
-//for($i=0;$i<$pages;$i++){
-$contents=file_get_contents_https("https://tokenmarket.net/blockchain/all-assets?batch_num=0&batch_size=".$counts);
-    $str=explode("<tbody>",$contents)[1];
-$str=explode("</tbody>",$str)[0];
-    $tmp=explode("<td class=\"col-asset-name\">",$str);
-unset($tmp[0]);$i=1;
-	foreach($tmp as $k=>$v){
-        $tmp1=$tmp[$k];
-        $url=explode('<a href="',$tmp1);
-        $name=explode('">',$tmp1)[1];
-        $name=trim(explode('</a',$name)[0]);
-        $data[$k]['name']=$name;
-        $url=explode('"',$url[1])[0];
-        $tmp2=file_get_contents_https($url);
-        $githuburl=explode("https://github.com/",$tmp2)[1];
-         if($githuburl!=''){
-        $data[$k]['githuburl']=$githuburl="https://github.com/".explode("\"",$githuburl)[0].',';
-        }
-        $ret = $kv->delete('tokenmarketproducts:'.$i);
-        $kv->add('tokenmarketproducts:'.$i, json_encode($data[$i],true));
+$url = 'https://coinmarketcap.com/'.$p;
+if($p==''){
+$p=1;
+}
+$content = file_get_contents_https($url);
+$content=getSonString($content,"<tbody>","</tbody>");
+$url1 = getSonStrings($content, '<span class="currency-symbol"><a href="','">');
+$githuburl=array();
+$i=($p-1)*100;
+$arr=array();
+foreach($url1 as $k=>$v){
+$contents1=file_get_contents_https("https://coinmarketcap.com".$url1[$k]);
+    $arr[$i]['name']=explode("/",$url1[$k])[2];
+    $arr[$i]['githuburl']=$githuburl[$i]=getSonString($contents1,'<span class="glyphicon glyphicon-hdd text-gray" title="Source Code"></span> <a href="','"');
+    $kv->add('products:'.$i, json_encode($arr[$i],true));
     
-    echo $kv->get('tokenmarketproducts:'.$i);
-       
-        $i++;
-    }
-   $ret = $kv->delete('tokenmarketproducts:all');
-        $kv->add('tokenmarketproducts:all', json_encode($data,true));
-    
-     $kv->get('tokenmarketproducts:all');
-       
-die;
+    $kv->get('products:'.$i);
+    $i++;
+}
+$page=$p+1;
+echo $p;
+if($p==8){
+return false;
+}
+header("Location http://2.tokenworm.applinzi.com/coinmarketcap.php?p=".$page);
+// 初始化SaeKV对象
+//访问授权应用的数据
+
+/*$url = 'https://coinmarketcap.com/3';
+$content = file_get_contents_https($url);
+$content=getSonString($content,"<tbody>","</tbody>");
+$url1 = getSonStrings($content, '<span class="currency-symbol"><a href="','">');
+foreach($url1 as $k=>$v){
+$contents1=file_get_contents_https("https://coinmarketcap.com".$url1[$k]);
+    $githuburl[$i]=getSonString($contents1,'<span class="glyphicon glyphicon-hdd text-gray" title="Source Code"></span> <a href="','"');
+    $i++;
+}
+$url = 'https://coinmarketcap.com/4';
+$content = file_get_contents_https($url);
+$content=getSonString($content,"<tbody>","</tbody>");
+$url1 = getSonStrings($content, '<span class="currency-symbol"><a href="','">');
+foreach($url1 as $k=>$v){
+$contents1=file_get_contents_https("https://coinmarketcap.com".$url1[$k]);
+    $githuburl[$i]=getSonString($contents1,'<span class="glyphicon glyphicon-hdd text-gray" title="Source Code"></span> <a href="','"');
+    $i++;
+}
+$url = 'https://coinmarketcap.com/5';
+$content = file_get_contents_https($url);
+$content=getSonString($content,"<tbody>","</tbody>");
+$url1 = getSonStrings($content, '<span class="currency-symbol"><a href="','">');
+foreach($url1 as $k=>$v){
+$contents1=file_get_contents_https("https://coinmarketcap.com".$url1[$k]);
+    $githuburl[$i]=getSonString($contents1,'<span class="glyphicon glyphicon-hdd text-gray" title="Source Code"></span> <a href="','"');
+    $i++;
+}*/
+
