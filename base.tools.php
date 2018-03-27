@@ -17,6 +17,16 @@ function getSonString($parent,$start,$end) {
     $a2 = explode($end, $a1[1]);
     return $a2[0];
 }
+function getSonStrings($parent,$start,$end) {
+    $a1 = explode($start, $parent);
+    $a3=array();
+    foreach($a1 as $k=>$v){
+    $a2[$k] = explode("\">", $a1[$k]);
+        $a3[$k]=$a2[$k][0];
+    }
+    unset($a3[0]);
+    return $a3;
+}
 
 function getSonString2($parent,$start,$end) {
     $a1 = explode($start, $parent);
@@ -26,6 +36,7 @@ function getSonString2($parent,$start,$end) {
     }
     return $a2[0];
 }
+
 
 function MySQLGetData($sql) {
 	$mysqli = mysqli_connect(SAE_MYSQL_HOST_M,SAE_MYSQL_USER,SAE_MYSQL_PASS,SAE_MYSQL_DB,SAE_MYSQL_PORT);
