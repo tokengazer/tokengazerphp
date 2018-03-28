@@ -28,7 +28,7 @@ foreach($url1 as $k=>$v){
     $arr[$i]['githuburl']=$githuburl[$i]=getSonString($contents1,'<span class="glyphicon glyphicon-hdd text-gray" title="Source Code"></span> <a href="','"');
     $kv->add('products:'.$i, json_encode($arr[$i],true));
     
-    $kv->get('products:'.$i);
+    echo $kv->get('products:'.$i);
     $i++;
 }
 $page=$p+1;
