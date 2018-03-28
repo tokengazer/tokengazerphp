@@ -3,7 +3,7 @@
          //SAE需要手动建立一个test，然后通过如下代码调用使用
 
         $t = new SaeTaskQueue("test");
-for($i=1;$i<=8;*i++){
+for($i=1;$i<=8;$i++){
         $t->addTask("http://2.tokenworm.applinzi.com/tokenmarket.php?p=".$i); //添加列队任务1
 }
         if (!$t->push()) {
