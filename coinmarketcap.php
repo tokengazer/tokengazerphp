@@ -27,7 +27,7 @@ foreach($url1 as $k=>$v){
     $arr[$i]['name']=explode("/",$url1[$k])[2];
     $arr[$i]['githuburl']=$githuburl[$i]=getSonString($contents1,'<span class="glyphicon glyphicon-hdd text-gray" title="Source Code"></span> <a href="','"');
     $kv->add('products:'.$i, json_encode($arr[$i],true));
-    
+    echo "https://coinmarketcap.com/".$url1['id'];
     echo $kv->get('products:'.$i);
     $i++;
 }
