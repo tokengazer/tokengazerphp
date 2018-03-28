@@ -15,7 +15,7 @@ if($p==''){
 $p=1;
 }
 $start=($p-1)*300;
-$content=$url1 = json_decode(file_get_contents_https('https://api.coinmarketcap.com/v1/ticker/?start='.$start.'&limit=300',true));
+$content=$url1 = json_decode(file_get_contents_https('https://api.coinmarketcap.com/v1/ticker/?start='.$start.'&limit=300'),true);
 print_r($url1);
 //$content=getSonString($content,"<tbody>","</tbody>");
 //$url1 = getSonStrings($content, '<span class="currency-symbol"><a href="','">');
