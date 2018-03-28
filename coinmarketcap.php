@@ -14,14 +14,15 @@ $url = 'https://coinmarketcap.com/'.$p;
 if($p==''){
 $p=1;
 }
-$content = file_get_contents_https($url);
-$content=getSonString($content,"<tbody>","</tbody>");
-$url1 = getSonStrings($content, '<span class="currency-symbol"><a href="','">');
+$content=$url1 = json_decode(file_get_contents_https('https://api.coinmarketcap.com/v1/ticker/?limit=3000',true));
+//$content=getSonString($content,"<tbody>","</tbody>");
+//$url1 = getSonStrings($content, '<span class="currency-symbol"><a href="','">');
 $githuburl=array();
 $i=($p-1)*100;
 $arr=array();
 foreach($url1 as $k=>$v){
-$contents1=file_get_contents_https("https://coinmarketcap.com".$url1[$k]);
+//$contents1=file_get_contents_https("https://coinmarketcap.com".$url1[$k]);
+    $contents1=file_get_contents_https("https://coinmarketcap.com".$url1['id']);
     $arr[$i]['name']=explode("/",$url1[$k])[2];
     $arr[$i]['githuburl']=$githuburl[$i]=getSonString($contents1,'<span class="glyphicon glyphicon-hdd text-gray" title="Source Code"></span> <a href="','"');
     $kv->add('products:'.$i, json_encode($arr[$i],true));
