@@ -14,11 +14,12 @@ $url = 'https://coinmarketcap.com/'.$p;
 if($p==''){
 $p=1;
 }
-$content=$url1 = json_decode(file_get_contents_https('https://api.coinmarketcap.com/v1/ticker/?limit=3000',true));
+$start=($p-1)*300;
+$content=$url1 = json_decode(file_get_contents_https('https://api.coinmarketcap.com/v1/ticker/?start='.$start.'&limit=300',true));
 //$content=getSonString($content,"<tbody>","</tbody>");
 //$url1 = getSonStrings($content, '<span class="currency-symbol"><a href="','">');
 $githuburl=array();
-$i=($p-1)*100;
+$i=$start;
 $arr=array();
 foreach($url1 as $k=>$v){
 //$contents1=file_get_contents_https("https://coinmarketcap.com".$url1[$k]);
@@ -35,7 +36,7 @@ echo $p;
 if($p==8){
 return false;
 }
-header("Location http://tokenworm.applinzi.com/coinmarketcap.php?p=".$page);
+//header("Location http://tokenworm.applinzi.com/coinmarketcap.php?p=".$page);
 // 初始化SaeKV对象
 //访问授权应用的数据
 
