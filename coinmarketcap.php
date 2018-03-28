@@ -32,7 +32,7 @@ foreach($url1 as $k=>$v){
     $i++;
 }
 $page=$p+1;
-echo $p;
+echo $p.'完成';
 if($p==8){
 return false;
 }
