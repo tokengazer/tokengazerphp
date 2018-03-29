@@ -33,7 +33,7 @@ foreach($url1 as $k=>$v){
     $kv->delete('coinmarketproducts:'.$i);
     $kv->add('coinmarketproducts:'.$i, json_encode($arr[$i],true));
     $kv->get('coinmarketproducts:'.$i);
-    echo $sql='insert into project_list values("'.$arr[$i]['name'].'","'.$arr[$i]['githuburl'].'",0);';
+    echo $sql='insert into project_list (name,githuburl,price) values("'.$arr[$i]['name'].'","'.$arr[$i]['githuburl'].'",0);';
     MySQLRunSQL($sql);
     $i++;
 }
