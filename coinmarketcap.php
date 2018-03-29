@@ -22,6 +22,7 @@ $githuburl=array();
 $i=$start;
 $arr=array();
 foreach($url1 as $k=>$v){
+    set_time_limit();
 //$contents1=file_get_contents_https("https://coinmarketcap.com".$url1[$k]);
     $contents1=file_get_contents_https("https://coinmarketcap.com/currencies/".$url1[$k]['id'].'/');
     $arr[$i]['name']=$url1[$k]['id'];//echo "https://coinmarketcap.com/currencies/".$url1[$k]['id'];
