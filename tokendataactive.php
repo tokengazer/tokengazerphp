@@ -10,7 +10,7 @@ $sql.="VALUES (NULL ,  '".$data[$k]['description']."',  '".$data[$k]['end_date']
 $sql.="'".$data[$k]['month']."',  '".$data[$k]['name']."',  ";
 $sql.="'".$data[$k]['name_lower']."',  '".$data[$k]['start_date']."',  '".$data[$k]['status']."',  '".$data[$k]['website']."',  '".$data[$k]['whitepaper']."',  '".$data[$k]['_id']."'";
 $sql.=");";
-    //MySQLRunSQL($sql);
+    MySQLRunSQL($sql);
     echo $sql;
 }
 ?>
