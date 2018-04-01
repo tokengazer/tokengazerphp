@@ -36,7 +36,8 @@ foreach($str2 as $k=>$v){
         $arr[$i]['githuburl']="https://github.com/".$str4;
         $ret = $kv->delete('products:'.$i);
         $kv->add('products:'.$i, json_encode($arr[$i],true));
-    
+    $sql='insert into project_list (name,githuburl,price) values("'.$arr[$i]['name'].'","'.$arr[$i]['githuburl'].'",0);';
+    MySQLRunSQL($sql);
      $kv->get('products:'.$i);
     
     } 
