@@ -1,7 +1,7 @@
 <?php
 $url='https://www.tokendata.io/icos/active?_='.time().'000';
     $data=file_get_contents($url);
-$data=json_decode($data,true)[$data];;
+$data=json_decode($data,true)['data'];;
 
 foreach($data as $k=>$v){
 $sql="INSERT INTO  `app_tokenworm`.`tokendada` (`id` ,`description` ,`end_date` ,`featured_until` ,`month` ,`name` ,";
