@@ -1,4 +1,5 @@
 <?php
+include('bootstraps.php');
 ini_set('max_execution_time', '0');
 function curls($url, $data_string) {
     $ch = curl_init();
