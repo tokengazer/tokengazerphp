@@ -14,7 +14,7 @@ function curls($url, $data_string) {
     $data = curl_exec($ch);
     curl_close($ch);
     if (substr($data, 0,3) == pack("CCC",0xef,0xbb,0xbf)) {
-        $re1 = substr($data, 3);
+        $data = substr($data, 3);
     }
     return $data;
                 }
