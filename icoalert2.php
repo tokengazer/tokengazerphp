@@ -5,6 +5,7 @@ ini_set('max_execution_time', '0');
 function curls($url, $data_string) {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_HEADER, 0);//获取头部
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     /*curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'X-AjaxPro-Method:ShowList',
