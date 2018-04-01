@@ -1,4 +1,5 @@
 <?php
+include('bootstraps.php');
 function curls($url, $data_string) {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -16,5 +17,13 @@ function curls($url, $data_string) {
 $get_url="https://jbmtbl811x-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20vanilla%20JavaScript%20(lite)%203.21.1%3Binstantsearch.js%201.11.7%3BJS%20Helper%202.19.0&x-algolia-application-id=JBMTBL811X&x-algolia-api-key=bab8508db4e902d54d1603e9d897a285";
 $json='{"requests":[{"indexName":"icoalert-production-active","params":"query=&hitsPerPage=50&page=0&filters=startDate%20%3C%3D%201522294754%20AND%20endDate%20%3E%201522294754%20AND%20startDate%20%3E%200&facets=%5B%5D&tagFilters="}]}';
 $post_datas = curls($get_url, $json);
-echo $post_datas;
+$datas=json_decode($post_datas,true)['results'][0];
+$tmp=$datas['hits'];
+
+foreach($tmp as $k=>$v){
+    
+$sql="INSERT INTO `IcoalertData` (`craftEntryId`, `dateCreated`, `description`, `endDate`, `featuredListing`, `icoID`, `kyc`, `objectID`, `preFeaturedListing`, `preSale`, `preSaleEndDate`, `preSaleStartDate`, `preSaleStartDay`, `preSaleStartMonth`, `preSaleStartQuarter`, `preSaleStartYear`, `preSaleTbd`, `reportAvailable`, `reportLink`, `startDate`, `startDay`, `startMonth`, `startQuarter`, `startYear`, `tags`, `tbd`, `title`, `usExcludedOption`, `verified`, `website`) VALUES ('".$tmp[$k]['craftEntryId']."', '".$tmp[$k]['dateCreated']."', '".$tmp[$k]['description']."', '".$tmp[$k]['endDate']."', '".$tmp[$k]['featuredListing']."', '".$tmp[$k]['icoID']."', '".$datas['hits'][$k]['kyc']."', '".$datas['hits'][$k]['objectID']."', '".$tmp[$k]['preFeaturedListing']."', '".$tmp[$k]['preSale']."', '".$tmp[$k]['preSaleEndDate']."', '".$tmp[$k]['preSaleStartDate']."', '".$tmp[$k]['preSaleStartDay']."', '".$tmp[$k]['preSaleStartMonth']."', '".$datas['hits'][$k]['preSaleStartQuarter']."', '".$tmp[$k]['preSaleStartYear']."', '".$tmp[$k]['preSaleTbd']."', '".$tmp[$k]['reportAvailable']."', '".$tmp[$k]['reportLink']."', '".$tmp[$k]['startDate']."', '".$tmp[$k]['startDay']."', '".$tmp[$k]['startMonth']."', '".$tmp[$k]['startQuarter']."', '".$tmp[$k]['startYear']."', '".$tmp[$k]['tags']."', '".$tmp[$k]['tbd']."', '".$tmp['title']."', '".$tmp[$k]['usExcludedOption']."', '".$tmp[$k]['verified']."', '".$tmp[$k]['website']."');";
+print_r(MySQLRunSQL($sql));
+   
+}
 ?>
