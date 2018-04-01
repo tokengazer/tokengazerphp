@@ -19,7 +19,7 @@ $post_datas = curls($get_url, $json);
 //print_r($post_datas);
 $datas=json_decode($post_datas,true)['results'][0];
 foreach($datas['hits'] as $k=>$v){
-    echo $k;
+print_r($datas['hits']);;
 //echo $sql="INSERT INTO `app_tokenworm`.`IcoalertData` (`craftEntryId`, `dateCreated`, `description`, `endDate`, `featuredListing`, `icoID`, `kyc`, `objectID`, `preFeaturedListing`, `preSale`, `preSaleEndDate`, `preSaleStartDate`, `preSaleStartDay`, `preSaleStartMonth`, `preSaleStartQuarter`, `preSaleStartYear`, `preSaleTbd`, `reportAvailable`, `reportLink`, `startDate`, `startDay`, `startMonth`, `startQuarter`, `startYear`, `tags`, `tbd`, `title`, `usExcludedOption`, `verified`, `website`) VALUES ('".$v['craftEntryId']."', '".$v['dateCreated']."', '".$v['description']."', '".$v['endDate']."', '".$v['featuredListing']."', '".$v['icoID']."', '".$v['kyc']."', '".$v['objectID']."', '".$v['preFeaturedListing']."', '".$v['preSale']."', '".$v['preSaleEndDate']."', '".$v['preSaleStartDate']."', '".$v['preSaleStartDay']."', '".$v['preSaleStartMonth']."', '".$v['preSaleStartQuarter']."', '".$v['preSaleStartYear']."', '".$v['preSaleTbd']."', '".$v['reportAvailable']."', '".$v['reportLink']."', '".$v['startDate']."', '".$v['startDay']."', '".$v['startMonth']."', '".$v['startQuarter']."', '".$v['startYear']."', '".$v['tags']."', '".$v['tbd']."', '".$v['title']."', '".$v['usExcludedOption']."', '".$v['verified']."', '".$v['website']."');";
 //MySQLRunSQL($sql);
 }
