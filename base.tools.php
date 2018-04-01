@@ -59,7 +59,15 @@ function MySQLGetData($sql) {
 //MySQL
 
 function MySQLRunSQL($sql) { 
-	$link = mysqli_connect(SAE_MYSQL_HOST_M,SAE_MYSQL_USER,SAE_MYSQL_PASS,SAE_MYSQL_DB,SAE_MYSQL_PORT);
+    $host='w.rdc.sae.sina.com.cn';
+	$db='app_tokenworm';
+	$user='xowlw2kmk2';
+	$port=3306;
+	$pass='xwz3045l2wmzxz1zij4j50wm5xx104i42wkxz5l2';
+	//$mysqli = mysqli_connect(SAE_MYSQL_HOST_M,SAE_MYSQL_USER,SAE_MYSQL_PASS,SAE_MYSQL_DB,SAE_MYSQL_PORT);
+	$link = mysqli_connect($host,$user,$pass,$db,$port);
+	
+	//$link = mysqli_connect(SAE_MYSQL_HOST_M,SAE_MYSQL_USER,SAE_MYSQL_PASS,SAE_MYSQL_DB,SAE_MYSQL_PORT);
 
 	if($link) {
 	    //mysqli_select_db('umms',$link);
