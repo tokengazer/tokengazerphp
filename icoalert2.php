@@ -22,7 +22,7 @@ $get_url="https://jbmtbl811x-dsn.algolia.net/1/indexes/*/queries?x-algolia-agent
 $json='{"requests":[{"indexName":"icoalert-production-recent-presale","params":"query=&hitsPerPage=100&page=0&filters=preSaleEndDate%20%3E%200%20AND%20preSaleEndDate%20%3C%201522294754&facets=%5B%22preSale%22%5D&tagFilters=&facetFilters=%5B%22preSale%3Atrue%22%5D"}]}';
 $post_datas = curls($get_url, $json);
 print_r($post_datas);
-$datas=json_decode($post_datas,true)['results'];
+$datas=json_decode($post_datas,true)['results'][0];
 $tmp=$datas['hits'];
 
 foreach($tmp as $k=>$v){
