@@ -34,7 +34,7 @@ foreach($url1 as $k=>$v){
     $kv->delete('coinmarketproducts:'.$i);
     $kv->add('coinmarketproducts:'.$i, json_encode($arr[$i],true));
     $kv->get('coinmarketproducts:'.$i);
-    $sql='insert into project_list (name,githuburl,price) values("'.$arr[$i]['name'].'","'.$arr[$i]['githuburl'].'",0);';
+    $sql='insert into project_list (name,githuburl,price,DaraSource) values("'.$arr[$i]['name'].'","'.$arr[$i]['githuburl'].'",0,"coinmarketcap");';
     MySQLRunSQL($sql);
     $i++;
 }
