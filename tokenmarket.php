@@ -28,7 +28,7 @@ unset($tmp[0]);$i=1;
         }
         $ret = $kv->delete('tokenmarketproducts:'.$i);
         $kv->add('tokenmarketproducts:'.$i, json_encode($data[$i],true));
-    $sql='insert into project_list (name,githuburl,price) values("'.$data[$i]['name'].'","'.$data[$i]['githuburl'].'",0);';
+    $sql='insert into project_list (name,githuburl,price,DataSource) values("'.$data[$i]['name'].'","'.$data[$i]['githuburl'].'",0,"tokenmarket");';
     MySQLRunSQL($sql);
     echo $kv->get('tokenmarketproducts:'.$i);
        
