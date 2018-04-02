@@ -4,7 +4,7 @@ function curls($url, $data_string) {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_HEADER, 0);//获取头部
-    //curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     /*curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'X-AjaxPro-Method:ShowList',
         'User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36',
