@@ -5,7 +5,12 @@ $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
 $list[$k]['githuburl']=str_replace(",","",$list[$k]['githuburl']);
     $baseurl=str_replace("github.com","api.github.com/repos",$list[$k]['githuburl']);
-    print_r(curls($baseurl));
+    $data=json_decode(curls($baseurl),true);;
+    if(isset($data['message'])){
+    continue;
+    }else{
+    print_r($data);
+    }
 }
 function curls($url){
     $headers = array(
