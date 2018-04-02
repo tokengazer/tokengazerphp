@@ -21,7 +21,7 @@ $list[$k]['githuburl']=str_replace(",","",$list[$k]['githuburl']);
 function curls($url){
     $headers = array(
         'Authorization:token  b26b6fe9c7beaba6edf83661c666d3ad5588b35a',
-        'Accept:application/vnd.github.giant-sentry-fist-preview+json',
+        'Accept:application/vnd.github.hellcat-preview+json',
         'User-Agent: Awesome-Octocat-App',
     );
     $curl = curl_init();
