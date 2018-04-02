@@ -4,7 +4,7 @@ $sql="select githuburl from project_list where githuburl <> '' limit 0,30";
 $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
 $list[$k]['githuburl']=str_replace(",","",$list[$k]['githuburl']);
-    echo $baseurl=str_replace("github.com","api.gethub.com/repos",$list[$k]['githuburl']);
+    echo $baseurl=str_replace("github.com","api.github.com/repos",$list[$k]['githuburl']);
     print_r(curls($baseurl));
 }
 function curls($url){
