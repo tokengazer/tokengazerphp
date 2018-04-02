@@ -8,6 +8,7 @@ $list[$k]['githuburl']=str_replace(",","",$list[$k]['githuburl']);
     $data=json_decode(curls($baseurl),true);;
     if(isset($data['message'])){
     //continue;
+        echo $baseurl.",</br>";
     }else{
         echo 1;
    // print_r($data);
