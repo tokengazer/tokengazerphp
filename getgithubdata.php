@@ -9,7 +9,8 @@ $list[$k]['githuburl']=str_replace(",","",$list[$k]['githuburl']);
     if(isset($data['message'])){
     //continue;
     }else{
-    print_r($data);
+        echo 1;
+   // print_r($data);
     $forks=$data['forks_count'];
     $watchers=$data['watchers'];
     }
