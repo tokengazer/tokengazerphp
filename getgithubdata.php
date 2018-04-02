@@ -27,4 +27,3 @@ function curls($url){
     curl_close($curl);
     //显示获得的数据
   }
-print_r($list);
