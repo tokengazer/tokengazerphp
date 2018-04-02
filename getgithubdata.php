@@ -11,6 +11,7 @@ function curls($url){
     $headers = array(
         'Authorization:token  b26b6fe9c7beaba6edf83661c666d3ad5588b35a',
         'Accept:application/vnd.github.giant-sentry-fist-preview+json',
+        'User-Agent: Awesome-Octocat-App',
     );
     $curl = curl_init();
     //设置抓取的url
