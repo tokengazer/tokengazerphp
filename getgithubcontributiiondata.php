@@ -8,6 +8,9 @@ $list[$k]['githuburl']=str_replace(",","",$list[$k]['githuburl']);
     if(strrpos($baseurl,"/")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
     }
+    if(substr_count($baseurl,"/")==3){
+    continue;
+    }
     $data=json_decode(curls($baseurl."/graphs/contributors-data"),true);;
     if(isset($data['message'])){
     //continue;
