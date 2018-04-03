@@ -13,6 +13,7 @@ $list[$k]['githuburl']=str_replace(",","",$list[$k]['githuburl']);
     //continue;
        // echo $baseurl.",</br>";
     }else{
+        echo $baseurl;
     print_r($data);
     $forks=$data['forks_count'];
     $watchers=$data['watchers'];
