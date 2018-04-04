@@ -16,7 +16,10 @@ $list[$k]['githuburl']=str_replace(",","",$list[$k]['githuburl']);
     //continue;
        // echo $baseurl.",</br>";
     }else{
-        echo count($data);
+        foreach($data as $k=>$v){
+            $url="https://api.github.com/users/".$data[$k]['login']."/repos";
+            print_r($curls($url));
+        }
     }
 }
 function curls($url){
