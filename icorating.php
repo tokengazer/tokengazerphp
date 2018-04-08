@@ -28,6 +28,8 @@ foreach($str2 as $k=>$v){
         if(strstr($name,"'>"))
         {
             echo $arr[$i]['name']=$name=explode(">",$name)[1];
+        }else{
+        $arr[$i]['name']=$name;
         }
         $url=getSonString($str2[$k],"<tr data-href='","'>",$str2[$k]);
         //$con1=file_get_contents_https($url);
