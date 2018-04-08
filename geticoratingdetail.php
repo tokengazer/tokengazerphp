@@ -7,7 +7,7 @@ $name=explode(" (",$data[$k]['name'])[0];
     if(strstr($name," ")){
     $name=str_replace(" ","-",$name);
     }
-    $url="https://icorating.com/ico/".$name."/details/";
+    echo $url="https://icorating.com/ico/".$name."/details/";
 }
 //$url="https://icorating.com/ico/crowd-machine/details/";
 $html=file_get_contents_https($url);
