@@ -3,7 +3,7 @@ include('bootstraps.php');
 $sql="select * from project_data where name <>'' and DataSource='icorating'";
 $data=MySQLGetData($sql);
 foreach($data as $k=>$v){
-$name=explode(" (",$data[$k]['name'])[0];
+echo $name=explode(" (",$data[$k]['name'])[0];
     if(strstr($name," ")){
     $name=str_replace(" ","-",$name);
     }
