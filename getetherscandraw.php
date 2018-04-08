@@ -4,5 +4,5 @@ $url="https://etherscan.io/token/tokenholderchart/0x86fa049857e0209aa7d9e616f7eb
     $html=file_get_contents_https($url);
 $json=str_replace("});","",getSonString($html,"series: ","</script>"));
 $jsonarr=json_decode($json,true);
-print_r($jsonarr);
+print_r($json);
 ?>
