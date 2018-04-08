@@ -6,9 +6,8 @@ $total=0;
 foreach($data as $k=>$v){
 $total+=$data[$k]['money'];
 }
-echo $total;die;
-foreach($data as $k=>$v){
-$data[$k]['per']=($data[$k]/$total)*100;
+foreach($data as $kk=>$vv){
+$data[$kk]['per']=($data[$kk]/$total)*100;
 }
 
 print_r($data);
