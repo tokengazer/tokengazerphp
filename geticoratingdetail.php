@@ -2,6 +2,7 @@
 include('bootstraps.php');
 $sql="select * from project_list where name <>null and DataSource='icorating'";
 $data=MySQLGetData($sql);
+print_r($data);
 foreach($data as $k=>$v){
 echo $name=explode(" (",$data[$k]['name'])[0];
     if(strstr($name," ")){
