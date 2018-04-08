@@ -8,6 +8,7 @@ $json=rtrim($json, ',');
 
 $json=str_replace("name","\"name\"",$json);
 $json=str_replace("data","\"data\"",$json);
+$json= substr($json,0,strlen($json)-6); 
 
 $jsonarr=json_decode($json,true);
 print_r($json);
