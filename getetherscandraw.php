@@ -6,8 +6,7 @@ $json=str_replace("'","\"",str_replace("});","",getSonString($html,"series: ","<
 $json=str_replace("name","\"name\"",$json);
 $json=str_replace("data","\"data\"",$json);
 
-$json=preg_replace('# #','',$json);
-$json=str_replace(",]}]","]}]",$json);
+$json=rtrim($json, ','); 
 $jsonarr=json_decode($json,true);
 print_r($json);
 ?>
