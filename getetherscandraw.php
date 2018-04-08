@@ -10,6 +10,6 @@ $json=str_replace("\r\n","",str_replace("name","\"name\"",$json));
 $json=str_replace(" ","",str_replace("data","\"data\"",$json));
 $json=str_replace(",]}]","]}]",$json);
 
-$jsonarr=json_decode($json,true);
+$jsonarr=json_decode($json,true)["data"];
 print_r($jsonarr);
 ?>
