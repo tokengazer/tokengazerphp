@@ -10,4 +10,13 @@ $str =explode("uk-table",$html)[2];
 $str=explode("ICO start date:",$str)[1];
 $ICOstartdate=getSonString($str,"<td>","</td>");
 echo $ICOstartdate;
+$str =explode("uk-table",$html)[2];
+$str=explode("ICO end date:",$str)[1];
+$ICOenddate=getSonString($str,"<td>","</td>");
+echo $ICOstartdate;
+$str =explode("uk-table",$html)[2];
+$str=explode("ICO Token Supply:",$str)[1];
+$ICOTokenSupply=getSonString($str,"<td>","</td>");
+echo $ICOstartdate;
+
 ?>
