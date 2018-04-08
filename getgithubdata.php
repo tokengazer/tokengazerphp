@@ -5,13 +5,14 @@ $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
 $list[$k]['githuburl']=str_replace(",","",$list[$k]['githuburl']);
     $baseurl=str_replace("github.com","api.github.com/repos",$list[$k]['githuburl']);
+    
     if(strrpos($baseurl,"/")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
     }
     $data=json_decode(curls($baseurl),true);;
     if(isset($data['message'])){
     //continue;
-       // echo $baseurl.",</br>";
+        echo $baseurl.",</br>";
     }else{
     print_r($data);
     $forks=$data['forks_count'];
