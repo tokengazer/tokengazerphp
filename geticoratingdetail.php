@@ -15,6 +15,10 @@ $str =explode("uk-table",$html)[1];
 $str=explode("Pre-ICO start date:",$str)[1];
 $PreICOstartdate=getSonString($str,"<td>","</td>");
  $PreICOstartdate;
+    $str =explode("uk-table",$html)[1];
+$str=explode("Pre-ICO end date:",$str)[1];
+$PreICOenddate=getSonString($str,"<td>","</td>");
+ $PreICOenddate;
 $str =explode("uk-table",$html)[2];
 $str=explode("ICO start date:",$str)[1];
 $ICOstartdate=getSonString($str,"<td>","</td>");
@@ -83,7 +87,7 @@ $str =explode("uk-table",$html)[5];
 $str=explode("Social Media:",$str)[1];
 $SocialMedia=getSonString($str,"<td>","</td>");
 $SocialMedia;
-    $sql="INSERT INTO `app_tokenworm`.`icoratingdetail` (`id`, `pid`, `createtime`, `PreICOstartdate`, `ICOstartdate`, `ICOenddate`, `ICOTokenSupply`, `Ticker`, `Type`, `TokenStandard`, `AdditionalTokenEmission`, `AcceptedCurrencies`, `BonusProgram`, `Tokendistribution`, `ICOPlatform`, `BugDetection`, `BitcointalkSignatureCampaign`, `Bounty`, `Translation`, `SocialMedia`) VALUES (NULL, ".$data[$k]['id'].", '".date("Y-m-d H:i:s")."', '".$PreICOstartdate."', '".$ICOstartdate."', '".$ICOenddate."', '".$ICOTokenSupply."', '".$Ticker."', '".$Type."', '".$TokenStandard."', '".$AdditionalTokenEmission."','".$AcceptedCurrencies."', '".$BonusProgram."', '".$Tokendistribution."', '".$ICOPlatform."', '".$BugDetection."', '".$BitcointalkSignatureCampaign."', '".$Bounty."', '".$Translation."', '".$SocialMedia."');";
+    $sql="INSERT INTO `app_tokenworm`.`icoratingdetail` (`id`, `pid`, `createtime`, `PreICOstartdate`,`PreICOenddate `ICOstartdate`, `ICOenddate`, `ICOTokenSupply`, `Ticker`, `Type`, `TokenStandard`, `AdditionalTokenEmission`, `AcceptedCurrencies`, `BonusProgram`, `Tokendistribution`, `ICOPlatform`, `BugDetection`, `BitcointalkSignatureCampaign`, `Bounty`, `Translation`, `SocialMedia`) VALUES (NULL, ".$data[$k]['id'].", '".date("Y-m-d H:i:s")."', '".$PreICOstartdate."','".$PreICOenddate."' '".$ICOstartdate."', '".$ICOenddate."', '".$ICOTokenSupply."', '".$Ticker."', '".$Type."', '".$TokenStandard."', '".$AdditionalTokenEmission."','".$AcceptedCurrencies."', '".$BonusProgram."', '".$Tokendistribution."', '".$ICOPlatform."', '".$BugDetection."', '".$BitcointalkSignatureCampaign."', '".$Bounty."', '".$Translation."', '".$SocialMedia."');";
     echo MySQLRunSQL($sql);
 }
 ?>
