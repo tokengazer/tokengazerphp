@@ -1,4 +1,5 @@
 <?php
+include('bootstraps.php');
 $url="https://icorating.com/ico/crowd-machine/details/";
 $html=file_get_contents_https($url);
 $str =explode("uk-table",$html)[0];
