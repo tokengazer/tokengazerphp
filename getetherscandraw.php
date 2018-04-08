@@ -11,5 +11,5 @@ $json=str_replace(" ","",str_replace("data","\"data\"",$json));
 $json=str_replace(",]}]","]}]",$json);
 
 $jsonarr=json_decode($json,true);
-print_r($json);
+print_r($jsonarr);
 ?>
