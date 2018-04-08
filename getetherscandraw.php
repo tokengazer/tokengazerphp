@@ -6,7 +6,7 @@ $url="https://etherscan.io/token/tokenholderchart/0x86fa049857e0209aa7d9e616f7eb
 $json=str_replace("'","\"",str_replace("});","",getSonString($html,"series: ","</script>")));
 $json=rtrim($json, ',');
 
-$json=str_replace("name","\"name\"",$json);
+$json=str_replace("\r\n","",str_replace("name","\"name\"",$json));
 $json=str_replace("data","\"data\"",$json);
 $json= substr($json,0,strlen($json)-6); 
 
