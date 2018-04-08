@@ -1,6 +1,6 @@
 <?php
 include('bootstraps.php');
-$sql="select * from project_data where name <>'' and DataSource='icorating'";
+$sql="select * from project_data where name <>null and DataSource='icorating'";
 $data=MySQLGetData($sql);
 print_r($data);
 foreach($data as $k=>$v){
