@@ -16,7 +16,12 @@ $list[$k]['githuburl']=str_replace(",","",$list[$k]['githuburl']);
     }else{
      echo $baseurl.",</br>";
     $forks=$data['forks_count'];
+        $stars=$data['stargazers_count'];
     $watchers=$data['watchers'];
+        $lastupdatetime=$data['updated_at'];
+        $createtime=date("Y-m-d H:i:s");
+    $sql="insert into github_data (name,fork,stars,watchers,lastupdatetime,createtime) values ('".$baseurl."',".$forks.",".$watcchers.",".$watchers.",".$lastupdatetime.",'".$createtime."')";
+    MySQLRunSQL($sql);
     }
 }
 function curls($url){
