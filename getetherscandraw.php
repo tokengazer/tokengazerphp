@@ -11,5 +11,8 @@ $json=str_replace(" ","",str_replace("data","\"data\"",$json));
 $json=str_replace(",]}]","]}]",$json);
 
 $jsonarr=json_decode($json,true)[0]["data"];
-print_r($jsonarr);
+foreach($jsonarr as $k=>$v){
+$sql="insert into etherscan_draw values ('1',".$v[0].",'".$v[1]."')";
+    MySQLRunSQL($sql);
+}
 ?>
