@@ -1,6 +1,6 @@
 <?php
 include('bootstraps.php');
-echo $sql="select * from etherscan_draw where pid=1";
+$sql="select * from etherscan_draw where pid=1";
 $data=MySQLGetData($sql);
 $total=0;
 foreach($data as $k=>$v){
