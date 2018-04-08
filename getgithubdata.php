@@ -20,7 +20,7 @@ $list[$k]['githuburl']=str_replace(",","",$list[$k]['githuburl']);
     $watchers=$data['watchers'];
         $lastupdatetime=$data['updated_at'];
         $createtime=date("Y-m-d H:i:s");
-    $sql="insert into github_data (name,fork,stars,watchers,lastupdatetime,createtime) values ('".$baseurl."',".$forks.",".$watcchers.",".$watchers.",".$lastupdatetime.",'".$createtime."')";
+    echo $sql="insert into github_data (name,fork,stars,watchers,lastupdatetime,createtime) values ('".$baseurl."',".$forks.",".$watcchers.",".$watchers.",".$lastupdatetime.",'".$createtime."')";
     MySQLRunSQL($sql);
     }
 }
