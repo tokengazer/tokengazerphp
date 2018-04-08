@@ -13,7 +13,7 @@ $json=str_replace(",]}]","]}]",$json);
 $jsonarr=json_decode($json,true)[0]["data"];
 foreach($jsonarr as $k=>$v){
     print_r($v);
-echo $sql="insert into etherscan_draw values ('1','".$v[0]."','".mysql_real_escape_string($v[1])."')";
+echo $sql="insert into etherscan_draw values ('1','".$v[0]."','".addslashes($v[1])."')";
     MySQLRunSQL($sql);
 }
 ?>
