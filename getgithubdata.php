@@ -12,9 +12,9 @@ $list[$k]['githuburl']=str_replace(",","",$list[$k]['githuburl']);
     $data=json_decode(curls($baseurl),true);;
     if(isset($data['message'])){
     //continue;
-        echo $baseurl.",</br>";
+       // echo $baseurl.",</br>";
     }else{
-    print_r($data);
+     echo $baseurl.",</br>";
     $forks=$data['forks_count'];
     $watchers=$data['watchers'];
     }
