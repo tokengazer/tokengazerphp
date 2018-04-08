@@ -1,6 +1,6 @@
 <?php
 include('bootstraps.php');
-$sql="select githuburl from project_list where githuburl <> '' limit 0,10";
+$sql="select githuburl from project_list where githuburl <> '' ";
 $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
 $list[$k]['githuburl']=str_replace(",","",$list[$k]['githuburl']);
