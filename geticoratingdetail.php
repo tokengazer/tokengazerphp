@@ -6,8 +6,8 @@ $str =explode("uk-table",$html)[1];
 $str=explode("Pre-ICO start date:",$str)[1];
 $PreICOstartdate=getSonString($str,"<td>","</td>");
 echo $PreICOstartdate;
-echo $str =explode("uk-table",$html)[2];
-$str=explode("ICO start date:",$str)[2];
+$str =explode("uk-table",$html)[2];
+$str=explode("ICO start date:",$str)[1];
 $ICOstartdate=getSonString($str,"<td>","</td>");
 echo $ICOstartdate;
 ?>
