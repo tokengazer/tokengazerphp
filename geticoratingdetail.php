@@ -8,7 +8,7 @@ echo $name=explode(" (",$data[$k]['name'])[0];
     $name=str_replace(" ","-",$name);
     }
     echo $url="https://icorating.com/ico/".$name."/details/";
-}
+
 //$url="https://icorating.com/ico/crowd-machine/details/";
 $html=file_get_contents_https($url);
 $str =explode("uk-table",$html)[1];
@@ -82,6 +82,6 @@ echo $Translation;
 $str =explode("uk-table",$html)[5];
 $str=explode("Social Media:",$str)[1];
 $SocialMedia=getSonString($str,"<td>","</td>");
-echo $SocialMedia;
-
+echo $SocialMedia;echo "<br/>";
+}
 ?>
