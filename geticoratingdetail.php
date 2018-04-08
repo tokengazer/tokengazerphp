@@ -1,7 +1,14 @@
 <?php
 include('bootstraps.php');
 $sql="select * from project_data where name <>'' and DataSource='icorating'";
-
+$data=MySQLGetData($sql);
+foreach($data as $k=$v){
+$name=explode(" (",$data[$k]['name'])[0];
+    if(strstr($name," ")){
+    $name=str_replace(" ","-",$name);
+    }
+    $url="https://icorating.com/ico/".$name."/details/";
+}
 //$url="https://icorating.com/ico/crowd-machine/details/";
 $html=file_get_contents_https($url);
 $str =explode("uk-table",$html)[1];
