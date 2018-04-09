@@ -38,8 +38,8 @@ foreach($str2 as $k=>$v){
         }
          $url=getSonString($str2[$k],"<tr data-href='","'>",$str2[$k]);
         //$con1=file_get_contents_https($url);
-        $str3=explode("github.com/",$con1)[1];
-        $str4=explode("\"",$str3)[0];
+        $str13=explode("github.com/",$con1)[1];
+        $str4=explode("\"",$str13)[0];
         $arr[$i]['githuburl']="https://github.com/".$str4;
          $ret = $kv->delete('products:'.$i);
         $kv->add('products:'.$i, json_encode($arr[$i],true));
