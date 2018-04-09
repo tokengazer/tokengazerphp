@@ -24,7 +24,7 @@ foreach($str3 as $kk=>$vv){
 $str2[$count]=$str3[$kk];
     $count++;
 }
-print_r($str2);die;
+print_r($str3);die;
 $i=0;
 $arr=array();
 foreach($str2 as $k=>$v){
