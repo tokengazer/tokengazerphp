@@ -20,10 +20,11 @@ $end2 = '</tbody>';
 $str3 = getSonString($content, $head2, $end2);
 $str3 = getSonString($str3, '<tbody>', '</tbody>');
 $count=count($str2);
-/*foreach($str3 as $kk=>$vv){
+$str3=explode('<td>',$str3);
+foreach($str3 as $kk=>$vv){
 $str2[$count]=$str3[$kk];
     $count++;
-}*/
+}
 print_r($str3);die;
 $i=0;
 $arr=array();
