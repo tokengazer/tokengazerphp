@@ -42,7 +42,7 @@ foreach($str2 as $k=>$v){
         $logo=str_replace("<img src=\"","https://icorating.com",$str2[$k]);
         $logo=str_replace("\" />","",$logo);
         $logo=str_replace("</td>","",$logo);
-        $data[$i]['logo']=$logo;
+        $arr[$i]['logo']=$logo;
     
     }
     $ret = $kv->delete('products:'.$i);
