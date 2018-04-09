@@ -85,4 +85,5 @@ if($kk==0||$kk%2==0){
     
     }
 }
+echo count($str3);
 echo 1;
