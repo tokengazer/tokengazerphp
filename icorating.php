@@ -26,7 +26,7 @@ $str2[$count]=$str3[$kk];
     $count++;
 }
 $i=0;
-$arr=array();
+$arr=array();echo count($str2);die;
 foreach($str2 as $k=>$v){
     if($k==0||$k%2==0){
     $name=trim(explode("</td",$str2[$k])[0]);
