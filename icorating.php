@@ -57,7 +57,7 @@ foreach($str2 as $k=>$v){
 
 foreach($str3 as $kk=>$vv){
 if($kk==0||$kk%2==0){
-    $name=trim(explode("</td",$str2[$kk])[0]);
+    $name=trim(explode("</td",$str3[$kk])[0]);
         if(strstr($name,"'>"))
         {
             echo $arr[$i]['name']=$name=explode(">",$name)[1];
