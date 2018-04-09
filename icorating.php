@@ -20,6 +20,7 @@ $end2 = '</tbody>';
 $str3 = getSonString($content, $head2, $end2);
 $str3 = getSonString($str3, '<tbody>', '</tbody>');
 array_push($str2,$str3);
+print_r($str2);die;
 $i=0;
 $arr=array();
 foreach($str2 as $k=>$v){
