@@ -21,10 +21,6 @@ $str3 = getSonString($content, $head2, $end2);
 $str3 = getSonString($str3, '<tbody>', '</tbody>');
 $count=count($str2);
 $str3=explode('<td>',$str3);
-foreach($str3 as $kk=>$vv){
-$str2[$count]=$str3[$kk];
-    $count++;
-}
 $i=0;
 $arr=array();
 foreach($str2 as $k=>$v){
@@ -57,5 +53,36 @@ foreach($str2 as $k=>$v){
     
     }
    
+}
+
+foreach($str3 as $kk=>$vv){
+if($kk==0||$kk%2==0){
+    $name=trim(explode("</td",$str2[$kk])[0]);
+        if(strstr($name,"'>"))
+        {
+            echo $arr[$i]['name']=$name=explode(">",$name)[1];
+        }else{
+        $arr[$i]['name']=$name;
+        }
+         $url=getSonString($str3[$kk],"<tr data-href='","'>",$str3[$kk]);
+        //$con1=file_get_contents_https($url);
+        $str13=explode("github.com/",$con1)[1];
+        $str4=explode("\"",$str13)[0];
+        $arr[$i]['githuburl']="https://github.com/".$str4;
+         $ret = $kv->delete('products:'.$i);
+        $kv->add('products:'.$i, json_encode($arr[$i],true));
+    $sql='insert into project_list (name,logo,githuburl,price,DataSource) values("'.$arr[$i]['name'].'","'.trim($logo).'","'.$arr[$i]['githuburl'].'",0,"icorating");';
+    MySQLRunSQL($sql);
+     $kv->get('products:'.$i);
+    $i++;
+       
+     } 
+    else{
+        $logo=str_replace("<img src=\"","https://icorating.com",$str3[$kk]);
+        $logo=str_replace("\" />","",$logo);
+        $logo=str_replace("</td>","",$logo);
+        $arr[$i]['logo']=$logo;
+    
+    }
 }
 echo 1;
