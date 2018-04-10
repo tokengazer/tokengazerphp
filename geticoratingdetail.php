@@ -87,6 +87,7 @@ $str =explode("uk-table",$html)[5];
 $str=explode("Social Media:",$str)[1];
 $SocialMedia=getSonString($str,"<td>","</td>");
 $SocialMedia;
+    echo "https://icorating.com/ico/".$name;
     $detailhtml=file_get_contents_https("https://icorating.com/ico/".$name);
     echo $tmpstr=explode("<td>Whitepaper:</td>",$detailhtml)[1];
     $tmpstr1=explode("<td><a target=\"_blank\" href=\"",$tmpstr)[1];
