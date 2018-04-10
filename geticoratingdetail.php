@@ -87,7 +87,11 @@ $str =explode("uk-table",$html)[5];
 $str=explode("Social Media:",$str)[1];
 $SocialMedia=getSonString($str,"<td>","</td>");
 $SocialMedia;
-   echo $sql="INSERT INTO `app_tokenworm`.`icoratingdetail` (`id`, `pid`, `createtime`, `PreICOstartdate`,`PreICOenddate`, `ICOstartdate`, `ICOenddate`, `ICOTokenSupply`, `Ticker`, `Type`, `TokenStandard`, `AdditionalTokenEmission`, `AcceptedCurrencies`, `BonusProgram`, `Tokendistribution`, `ICOPlatform`, `BugDetection`, `BitcointalkSignatureCampaign`, `Bounty`, `Translation`, `SocialMedia`) VALUES (NULL, ".$data[$k]['id'].", '".date("Y-m-d H:i:s")."', '".$PreICOstartdate."','".$PreICOenddate."', '".$ICOstartdate."', '".$ICOenddate."', '".$ICOTokenSupply."', '".$Ticker."', '".$Type."', '".$TokenStandard."', '".$AdditionalTokenEmission."','".$AcceptedCurrencies."', '".$BonusProgram."', '".$Tokendistribution."', '".$ICOPlatform."', '".$BugDetection."', '".$BitcointalkSignatureCampaign."', '".$Bounty."', '".$Translation."', '".$SocialMedia."');";
-    echo MySQLRunSQL($sql);
+    $detailhtml=file_get_contents_https("https://icorating.com/ico/".$name);
+    $tmpstr=explode("<td>Whitepaper:</td>",$detailhtml)[1];
+    $tmpstr1=explode("<td><a target=\"_blank\" href=\"",$tmpstr)[1];
+    echo $tmpstr2=explode("\"",$tmpstr1)[0];
+  // echo $sql="INSERT INTO `app_tokenworm`.`icoratingdetail` (`id`, `pid`, `createtime`, `PreICOstartdate`,`PreICOenddate`, `ICOstartdate`, `ICOenddate`, `ICOTokenSupply`, `Ticker`, `Type`, `TokenStandard`, `AdditionalTokenEmission`, `AcceptedCurrencies`, `BonusProgram`, `Tokendistribution`, `ICOPlatform`, `BugDetection`, `BitcointalkSignatureCampaign`, `Bounty`, `Translation`, `SocialMedia`) VALUES (NULL, ".$data[$k]['id'].", '".date("Y-m-d H:i:s")."', '".$PreICOstartdate."','".$PreICOenddate."', '".$ICOstartdate."', '".$ICOenddate."', '".$ICOTokenSupply."', '".$Ticker."', '".$Type."', '".$TokenStandard."', '".$AdditionalTokenEmission."','".$AcceptedCurrencies."', '".$BonusProgram."', '".$Tokendistribution."', '".$ICOPlatform."', '".$BugDetection."', '".$BitcointalkSignatureCampaign."', '".$Bounty."', '".$Translation."', '".$SocialMedia."');";
+    //echo MySQLRunSQL($sql);
 }
 ?>
