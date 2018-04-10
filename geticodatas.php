@@ -11,6 +11,7 @@ $url="https://api.coinmarketcap.com/v1/ticker/".$data[$k]['name']."/";
     $Current_market_value=$results[0]['market_cap_usd'];
     $Current_Circulation=$results[0]['available_supply'];
     $Current_Single_price=$results[0]['price_usd'];
+    echo "https://coinmarketcap.com/currencies/".$name."/";
     $html=file_get_contents_https("https://coinmarketcap.com/currencies/".$name."/");
     print_r($html);
     $tmpstr3=explode("<li><span class=\"glyphicon glyphicon-hdd text-gray\" title=\"Source Code\"></span> ",$html)[1];
