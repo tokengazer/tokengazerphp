@@ -12,12 +12,13 @@ $url="https://api.coinmarketcap.com/v1/ticker/".$data[$k]['name']."/";
     $Current_Circulation=$results[0]['available_supply'];
     $Current_Single_price=$results[0]['price_usd'];
     $html=file_get_contents_https("https://coinmarketcap.com/currencies/".$name."/");
+    print_r($html);
     $tmpstr3=explode("<li><span class=\"glyphicon glyphicon-hdd text-gray\" title=\"Source Code\"></span> ",$html)[1];
     $tmpstr2=explode("<a href=\"",$tmpstr3)[1];
     $tmpstr4=explode("\"",$tmpstr2)[0];
     $githuburl=$tmpstr4;
-    echo $sql="update ico_Analysis set Current_market_value='".$Current_market_value."',Current_Circulation='".$Current_Circulation."',Current_Single_price='".$Current_Single_price."',Github_url='".$githuburl."' where name='".$data[$k]['name']."'";
-    MySQLRunSQL($sql);
+    //echo $sql="update ico_Analysis set Current_market_value='".$Current_market_value."',Current_Circulation='".$Current_Circulation."',Current_Single_price='".$Current_Single_price."',Github_url='".$githuburl."' where name='".$data[$k]['name']."'";
+    //MySQLRunSQL($sql);
 }
 
 ?>
