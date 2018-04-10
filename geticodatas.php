@@ -1,6 +1,6 @@
 <?
 include('bootstraps.php');
-$sql="select name from ico_Analysis where githuburl=''";
+echo $sql="select name from ico_Analysis where githuburl=''";
 $data=MySQLGetData($sql);
 foreach($data as $k=>$v){
 /*$url="https://api.coinmarketcap.com/v1/ticker/".$data[$k]['name']."/";
