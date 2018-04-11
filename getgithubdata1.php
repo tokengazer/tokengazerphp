@@ -9,7 +9,7 @@ foreach($list as $k=>$v){
     $results=json_decode(curls($baseurl),true);;
     //print_r(curls($baseurl));
     $forks=$watches=$stars=$commits=0;
-    $lastupdatetime="2000-04-10";
+    $lastupdatetime="2000-04-10 0:0:0";
     foreach($results as $kk=>$vv){
     $forks+=$results[$kk]['forks_count'];
         $stars+=$results[$kk]['stargazers_count'];
