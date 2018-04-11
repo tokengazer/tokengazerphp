@@ -19,13 +19,14 @@ foreach($list as $k=>$v){
        $lastupdatetime=bijiaotimes($lastupdatetime,$results[$kk]['pushed_at']);
         $i=1;
     for($i=1;$i<=100;$i++){
-     echo $url="https://api.github.com/repos/".$results[$kk]['full_name']."/contributors?page=".$i."&per_page=100";
+      $url="https://api.github.com/repos/".$results[$kk]['full_name']."/contributors?page=".$i."&per_page=100";
         $res=json_decode(curls($url),true);
         foreach($res as $aa=>$bb){
         $commits+=$res[$aa]['contributions'];
         }
         $i++;
         if(count($res)<=100){
+            echo $count($res);
         break;
         }
         
