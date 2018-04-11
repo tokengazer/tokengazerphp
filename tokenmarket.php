@@ -22,14 +22,17 @@ unset($tmp[0]);$i=1;
         $data[$k]['name']=$name;
         $url=explode('"',$url[1])[0];
         $tmp2=file_get_contents_https($url);
+        $memberhtml=explode("<th>Members</th>",$tmp2)[1];
+        $memberhtml=explode("</td>",$memberhtml)[0];
+        $member=strip_tags($memberhtml);
         $githuburl=explode("https://github.com/",$tmp2)[1];
          if($githuburl!=''){
         $data[$k]['githuburl']=$githuburl="https://github.com/".explode("\"",$githuburl)[0].',';
-        }
+        }/*
         $ret = $kv->delete('tokenmarketproducts:'.$i);
         $kv->add('tokenmarketproducts:'.$i, json_encode($data[$i],true));
     $sql='insert into project_list (name,githuburl,price,DataSource) values("'.$data[$i]['name'].'","'.$data[$i]['githuburl'].'",0,"tokenmarket");';
-    MySQLRunSQL($sql);
+    MySQLRunSQL($sql);*/
     echo $kv->get('tokenmarketproducts:'.$i);
        
         $i++;
