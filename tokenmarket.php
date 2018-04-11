@@ -29,12 +29,22 @@ unset($tmp[0]);$i=1;
         $symbol=explode("<td>",$symbol)[1];
         $symbol=explode("</td>",$symbol)[0];die;
         $member=strip_tags($memberhtml);
+        if(strstr($tmp2,"Token sale opening date")){
         echo $icostartdate=explode("Token sale opening date",$tmp2)[1];
         $icostartdate=explode("<td>",$icostartdate)[1];
         $icostartdate=explode("</td>",$icostartdate)[0];
         $icoenddate=explode("Token sale closing date",$tmp2)[1];
         echo $icoenddate=explode("<td>",$icoenddate)[1];
         echo $icoenddate=explode("</td>",$icoenddate)[0];
+        }
+        else{
+        echo $icostartdate=explode("Presale opening date",$tmp2)[1];
+        $icostartdate=explode("<td>",$icostartdate)[1];
+        $icostartdate=explode("</td>",$icostartdate)[0];
+        $icoenddate=explode("Presale closing date",$tmp2)[1];
+        echo $icoenddate=explode("<td>",$icoenddate)[1];
+        echo $icoenddate=explode("</td>",$icoenddate)[0];
+        }
         $origin=explode("Country of origin",$tmp2)[1];
         $origin=explode("<td>",$origin)[1];
         $origin=explode("</td>",$origin)[0];
