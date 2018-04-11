@@ -67,8 +67,8 @@ function curls($url){
   }
 function bijiaotimes($time1,$time2){
 if(strtotime($time1)-strtotime($time2<0)){                   //对两个时间差进行差运算
-    return $time2;//time1-time2<0，说明time1的时间在前
+    return $time1;//time1-time2<0，说明time1的时间在前
 }else{
-    return $time1;//否则，说明time2的时间在前
+    return $time2;//否则，说明time2的时间在前
 }
 }
