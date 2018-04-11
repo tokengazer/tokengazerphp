@@ -9,7 +9,7 @@ foreach($list as $k=>$v){
     if(strrpos($baseurl,",")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
     }
-    echo $baseurl;
+    //echo $baseurl;
     $results=json_decode(curls($baseurl),true);;
     //print_r(curls($baseurl));
     $forks=$watches=$stars=$commits=0;
@@ -37,7 +37,7 @@ foreach($list as $k=>$v){
     }*/
     }
     
-    $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$watchers.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$k]['id'];
+    echo $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$watchers.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$k]['id'];
     /*if($k==0){
     break;
     }*/
