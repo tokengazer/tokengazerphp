@@ -67,8 +67,9 @@ unset($tmp[0]);$i=1;
         $sql='insert into ico_Analysis (name,Github_url,DataSource,Ico_time,Team,origin,whitepaper,website) values("'.$data[$i]['name'].'","'.$data[$i]['githuburl'].'","tokenmarket","'.$icostartdate.'","'.$member'","'.$origin.'","'.$whitepaper.'","'.$website1.'");';
     }else{
         //有就更新
-            $sql="update ico_Analysis "
+            //$sql="update ico_Analysis "
         }
+        MySQLRunSQL($sql);
         /*
         $ret = $kv->delete('tokenmarketproducts:'.$i);
         $kv->add('tokenmarketproducts:'.$i, json_encode($data[$i],true));
