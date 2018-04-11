@@ -53,10 +53,9 @@ unset($tmp[0]);$i=1;
         $website=explode("<a target=\"_blank\" href=\"",$website)[1];
         $website1=explode("\"",$website)[0];
         
-        print_r(explode("<td colspan=\"2\">",$websitehtml)[3]);
         $whitepaper=explode("<td colspan=\"2\">",$websitehtml)[3];
         $whitepaper=explode("<a target=\"_blank\" href=\"",$whitepaper)[1];
-        $whitepaper=explode("\"",$website)[0];
+        echo $whitepaper=explode("\"",$whitepaper)[0];
         $githuburl=explode("https://github.com/",$tmp2)[1];
          if($githuburl!=''){
         $data[$k]['githuburl']=$githuburl="https://github.com/".explode("\"",$githuburl)[0].',';
