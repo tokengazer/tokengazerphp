@@ -1,6 +1,6 @@
 <?php
 include('bootstraps.php');
-$sql="select githuburl from ico_Anaylsis where Github_url <> '' ";
+$sql="select Github_url from ico_Analysis where Github_url <> '' ";
 $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
 $list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
