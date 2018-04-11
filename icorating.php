@@ -39,6 +39,9 @@ foreach($str2 as $k=>$v){
         $arr[$i]['githuburl']="https://github.com/".$str4;
          $ret = $kv->delete('products:'.$i);
         $kv->add('products:'.$i, json_encode($arr[$i],true));
+        if($name==''){
+        continue;
+        }
     echo $sql='insert into ico_Analysis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.trim($logo).'","'.$arr[$i]['githuburl'].'","icorating");';
     MySQLRunSQL($sql);
      $kv->get('products:'.$i);
