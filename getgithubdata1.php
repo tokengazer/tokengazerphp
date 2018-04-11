@@ -18,7 +18,7 @@ foreach($list as $k=>$v){
     }
     $i=1;
     $commits=0;
-    for($i=1;$i++;){
+    while(1=1){
     $url="https://api.github.com/repos/".$results[$kk]['bitcoin/bips']."/contributors?page=".$i."&per_page=100";
         $res=json_decode(curls($url),true);
         foreach($res $aa=>$bb){
@@ -27,6 +27,7 @@ foreach($list as $k=>$v){
         if(count($res)<=100){
         break;
         }
+        $i++;
     }
     echo $commits;die;
     //echo $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$watchers.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$k]['id'];
