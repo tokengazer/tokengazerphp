@@ -27,7 +27,7 @@ unset($tmp[0]);$i=1;
         $symbol=explode("<th>Symbol</th>",$tmp2)[1];
         $symbol=explode("<td>",$symbbol)[1];
         echo $symbol=explode("</td>",$symbol)[0];
-        echo $member=strip_tags($memberhtml);
+        $member=strip_tags($memberhtml);
         $icostartdate=explode("Token sale opening date",$tmp2)[1];
         $icostartdate=explode("<td>",$icostartdate)[1];
         $icostartdate=explode("</td>",$icostartdate)[0];
@@ -43,7 +43,7 @@ unset($tmp[0]);$i=1;
         $website1=explode("\"",$website)[0];
         $whitepaper=explode("<td colspan=\"2\">",$websitehtml)[3];
         $whitepaper=explode("<a target=\"_blank\" href=\"",$whitepaper)[1];
-        echo $whitepaper=explode("\"",$website)[0];
+        $whitepaper=explode("\"",$website)[0];
         $githuburl=explode("https://github.com/",$tmp2)[1];
          if($githuburl!=''){
         $data[$k]['githuburl']=$githuburl="https://github.com/".explode("\"",$githuburl)[0].',';
