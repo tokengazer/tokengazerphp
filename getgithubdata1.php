@@ -20,8 +20,9 @@ foreach($list as $k=>$v){
         $i=0;
         $commits=0;
     for($i=0;$i<=5;$i++){
-      $url="https://api.github.com/repos/bitcoin/bitcoin/contributors?page=".$i."&per_page=100";
+      $url="https://api.github.com/repos/bitcoin/bitcoin/contributors?page=".$i."&per_page=500";
         $res=json_decode(curls($url),true);
+        echo count($res);die;
         foreach($res as $aa=>$bb){
         $commits+=$res[$aa]['contributions'];
         }
