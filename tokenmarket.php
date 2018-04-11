@@ -53,7 +53,7 @@ unset($tmp[0]);$i=1;
         $website=explode("<a target=\"_blank\" href=\"",$website)[1];
         $website1=explode("\"",$website)[0];
         
-        print_r($websitehtml);
+        print_r(explode("<td colspan=\"2\">",$websitehtml));
         $whitepaper=explode("<td colspan=\"2\">",$websitehtml)[3];
         $whitepaper=explode("<a target=\"_blank\" href=\"",$whitepaper)[1];
         $whitepaper=explode("\"",$website)[0];
