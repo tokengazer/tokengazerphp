@@ -16,6 +16,18 @@ foreach($list as $k=>$v){
     $watchers+=$results[$kk]['watchers'];
        $lastupdatetime=bijiaotimes($lastupdatetime,$results[$kk]['pushed_at']);
     }
+    $i=1;
+    $commits=0;
+    for($i=1;$i++;){
+    $url="https://api.github.com/repos/".$results[$kk]['bitcoin/bips']."/contributors?page=".$i."&per_page=100";
+        $res=json_decode(curls($url),true);
+        foreach($res $aa=>$bb){
+        $commits+=$res[$aa]['contributions'];
+        }
+        if(count($res)<=100){
+        break;
+        }
+    }
     echo $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$watchers.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$k]['id'];
     /*if($k==0){
     break;
