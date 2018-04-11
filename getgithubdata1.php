@@ -18,7 +18,7 @@ foreach($list as $k=>$v){
     }
     $i=1;
     $commits=0;
-    while(1=1){
+    while(1==1){
     $url="https://api.github.com/repos/".$results[$kk]['bitcoin/bips']."/contributors?page=".$i."&per_page=100";
         $res=json_decode(curls($url),true);
         foreach($res $aa=>$bb){
