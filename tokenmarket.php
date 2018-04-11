@@ -25,6 +25,7 @@ unset($tmp[0]);$i=1;
         $memberhtml=explode("<th>Members</th>",$tmp2)[1];
         $memberhtml=explode("</td>",$memberhtml)[0];
         $symbol=explode("<th>Symbol</th>",$tmp2)[1];
+        print_r($symbol);
         $symbol=explode("<td>",$symbbol)[1];
         print_r($symbol);
         echo $symbol=explode("</td>",$symbol)[0];
