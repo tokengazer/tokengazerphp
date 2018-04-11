@@ -25,8 +25,7 @@ foreach($list as $k=>$v){
         $commits+=$res[$aa]['contributions'];
         }
         $i++;
-        if(count($res)<=100){
-            echo count($res);
+        if(count($res)<100){
         break;
         }
         
