@@ -17,8 +17,9 @@ foreach($list as $k=>$v){
         $stars+=$results[$kk]['stargazers_count'];
     $watchers+=$results[$kk]['watchers'];
        $lastupdatetime=bijiaotimes($lastupdatetime,$results[$kk]['pushed_at']);
-        $i=1;
-    for($i=1;$i<=100;$i++){
+        $i=0;
+        
+    for($i=0;$i<=100;$i++){
       $url="https://api.github.com/repos/".$results[$kk]['full_name']."/contributors?page=".$i."&per_page=100";
         $res=json_decode(curls($url),true);
         foreach($res as $aa=>$bb){
