@@ -6,7 +6,17 @@ foreach($list as $k=>$v){
 //$list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
     $baseurl=str_replace("https://github.com/","",$list[$k]['Github_url']);
     $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0]."/repos";
-    print_r(curls($baseurl));
+    $results=json_decode(curls($baseurl),true);;
+    //print_r(curls($baseurl));
+    $forks=$watches=$stars=$commits=0;
+    $lastupdatetime="2000-04-10T08:40:23Z";
+    foreach($results as $k=>$v){
+    $forks+=$results[$k]['forks_count'];
+        $stars+=$results[$k]['stargazers_count'];
+    $watchers+=$results[$k]['watchers'];
+        $lastupdatetime=bijiaotimes($lastupdatetime,$results[$k]['pushed_at']);
+    }
+    echo $lastupdatetime;
     if($k==0){
     break;
     }
@@ -55,3 +65,10 @@ function curls($url){
     }
     return $data;
   }
+function bijiaotimes($time1,$time2){
+if(strtotime($time1)-strtotime($time2<0)){                   //对两个时间差进行差运算
+    return $time2;//time1-time2<0，说明time1的时间在前
+}else{
+    return $time1;//否则，说明time2的时间在前
+}
+}
