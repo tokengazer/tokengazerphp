@@ -48,11 +48,13 @@ unset($tmp[0]);$i=1;
         $origin=explode("Country of origin",$tmp2)[1];
         $origin=explode("<td>",$origin)[1];
         $origin=explode("</td>",$origin)[0];
-        echo $websitehtml=explode("<table class=\"table table-asset-data\">",$tmp2)[4];
+        $websitehtml=explode("<table class=\"table table-asset-data\">",$tmp2)[4];
         $website=explode("<td colspan=\"2\">",$websitehtml)[1];
         $website=explode("<a target=\"_blank\" href=\"",$website)[1];
         $website1=explode("\"",$website)[0];
-        echo $whitepaper=explode("<td colspan=\"2\">",$websitehtml)[3];
+        
+        print_r($website);
+        $whitepaper=explode("<td colspan=\"2\">",$websitehtml)[3];
         $whitepaper=explode("<a target=\"_blank\" href=\"",$whitepaper)[1];
         $whitepaper=explode("\"",$website)[0];
         $githuburl=explode("https://github.com/",$tmp2)[1];
