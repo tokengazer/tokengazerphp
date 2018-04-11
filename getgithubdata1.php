@@ -19,7 +19,7 @@ foreach($list as $k=>$v){
     $i=1;
     $commits=0;
     for($i=1;$i<=100;$i++){
-    $url="https://api.github.com/repos/".$results[$kk]['full_name']."/contributors?page=".$i."&per_page=100";
+    echo $url="https://api.github.com/repos/".$results[$kk]['full_name']."/contributors?page=".$i."&per_page=100";
         $res=json_decode(curls($url),true);
         print_r($res);
         foreach($res as $aa=>$bb){
