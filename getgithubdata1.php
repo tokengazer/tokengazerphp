@@ -18,7 +18,7 @@ foreach($list as $k=>$v){
     $watchers+=$results[$kk]['watchers'];
        $lastupdatetime=bijiaotimes($lastupdatetime,$results[$kk]['pushed_at']);
         $commits=0;
-    for($i=0;$i<=5;$i++){
+    for($i=1;$i<=1;$i++){
       $url="https://api.github.com/repos/bitcoin/bitcoin/contributors?page=".$i."&per_page=500";
         $res=json_decode(curls($url),true);
         foreach($res as $kkk=>$vvv){
