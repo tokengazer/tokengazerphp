@@ -26,7 +26,7 @@ foreach($list as $k=>$v){
         }
         $i++;
         if(count($res)<=100){
-            echo $count($res);
+            echo count($res);
         break;
         }
         
