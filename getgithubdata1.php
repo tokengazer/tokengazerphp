@@ -5,7 +5,8 @@ $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
 //$list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
     $baseurl=str_replace("https://github.com/","",$list[$k]['Github_url']);
-    $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0]."/repos";
+    echo $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0]."/repos";
+    continue;
     $results=json_decode(curls($baseurl),true);;
     //print_r(curls($baseurl));
     $forks=$watches=$stars=$commits=0;
