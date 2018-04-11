@@ -4,7 +4,7 @@ $sql="select id, Github_url from ico_Analysis where Github_url <> '' and Github_
 $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
 //$list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
-    $baseurl=str_replace("https://github.com/","",$list[$k]['Github_url']);
+    $baseurl=str_replace("https://github.com/","https://api.github.com/",$list[$k]['Github_url']);
     $baseurl=$list[$k]['Github_url'];
     if(strrpos($baseurl,",")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
