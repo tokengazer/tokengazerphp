@@ -10,16 +10,15 @@ foreach($list as $k=>$v){
     //print_r(curls($baseurl));
     $forks=$watches=$stars=$commits=0;
     $lastupdatetime="2000-04-10T08:40:23Z";
-    foreach($results as $k=>$v){
-    $forks+=$results[$k]['forks_count'];
-        $stars+=$results[$k]['stargazers_count'];
-    $watchers+=$results[$k]['watchers'];
-        $lastupdatetime=bijiaotimes($lastupdatetime,$results[$k]['pushed_at']);
-    
-    echo $lastupdatetime.",".$lastupdatetime.",".$results[$k]['pushed_at']."<br>";;
+    foreach($results as $kk=>$vv){
+    $forks+=$results[$kk]['forks_count'];
+        $stars+=$results[$kk]['stargazers_count'];
+    $watchers+=$results[$kk]['watchers'];
+        $lastupdatetime=bijiaotimes($lastupdatetime,$results[$kk]['pushed_at']);
+    }
+    echo $lastupdatetime.",".$lastupdatetime.",".$results[$kk]['pushed_at']."<br>";;
     if($k==0){
     break;
-    }
     }
     /*if(strrpos($baseurl,"/")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
