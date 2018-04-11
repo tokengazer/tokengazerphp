@@ -10,18 +10,17 @@ foreach($list as $k=>$v){
     //print_r(curls($baseurl));
     $forks=$watches=$stars=$commits=0;
     $lastupdatetime="2000-04-10 0:0:0";
+    $commits=0;
+    
     foreach($results as $kk=>$vv){
     $forks+=$results[$kk]['forks_count'];
         $stars+=$results[$kk]['stargazers_count'];
     $watchers+=$results[$kk]['watchers'];
        $lastupdatetime=bijiaotimes($lastupdatetime,$results[$kk]['pushed_at']);
-    }
-    $i=1;
-    $commits=0;
+        $i=1;
     for($i=1;$i<=100;$i++){
-    echo $url="https://api.github.com/repos/".$results[$kk]['full_name']."/contributors?page=".$i."&per_page=100";
+     $url="https://api.github.com/repos/".$results[$kk]['full_name']."/contributors?page=".$i."&per_page=100";
         $res=json_decode(curls($url),true);
-        print_r($res);
         foreach($res as $aa=>$bb){
         $commits+=$res[$aa]['contributions'];
         }
@@ -30,7 +29,9 @@ foreach($list as $k=>$v){
         }
         
     }
-    //echo $commits;
+    }
+    
+    echo $commits;
     die;
     //echo $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$watchers.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$k]['id'];
     /*if($k==0){
