@@ -15,10 +15,11 @@ foreach($list as $k=>$v){
         $stars+=$results[$k]['stargazers_count'];
     $watchers+=$results[$k]['watchers'];
         $lastupdatetime=bijiaotimes($lastupdatetime,$results[$k]['pushed_at']);
-    }
+    
     echo $lastupdatetime.",".$lastupdatetime.",".$results[$k]['pushed_at']."<br>";;
     if($k==0){
     break;
+    }
     }
     /*if(strrpos($baseurl,"/")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
