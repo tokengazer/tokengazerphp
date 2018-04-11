@@ -26,6 +26,7 @@ foreach($list as $k=>$v){
         }
         $i++;
         if(count($res)<100){
+            echo $url;
         break 1;
         }
         
