@@ -22,13 +22,12 @@ foreach($list as $k=>$v){
     for($i=1;$i<=5;$i++){
       $url="https://api.github.com/repos/bitcoin/bitcoin/contributors?page=".$i."&per_page=500";
         $res=json_decode(curls($url),true);
-        echo count($res);die;
         foreach($res as $aa=>$bb){
         $commits+=$res[$aa]['contributions'];
         }
         $i++;
         if(count($res)==0){
-            echo $url;
+            echo $commits;
         break 1;
         }
         
