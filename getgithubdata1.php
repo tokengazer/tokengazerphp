@@ -5,7 +5,7 @@ $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
 //$list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
     $baseurl=str_replace("https://github.com/","",$list[$k]['Github_url']);
-    $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0];
+    $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0]."/repos";
     print_r(curls($baseurl));
     if($k==0){
     break;
