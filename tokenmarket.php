@@ -26,7 +26,7 @@ unset($tmp[0]);$i=1;
         $memberhtml=explode("</td>",$memberhtml)[0];
         $symbol=explode("<th>Symbol</th>",$tmp2)[1];
         
-        $symbol=explode("<td>",$symbbol)[1];
+        $symbol=explode("<td>",$symbol)[1];
         
         echo $symbol=explode("</td>",$symbol)[0];die;
         $member=strip_tags($memberhtml);
