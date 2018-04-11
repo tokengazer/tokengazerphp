@@ -24,7 +24,7 @@ unset($tmp[0]);$i=1;
         $tmp2=file_get_contents_https($url);
         $memberhtml=explode("<th>Members</th>",$tmp2)[1];
         $memberhtml=explode("</td>",$memberhtml)[0];
-        $member=strip_tags($memberhtml);
+        echo $member=strip_tags($memberhtml);
         $githuburl=explode("https://github.com/",$tmp2)[1];
          if($githuburl!=''){
         $data[$k]['githuburl']=$githuburl="https://github.com/".explode("\"",$githuburl)[0].',';
