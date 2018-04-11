@@ -11,7 +11,7 @@ foreach($list as $k=>$v){
     $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0]."/repos";
     $results=json_decode(curls($baseurl),true);;
     //print_r(curls($baseurl));
-    $forks=$watches=$stars=$commits=0;
+    $forks=$watchers=$stars=$commits=0;
     $lastupdatetime="2000-04-10 0:0:0";
     $commits=0;
     
