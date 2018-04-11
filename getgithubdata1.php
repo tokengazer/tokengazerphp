@@ -21,7 +21,7 @@ foreach($list as $k=>$v){
     while(1==1){
     $url="https://api.github.com/repos/".$results[$kk]['bitcoin/bips']."/contributors?page=".$i."&per_page=100";
         $res=json_decode(curls($url),true);
-        foreach($res $aa=>$bb){
+        foreach($res as $aa=>$bb){
         $commits+=$res[$aa]['contributions'];
         }
         if(count($res)<=100){
