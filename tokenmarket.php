@@ -38,6 +38,7 @@ unset($tmp[0]);$i=1;
         echo $icoenddate=explode("</td>",$icoenddate)[0];
         }
         else{
+            echo 1;
         echo $icostartdate=explode("Presale opening date",$tmp2)[1];
         $icostartdate=explode("<td>",$icostartdate)[1];
         $icostartdate=explode("</td>",$icostartdate)[0];
