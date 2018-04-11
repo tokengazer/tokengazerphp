@@ -7,6 +7,9 @@ foreach($list as $k=>$v){
     $baseurl=str_replace("https://github.com/","",$list[$k]['Github_url']);
     $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0];
     print_r(curls($baseurl));
+    if($k==5){
+    break;
+    }
     /*if(strrpos($baseurl,"/")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
     }
