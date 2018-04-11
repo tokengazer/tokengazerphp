@@ -1,16 +1,15 @@
 55<?php
 include('bootstraps.php');
-$sql="select id, Github_url from ico_Analysis where Github_url <> '' and Github_url <>'https://github.com/' and GithubWatches=0 ";
+$sql="select id, Github_url from ico_Analysis where Github_url <> '' and GithubWatches=0 and Github_url <>'https://github.com/' ";
 $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
 //$list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
-    $baseurl=str_replace("https://github.com/","https://api.github.com/user/",$list[$k]['Github_url']);
-    //$baseurl=$list[$k]['Github_url'];
+    $baseurl=str_replace("https://github.com/","",$list[$k]['Github_url']);
     if(strrpos($baseurl,",")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
     }
-    echo $baseurl;
-    $results=json_decode(curls($baseurl."/repos"),true);;
+    $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0]."/repos";
+    $results=json_decode(curls($baseurl),true);;
     //print_r(curls($baseurl));
     $forks=$watches=$stars=$commits=0;
     $lastupdatetime="2000-04-10 0:0:0";
@@ -21,7 +20,7 @@ foreach($list as $k=>$v){
         $stars+=$results[$kk]['stargazers_count'];
     $watchers+=$results[$kk]['watchers'];
        $lastupdatetime=bijiaotimes($lastupdatetime,$results[$kk]['pushed_at']);
-       /* $commits=0;
+        $commits=0;
     for($i=0;$i<5;$i++){
       $url="https://api.github.com/repos/bitcoin/bitcoin/contributors?page=".$i."&per_page=100";
         $res=json_decode(curls($url),true);
@@ -34,14 +33,16 @@ foreach($list as $k=>$v){
         break 1;
         }
         
-    }*/
+    }
     }
     
-    echo $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$watchers.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$k]['id'];
+    echo $commits;
+    die;
+    //echo $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$watchers.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$k]['id'];
     /*if($k==0){
     break;
     }*/
-    MySQLRunSQL($sql);
+   // MySQLRunSQL($sql);
     /*if(strrpos($baseurl,"/")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
     }
