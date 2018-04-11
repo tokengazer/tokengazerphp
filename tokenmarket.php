@@ -27,15 +27,14 @@ unset($tmp[0]);$i=1;
         $symbol=explode("<th>Symbol</th>",$tmp2)[1];
         
         $symbol=explode("<td>",$symbol)[1];
-        
-        echo $symbol=explode("</td>",$symbol)[0];die;
+        $symbol=explode("</td>",$symbol)[0];die;
         $member=strip_tags($memberhtml);
         $icostartdate=explode("Token sale opening date",$tmp2)[1];
         $icostartdate=explode("<td>",$icostartdate)[1];
         $icostartdate=explode("</td>",$icostartdate)[0];
         $icoenddate=explode("Token sale closing date",$tmp2)[1];
         $icoenddate=explode("<td>",$icoenddate)[1];
-        $icoenddate=explode("</td>",$icoenddate)[0];
+        echo $icoenddate=explode("</td>",$icoenddate)[0];
         $origin=explode("Country of origin",$tmp2)[1];
         $origin=explode("<td>",$origin)[1];
         $origin=explode("</td>",$origin)[0];
