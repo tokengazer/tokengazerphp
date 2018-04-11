@@ -20,6 +20,9 @@ unset($tmp[0]);$i=1;
         $name=explode('">',$tmp1)[1];
         $name=trim(explode('</a',$name)[0]);
         $data[$k]['name']=$name;
+        $sql="select * from ico_Analysis where name='".$data[$i]['name']."'";
+        $has=MySQLGetData($sql);
+        if(count($has)==0){
         $url=explode('"',$url[1])[0];
         $tmp2=file_get_contents_https($url);
         $memberhtml=explode("<th>Members</th>",$tmp2)[1];
@@ -60,8 +63,9 @@ unset($tmp[0]);$i=1;
          if($githuburl!=''){
         $data[$k]['githuburl']=$githuburl="https://github.com/".explode("\"",$githuburl)[0].',';
         }
-        $sql="select * from ico_Analysis where name='".$data[$i]['name']."'";
-        $has=MySQLGetData($sql);
+        //$sql="select * from ico_Analysis where name='".$data[$i]['name']."'";
+        //$has=MySQLGetData($sql);
+        }
         if(count($has)==0){
         //没有就插入
         $sql='insert into ico_Analysis (name,Github_url,DataSource,Ico_time,Team,origin,whitepaper,website) values("'.$data[$i]['name'].'","'.$data[$i]['githuburl'].'","tokenmarket","'.$icostartdate.'","'.$member.'","'.$origin.'","'.$whitepaper.'","'.$website1.'");';
