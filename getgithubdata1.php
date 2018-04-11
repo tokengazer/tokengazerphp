@@ -3,8 +3,8 @@ include('bootstraps.php');
 $sql="select githuburl from ico_Anaylsis where Github_url <> '' ";
 $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
-$list[$k]['githuburl']=str_replace(",","",$list[$k]['githuburl']);
-    $baseurl=str_replace("https://github.com","",$list[$k]['githuburl']);
+$list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
+    $baseurl=str_replace("https://github.com","",$list[$k]['Github_url']);
     $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0];
     print_r(curls($baseurl));
     /*if(strrpos($baseurl,"/")==strlen($baseurl)-1){
