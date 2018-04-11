@@ -27,7 +27,7 @@ unset($tmp[0]);$i=1;
         $symbol=explode("<th>Symbol</th>",$tmp2)[1];
         
         $symbol=explode("<td>",$symbol)[1];
-        $symbol=explode("</td>",$symbol)[0];die;
+        $symbol=explode("</td>",$symbol)[0];
         $member=strip_tags($memberhtml);
         if(strstr($tmp2,"Token sale opening date")){
         echo $icostartdate=explode("Token sale opening date",$tmp2)[1];
@@ -38,7 +38,6 @@ unset($tmp[0]);$i=1;
         echo $icoenddate=explode("</td>",$icoenddate)[0];
         }
         else{
-            echo 1;
         echo $icostartdate=explode("Presale opening date",$tmp2)[1];
         $icostartdate=explode("<td>",$icostartdate)[1];
         $icostartdate=explode("</td>",$icostartdate)[0];
