@@ -64,7 +64,7 @@ unset($tmp[0]);$i=1;
         $has=MySQLGetData($sql);
         if(count($has)==0){
         //没有就插入
-        $sql='insert into ico_Analysis (name,Github_url,DataSource,Ico_time,Team,origin,whitepaper,website) values("'.$data[$i]['name'].'","'.$data[$i]['githuburl'].'","tokenmarket","'.$icostartdate.'","'.$member'","'.$origin.'","'.$whitepaper.'","'.$website1.'");';
+        $sql='insert into ico_Analysis (name,Github_url,DataSource,Ico_time,Team,origin,whitepaper,website) values("'.$data[$i]['name'].'","'.$data[$i]['githuburl'].'","tokenmarket","'.$icostartdate.'","'.$member.'","'.$origin.'","'.$whitepaper.'","'.$website1.'");';
     }else{
         //有就更新
             //$sql="update ico_Analysis "
