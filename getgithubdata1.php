@@ -1,6 +1,6 @@
-<?php
+55<?php
 include('bootstraps.php');
-$sql="select id, Github_url from ico_Analysis where Github_url <> '' ";
+$sql="select id, Github_url from ico_Analysis where Github_url <> '' and GithubWatches=0 ";
 $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
 //$list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
@@ -17,7 +17,7 @@ foreach($list as $k=>$v){
         $stars+=$results[$kk]['stargazers_count'];
     $watchers+=$results[$kk]['watchers'];
        $lastupdatetime=bijiaotimes($lastupdatetime,$results[$kk]['pushed_at']);
-        $commits=0;
+       /* $commits=0;
     for($i=0;$i<5;$i++){
       $url="https://api.github.com/repos/bitcoin/bitcoin/contributors?page=".$i."&per_page=100";
         $res=json_decode(curls($url),true);
@@ -30,16 +30,14 @@ foreach($list as $k=>$v){
         break 1;
         }
         
-    }
+    }*/
     }
     
-    echo $commits;
-    die;
-    //echo $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$watchers.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$k]['id'];
+    echo $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$watchers.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$k]['id'];
     /*if($k==0){
     break;
     }*/
-   // MySQLRunSQL($sql);
+    MySQLRunSQL($sql);
     /*if(strrpos($baseurl,"/")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
     }
