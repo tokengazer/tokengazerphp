@@ -16,7 +16,7 @@ foreach($list as $k=>$v){
     $watchers+=$results[$k]['watchers'];
         $lastupdatetime=bijiaotimes($lastupdatetime,$results[$k]['pushed_at']);
     }
-    echo $lastupdatetime.",".$lastupdatetime.",".$results[$k]['pushed_at'];;
+    echo $lastupdatetime.",".$lastupdatetime.",".$results[$k]['pushed_at']."<br>";;
     if($k==0){
     break;
     }
