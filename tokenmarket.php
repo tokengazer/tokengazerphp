@@ -26,6 +26,7 @@ unset($tmp[0]);$i=1;
         $memberhtml=explode("</td>",$memberhtml)[0];
         $symbol=explode("<th>Symbol</th>",$tmp2)[1];
         $symbol=explode("<td>",$symbbol)[1];
+        print_r($symbol);
         echo $symbol=explode("</td>",$symbol)[0];
         $member=strip_tags($memberhtml);
         $icostartdate=explode("Token sale opening date",$tmp2)[1];
