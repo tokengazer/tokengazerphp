@@ -25,6 +25,8 @@ unset($tmp[0]);$i=1;
         if(count($has)==0){
         $url=explode('"',$url[1])[0];
         $tmp2=file_get_contents_https($url);
+            $logo=explode("<img id=\"asset-logo-primary\" src=\"",$tmp2)[1];
+            $logo=explode("\",$logo)[0];
         $memberhtml=explode("<th>Members</th>",$tmp2)[1];
         $memberhtml=explode("</td>",$memberhtml)[0];
         $symbol=explode("<th>Symbol</th>",$tmp2)[1];
@@ -68,7 +70,7 @@ unset($tmp[0]);$i=1;
         }
         if(count($has)==0){
         //没有就插入
-        $sql='insert into ico_Analysis (name,Github_url,DataSource,Ico_time,Team,origin,whitepaper,website) values("'.$data[$i]['name'].'","'.$data[$i]['githuburl'].'","tokenmarket","'.$icostartdate.'","'.$member.'","'.$origin.'","'.$whitepaper.'","'.$website1.'");';
+        $sql='insert into ico_Analysis (name,Github_url,DataSource,Ico_time,Team,origin,whitepaper,website,logo) values("'.$data[$i]['name'].'","'.$data[$i]['githuburl'].'","tokenmarket","'.$icostartdate.'","'.$member.'","'.$origin.'","'.$whitepaper.'","'.$website1.'","'.$logo.'");';
     }else{
         //有就更新
             //$sql="update ico_Analysis "
