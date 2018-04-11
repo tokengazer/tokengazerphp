@@ -9,7 +9,7 @@ foreach($list as $k=>$v){
     if(strrpos($baseurl,",")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
     }
-    //echo $baseurl;
+    echo $baseurl;
     $results=json_decode(curls($baseurl),true);;
     //print_r(curls($baseurl));
     $forks=$watches=$stars=$commits=0;
