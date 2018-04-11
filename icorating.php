@@ -39,7 +39,7 @@ foreach($str2 as $k=>$v){
         $arr[$i]['githuburl']="https://github.com/".$str4;
          $ret = $kv->delete('products:'.$i);
         $kv->add('products:'.$i, json_encode($arr[$i],true));
-    $sql='insert into project_list (name,logo,githuburl,price,DataSource) values("'.$arr[$i]['name'].'","'.trim($logo).'","'.$arr[$i]['githuburl'].'",0,"icorating");';
+    $sql='insert into ico_Anaylsis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.trim($logo).'","'.$arr[$i]['githuburl'].'","icorating");';
     MySQLRunSQL($sql);
      $kv->get('products:'.$i);
     $i++;
@@ -71,7 +71,7 @@ if($kk==0||$kk%2==0){
         $arr[$i]['githuburl']="https://github.com/".$str4;
          $ret = $kv->delete('products:'.$i);
         $kv->add('products:'.$i, json_encode($arr[$i],true));
-    $sql='insert into project_list (name,logo,githuburl,price,DataSource) values("'.$arr[$i]['name'].'","'.trim($logo).'","'.$arr[$i]['githuburl'].'",0,"icorating");';
+    $sql='insert into ico_Anaylsis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.trim($logo).'","'.$arr[$i]['githuburl'].'","icorating");';
     MySQLRunSQL($sql);
      $kv->get('products:'.$i);
     $i++;
