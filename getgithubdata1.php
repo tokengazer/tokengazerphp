@@ -23,7 +23,7 @@ foreach($list as $k=>$v){
         $res=json_decode(curls($url),true);
         foreach($res as $kkk=>$vvv){
         $commits+=$res[$kkk]['contributions'];
-            echo $res[$kkk]['contributions'].",";
+            echo $res[$kkk]['contributions']."<br/>";
         }
         $i++;
         if(count($res)==0){
