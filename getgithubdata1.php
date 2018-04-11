@@ -16,8 +16,7 @@ foreach($list as $k=>$v){
     $watchers+=$results[$kk]['watchers'];
        $lastupdatetime=bijiaotimes($lastupdatetime,$results[$kk]['pushed_at']);
     }
-    echo $lastupdatetime;
-    $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$$watcher.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$k]['id'];
+    echo $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$$watcher.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$k]['id'];
     /*if($k==0){
     break;
     }*/
