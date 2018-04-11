@@ -1,6 +1,6 @@
 <?php
 include('bootstraps.php');
-$sql="select Github_url from ico_Analysis where Github_url <> '' ";
+$sql="select id, Github_url from ico_Analysis where Github_url <> '' ";
 $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
 //$list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
@@ -17,9 +17,11 @@ foreach($list as $k=>$v){
        $lastupdatetime=bijiaotimes($lastupdatetime,$results[$kk]['pushed_at']);
     }
     echo $lastupdatetime;
-    if($k==0){
+    $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$$watcher.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$k]['id'];
+    /*if($k==0){
     break;
-    }
+    }*/
+    MySQLRunSQL($sql);
     /*if(strrpos($baseurl,"/")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
     }
