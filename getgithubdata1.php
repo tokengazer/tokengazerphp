@@ -1,6 +1,6 @@
 55<?php
 include('bootstraps.php');
-$sql="select id, Github_url from ico_Analysis where Github_url <> '' and GithubWatches=0 and Github_url <>'https://github.com/' ";
+$sql="select id, Github_url from ico_Analysis where Github_url <> '' and Github_url <>'https://github.com/' ";
 $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
 //$list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
@@ -42,6 +42,7 @@ foreach($list as $k=>$v){
     break;
     }*/
     MySQLRunSQL($sql);
+    $forks=$watches=$stars=$commits=0;
     /*if(strrpos($baseurl,"/")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
     }
