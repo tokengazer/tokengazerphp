@@ -59,7 +59,17 @@ unset($tmp[0]);$i=1;
         $githuburl=explode("https://github.com/",$tmp2)[1];
          if($githuburl!=''){
         $data[$k]['githuburl']=$githuburl="https://github.com/".explode("\"",$githuburl)[0].',';
-        }/*
+        }
+        $sql="select * from ico_Analysis where name='".$data[$i]['name']."'";
+        $has=MySQLGetData($sql);
+        if(count($has)==0){
+        //没有就插入
+        $sql='insert into ico_Analysis (name,Github_url,DataSource,Ico_time,Team,origin,whitepaper,website) values("'.$data[$i]['name'].'","'.$data[$i]['githuburl'].'","tokenmarket","'.$icostartdate.'","'.$member'","'.$origin.'","'.$whitepaper.'","'.$website1.'");';
+    }else{
+        //有就更新
+            $sql="update ico_Analysis "
+        }
+        /*
         $ret = $kv->delete('tokenmarketproducts:'.$i);
         $kv->add('tokenmarketproducts:'.$i, json_encode($data[$i],true));
     $sql='insert into project_list (name,githuburl,price,DataSource) values("'.$data[$i]['name'].'","'.$data[$i]['githuburl'].'",0,"tokenmarket");';
