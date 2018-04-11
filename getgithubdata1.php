@@ -25,7 +25,6 @@ foreach($list as $k=>$v){
         $commits+=$res[$kkk]['contributions'];
             echo $res[$kkk]['contributions']."<br/>";
         }
-        $i++;
         if(count($res)==0){
             echo $commits;
         break 1;
