@@ -26,7 +26,7 @@ foreach($list as $k=>$v){
         $commits+=$res[$aa]['contributions'];
         }
         $i++;
-        if(count($res)<100){
+        if(count($res)==0){
             echo $url;
         break 1;
         }
