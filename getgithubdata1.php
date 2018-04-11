@@ -17,7 +17,6 @@ foreach($list as $k=>$v){
         $stars+=$results[$kk]['stargazers_count'];
     $watchers+=$results[$kk]['watchers'];
        $lastupdatetime=bijiaotimes($lastupdatetime,$results[$kk]['pushed_at']);
-        $i=0;
         $commits=0;
     for($i=1;$i<=5;$i++){
       $url="https://api.github.com/repos/bitcoin/bitcoin/contributors?page=".$i."&per_page=500";
