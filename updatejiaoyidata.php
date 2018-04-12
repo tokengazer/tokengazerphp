@@ -1,12 +1,12 @@
 <?php
 include('bootstraps.php');
 $sql="select * from ico_Analysis ";
-$list=MySQLGetData($sql);
+$list1=MySQLGetData($sql);
 $i=0;
-foreach($list as $kk=>$vv){
-$name=trim(explode("(",$list[$kk]['name'])[0]);
+foreach($list1 as $kk=>$vv){
+$name=trim(explode("(",$list1[$kk]['name'])[0]);
 $data[$kk]['searchname']=str_replace(" ","-",$name);
-    $data[$kk]['id']=$list[$kk]['id'];
+    $data[$kk]['id']=$list1[$kk]['id'];
 }
 $kv = new SaeKV();
 $ret = $kv->init("xowlw2kmk2");
@@ -33,8 +33,10 @@ foreach($list as $k=>$v){
     $githuburl=$tmpstr4;
     //echo $sql="update ico_Analysis set Github_url='".$githuburl."' where name='".$data[$k]['name']."'";
     //MySQLRunSQL($sql);
+    if($urrent_Cirulation!=''){
     $sql="update ico_Analysis set Current_market_value='".$Current_market_value."',Current_Circulation='".$Current_Circulation."',Current_Single_price='".$Current_Single_price."'  where id='".$list[$k]['id']."'";
     MySQLRunSQL($sql);
+    }
     
 }
 echo $i;
