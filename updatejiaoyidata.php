@@ -47,11 +47,15 @@ function curls($url){
        
     );
     $curl = curl_init();
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array('X-FORWARDED-FOR:8.8.8.8′, ‘CLIENT-IP:8.8.8.8'));  //构造IP
+    curl_setopt($curl, CURLOPT_REFERER, 'http://www.5lazy.cn/ ');   //构造来路
+    curl_setopt($curl, CURLOPT_HEADER, 1);
+
     //设置抓取的url
     curl_setopt($curl, CURLOPT_URL, $url);
     //curl_setopt($curl, CURLOPT_POST, 1);
     //设置头文件的信息作为数据流输出
-    curl_setopt($curl, CURLOPT_HEADER, 0);
+    //curl_setopt($curl, CURLOPT_HEADER, 0);
     //设置获取的信息以文件流的形式返回，而不是直接输出。
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 
