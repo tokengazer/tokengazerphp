@@ -6,8 +6,22 @@ foreach($list as $k=>$v){
     $name=trim(explode("(",$list[$k]['name'])[0]);
 $ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
     echo $url2="https://api.coinmarketcap.com/v1/ticker/".$name."/";
-    $data=curls($url2);
-           print_r($data);
+    $results=json_decode(curls($url2),true);
+    if(isset($results['error'])){
+    continue;
+    }
+    $Current_market_value=$results[0]['market_cap_usd'];
+    $Current_Circulation=$results[0]['available_supply'];
+    $Current_Single_price=$results[0]['price_usd'];
+    $html=file_get_contents_https("https://coinmarketcap.com/currencies/".$data[$k]['name']."/");
+    $tmpstr3=explode("<li><span class=\"glyphicon glyphicon-hdd text-gray\" title=\"Source Code\"></span> ",$html)[1];
+    $tmpstr2=explode("<a href=\"",$tmpstr3)[1];
+    $tmpstr4=explode("\"",$tmpstr2)[0];
+    $githuburl=$tmpstr4;
+    //echo $sql="update ico_Analysis set Github_url='".$githuburl."' where name='".$data[$k]['name']."'";
+    //MySQLRunSQL($sql);
+    $sql="update ico_Analysis set Current_market_value='".$Current_market_value."',Current_Circulation='".$Current_Circulation."',Current_Single_price='".$Current_Single_price."'  where id='".$data[$k]['id']."'";
+    MySQLRunSQL($sql);
     
 }
 die;
