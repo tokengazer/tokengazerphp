@@ -12,7 +12,7 @@ $kv = new SaeKV();
 $ret = $kv->init("xowlw2kmk2");
 //$ret = $kv->delete('searchname:all');
   //      $kv->add('searchname:all', json_encode($data,true));
-$list=$kv->get("searchname:all");
+$list=$kv->get("searchname:all");print_r($list);
 $list=json_decode($list,true);
 foreach($list as $k=>$v){
     //$name=trim(explode("(",$list[$k]['name'])[0]);
