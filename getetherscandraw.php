@@ -5,7 +5,7 @@ $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
     
 $ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
-    $url="https://etherscan.io/searchHandler?term=".$ticker;
+    $url="https://etherscan.io/searchHandler?term=".$ticker;echo $url;
     $re=curls($url);
     $re=str_replace("[","",str_replace("]",'',$re));
     $relist=explode(",",$re);
