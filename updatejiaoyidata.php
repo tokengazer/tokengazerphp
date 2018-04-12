@@ -49,7 +49,7 @@ function curls($url){
         curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);
         // 2. 设置选项，包括URL
         curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 0); 
         curl_setopt($ch, CURLOPT_HEADER, 1); 
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-FORWARDED-FOR:61.135.169.125', 'CLIENT-IP:61.135.169.125'));  //构造IP
         curl_setopt($ch, CURLOPT_REFERER, "http://www.baidu.com/");   //构造来路
