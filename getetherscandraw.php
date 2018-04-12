@@ -3,7 +3,7 @@ include('bootstraps.php');
 $sql="select * from ico_Analysis where DataSource='icorating'";
 $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
-    $name=explode("(",$list[$k]['name'])[0];
+    echo $name=explode("(",$list[$k]['name'])[0];
 $ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
     $url="https://etherscan.io/searchHandler?term=".$ticker;echo $url;
     $re=curls($url);
