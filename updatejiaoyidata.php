@@ -10,8 +10,8 @@ $data[$kk]['searchname']=str_replace(" ","-",$name);
 }
 $kv = new SaeKV();
 $ret = $kv->init("xowlw2kmk2");
-$ret = $kv->delete('searchname:all');
-        $kv->add('searchname:all', json_encode($data,true));
+//$ret = $kv->delete('searchname:all');
+  //      $kv->add('searchname:all', json_encode($data,true));
 $list=$kv->get("searchname:all");
 $list=json_decode($list,true);
 foreach($list as $k=>$v){
