@@ -26,11 +26,11 @@ foreach($list as $k=>$v){
     $Current_market_value=$results[0]['market_cap_usd'];
     $Current_Circulation=$results[0]['available_supply'];
     $Current_Single_price=$results[0]['price_usd'];
-    $html=file_get_contents_https("https://coinmarketcap.com/currencies/".$data[$k]['name']."/");
+    /*$html=file_get_contents_https("https://coinmarketcap.com/currencies/".$data[$k]['name']."/");
     $tmpstr3=explode("<li><span class=\"glyphicon glyphicon-hdd text-gray\" title=\"Source Code\"></span> ",$html)[1];
     $tmpstr2=explode("<a href=\"",$tmpstr3)[1];
     $tmpstr4=explode("\"",$tmpstr2)[0];
-    $githuburl=$tmpstr4;
+    $githuburl=$tmpstr4;*/
     //echo $sql="update ico_Analysis set Github_url='".$githuburl."' where name='".$data[$k]['name']."'";
     //MySQLRunSQL($sql);
     if($urrent_Cirulation!=''){
