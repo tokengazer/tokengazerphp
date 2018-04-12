@@ -5,7 +5,7 @@ $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
     $name=trim(explode("(",$list[$k]['name'])[0]);
 $ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
-    $url2="https://api.coinmarketcap.com/v1/ticker/".$name."/";
+    echo $url2="https://api.coinmarketcap.com/v1/ticker/".$name."/";
     $data=curls($url2);
            print_r($data);
     
