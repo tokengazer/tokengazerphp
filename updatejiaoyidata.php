@@ -48,6 +48,7 @@ function curls($url){
         $user_agent = 'Safari Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) AppleWebKit/537.73.11 (KHTML, like Gecko) Version/7.0.1 Safari/5';
         curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);
         // 2. 设置选项，包括URL
+    $url="https://coinmarketcap.com/all/views/all/";
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
         curl_setopt($ch, CURLOPT_HEADER, 1); 
