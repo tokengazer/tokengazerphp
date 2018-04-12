@@ -15,14 +15,8 @@ $ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
         if(strtoupper($tmpname)==strtoupper($ticker)&&strtoupper($name)==strtoupper($rename)){
         $token=explode("\\",explode("\\t",$relist[$kk])[1])[0];
             $url1="https://etherscan.io/token/tokenholderchart/".$token."?range=100";
-            echo $url1;
-        }
-    }
-    
-}
-die;
-$url="https://etherscan.io/token/tokenholderchart/0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0?range=100";
-    $html=file_get_contents_https($url);
+            //$url="https://etherscan.io/token/tokenholderchart/0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0?range=100";
+    $html=file_get_contents_https($url1);
 
 $json=str_replace("'","\"",str_replace("});","",getSonString($html,"series: ","</script>")));
 $json=rtrim($json, ',');
@@ -33,10 +27,16 @@ $json=str_replace(",]}]","]}]",$json);
 
 $jsonarr=json_decode($json,true)[0]["data"];
 foreach($jsonarr as $k=>$v){
-    print_r($v);
+    
 echo $sql="insert into etherscan_draw values ('1','".$v[0]."','".addslashes($v[1])."')";
     MySQLRunSQL($sql);
 }
+        }
+    }
+    
+}
+die;
+
 function curls($url){
     $headers = array(
         'accept: application/json, text/javascript, */*; q=0.01',
