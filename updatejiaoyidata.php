@@ -18,6 +18,9 @@ foreach($list as $k=>$v){
     //$name=trim(explode("(",$list[$k]['name'])[0]);
 //$ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
     $name=$list[$k]['searchname'];
+    if($list[$k]['id']<=281){
+    continue;
+    }
     echo $url2="https://api.coinmarketcap.com/v1/ticker/".$name."/";
     $results[$k]=json_decode(curls($url2),true);
     if(isset($results[$k]['error'])){
