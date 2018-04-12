@@ -24,7 +24,7 @@ foreach($list as $k=>$v){
         print_r($results[$k]);die;
     continue;
     }
-    print_r(curls($url2));
+    print_r(curls($url2));die;
     $Current_market_value=$results[$k][0]['market_cap_usd'];
     $Current_Circulation=$results[$k][0]['available_supply'];
     $Current_Single_price=$results[$k][0]['price_usd'];
@@ -35,8 +35,8 @@ foreach($list as $k=>$v){
     $githuburl=$tmpstr4;*/
     //echo $sql="update ico_Analysis set Github_url='".$githuburl."' where name='".$data[$k]['name']."'";
     //MySQLRunSQL($sql);
-    //echo $sql="update ico_Analysis set Current_market_value='".$Current_market_value."',Current_Circulation='".$Current_Circulation."',Current_Single_price='".$Current_Single_price."'  where id='".$list[$k]['id']."'";
-    //MySQLRunSQL($sql);
+    echo $sql="update ico_Analysis set Current_market_value='".$Current_market_value."',Current_Circulation='".$Current_Circulation."',Current_Single_price='".$Current_Single_price."'  where id='".$list[$k]['id']."'";
+    MySQLRunSQL($sql);
     
 }
 echo $i;
@@ -48,7 +48,6 @@ function curls($url){
         $user_agent = 'Safari Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) AppleWebKit/537.73.11 (KHTML, like Gecko) Version/7.0.1 Safari/5';
         curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);
         // 2. 设置选项，包括URL
-    $url="https://coinmarketcap.com/all/views/all/";
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
         curl_setopt($ch, CURLOPT_HEADER, 1); 
