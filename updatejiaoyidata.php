@@ -21,6 +21,7 @@ foreach($list as $k=>$v){
     echo $url2="https://api.coinmarketcap.com/v1/ticker/".$name."/";
     $results[$k]=json_decode(file_get_contents_https($url2),true);
     if(isset($results[$k]['error'])){
+        print_r($results[$k]);die;
     continue;
     }
     $Current_market_value=$results[$k][0]['market_cap_usd'];
