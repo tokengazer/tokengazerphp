@@ -24,7 +24,7 @@ foreach($list as $k=>$v){
         print_r($results[$k]);die;
     continue;
     }
-    //print_r(curls($url2));die;
+    print_r(curls($url2));
     $Current_market_value=$results[$k][0]['market_cap_usd'];
     $Current_Circulation=$results[$k][0]['available_supply'];
     $Current_Single_price=$results[$k][0]['price_usd'];
