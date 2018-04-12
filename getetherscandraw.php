@@ -11,7 +11,7 @@ $ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
     $relist=explode(",",$re);
     foreach($relist as $kk=>$vv){
     $tmpname=explode(")",explode("(",$relist[$kk])[1])[0];
-        echo $rename=explode(" Token",explode("0x",$relist[$kk])[1])[0];
+        echo $rename=explode(" TOKEN",explode("0x",$relist[$kk])[1])[0];
         if(strtoupper($tmpname)==strtoupper($ticker)&&strtoupper($name)==strtoupper($rename)){
         $token=explode("\\",explode("\\t",$relist[$kk])[1])[0];
             $url1="https://etherscan.io/token/tokenholderchart/".$token."?range=100";
