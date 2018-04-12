@@ -6,6 +6,7 @@ $i=0;
 foreach($list as $kk=>$vv){
 $name=trim(explode("(",$list[$k]['name'])[0]);
 $data[$kk]['searchname']=str_replace(" ","-",$name);
+    $data[$kk]['id']=$list[$kk]['id'];
 }
 $kv = new SaeKV();
 $ret = $kv->init("xowlw2kmk2");
