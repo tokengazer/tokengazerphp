@@ -2,7 +2,7 @@
 include('bootstraps.php');
 $sql="select * from ico_Analysis ";
 $list=MySQLGetData($sql);
-foreach($list as $k=>$v){
+foreach($list as $k=>$v){echo $url;
 $ticker=explode("",explode("(",$list[$k]['name'])[1])[0];
     $url="https://etherscan.io/searchHandler?term=".$ticker;
     $re=curls($url);
