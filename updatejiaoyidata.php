@@ -18,7 +18,7 @@ foreach($list as $k=>$v){
     //$name=trim(explode("(",$list[$k]['name'])[0]);
 //$ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
     $name=$list[$k]['searchname'];
-    echo $url2="https://api.coinmarketcap.com/v1/ticker/".$name."/";
+    $url2="https://api.coinmarketcap.com/v1/ticker/".$name."/";
     $results=json_decode(curls($url2),true);
     if(isset($results['error'])){
     continue;
