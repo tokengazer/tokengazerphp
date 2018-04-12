@@ -1,6 +1,6 @@
 <?php
 include('bootstraps.php');
-$sql="select * from ico_Analysis ";
+$sql="select * from ico_Analysis where DataSource='icorating'";
 $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
     echo $list[$k]['name'];
