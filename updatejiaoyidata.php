@@ -14,6 +14,7 @@ $ret = $kv->delete('searchname:all');
         $kv->add('searchname:all', json_encode($data,true));
 $list=$kv->get("searchname:all");
 $list=json_decode($list,true);
+print_r($list);die;
 foreach($list as $k=>$v){
     //$name=trim(explode("(",$list[$k]['name'])[0]);
 //$ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
