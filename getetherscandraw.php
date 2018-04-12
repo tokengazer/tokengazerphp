@@ -6,7 +6,7 @@ foreach($list as $k=>$v){
 $ticker=explode("",explode("(",$list[$k]['name'])[1])[0];
     $url="https://etherscan.io/searchHandler?term=".$ticker;
     $re=curls($url);
-    echo print_r(object_to_array($re));
+    echo print_r(array_to_object($re));
 }
 die;
 $url="https://etherscan.io/token/tokenholderchart/0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0?range=100";
@@ -63,4 +63,17 @@ function object_to_array($obj) {
  
     return $obj;
 }
+function array_to_object($arr) {
+    if (gettype($arr) != 'array') {
+        return;
+    }
+    foreach ($arr as $k => $v) {
+        if (gettype($v) == 'array' || getType($v) == 'object') {
+            $arr[$k] = (object)array_to_object($v);
+        }
+    }
+ 
+    return (object)$arr;
+}
+
 ?>
