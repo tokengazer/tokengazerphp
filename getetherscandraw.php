@@ -15,6 +15,8 @@ $ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
         if(strtoupper($tmpname)==strtoupper($ticker)&&strtoupper($name)==strtoupper($rename)){
         $token=explode("\\",explode("\\t",$relist[$kk])[1])[0];
             $url1="https://etherscan.io/token/tokenholderchart/".$token."?range=100";
+            $url2="https://api.coinmarketcap.com/v1/ticker/".$name."/";
+            $data=file_get_contents_https($url2);
             //$url="https://etherscan.io/token/tokenholderchart/0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0?range=100";
     $html=file_get_contents_https($url1);
 
