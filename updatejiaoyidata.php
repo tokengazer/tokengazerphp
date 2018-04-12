@@ -19,13 +19,13 @@ foreach($list as $k=>$v){
 //$ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
     $name=$list[$k]['searchname'];
     echo $url2="https://api.coinmarketcap.com/v1/ticker/".$name."/";
-    $results=json_decode(file_get_contents_https($url2),true);
+    $results[$k]=json_decode(file_get_contents_https($url2),true);
     if(isset($results['error'])){
     continue;
     }
-    $Current_market_value=$results[0]['market_cap_usd'];
-    $Current_Circulation=$results[0]['available_supply'];
-    $Current_Single_price=$results[0]['price_usd'];
+    $Current_market_value=$results[$k][0]['market_cap_usd'];
+    $Current_Circulation=$results[$k][0]['available_supply'];
+    $Current_Single_price=$results[$k][0]['price_usd'];
     /*$html=file_get_contents_https("https://coinmarketcap.com/currencies/".$data[$k]['name']."/");
     $tmpstr3=explode("<li><span class=\"glyphicon glyphicon-hdd text-gray\" title=\"Source Code\"></span> ",$html)[1];
     $tmpstr2=explode("<a href=\"",$tmpstr3)[1];
