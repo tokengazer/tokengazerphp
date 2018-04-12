@@ -8,7 +8,7 @@ $ticker=explode("",explode("(",$list[$k]['name'])[1])[0];
     $re=curls($url);
     $re=str_replace("[","",str_replace("]",'',$re));
     $relist=explode(",",$re);
-    print_r($relist);
+    print_r($relist);die;
 }
 die;
 $url="https://etherscan.io/token/tokenholderchart/0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0?range=100";
