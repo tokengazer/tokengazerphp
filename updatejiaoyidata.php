@@ -21,10 +21,10 @@ foreach($list as $k=>$v){
     echo $url2="https://api.coinmarketcap.com/v1/ticker/".$name."/";
     $results[$k]=json_decode(curls($url2),true);
     if(isset($results[$k]['error'])){
-        print_r($results[$k]);die;
+        //print_r($results[$k]);die;
     continue;
     }
-    print_r(curls($url2));die;
+    //print_r(curls($url2));die;
     $Current_market_value=$results[$k][0]['market_cap_usd'];
     $Current_Circulation=$results[$k][0]['available_supply'];
     $Current_Single_price=$results[$k][0]['price_usd'];
