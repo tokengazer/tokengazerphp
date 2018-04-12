@@ -5,13 +5,13 @@ $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
     $name=trim(explode("(",$list[$k]['name'])[0]);
 $ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
-    $url="https://etherscan.io/searchHandler?term=".$ticker;echo $url;
+    $url="https://etherscan.io/searchHandler?term=".$ticker;
     $re=curls($url);
     $re=str_replace("[","",str_replace("]",'',$re));
     $relist=explode(",",$re);
     foreach($relist as $kk=>$vv){
     $tmpname=explode(")",explode("(",$relist[$kk])[1])[0];
-        echo $rename=explode("\"",explode(" (",$relist[$kk])[0])[1];
+        $rename=explode("\"",explode(" (",$relist[$kk])[0])[1];
         if(strtoupper($tmpname)==strtoupper($ticker)&&strtoupper($name)==strtoupper($rename)){
         $token=explode("\\",explode("\\t",$relist[$kk])[1])[0];
             $url1="https://etherscan.io/token/tokenholderchart/".$token."?range=100";
