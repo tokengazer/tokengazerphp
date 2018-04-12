@@ -12,14 +12,14 @@ $kv = new SaeKV();
 $ret = $kv->init("xowlw2kmk2");
 //$ret = $kv->delete('searchname:all');
   //      $kv->add('searchname:all', json_encode($data,true));
-$list=$kv->get("searchname:all");print_r($list);
+$list=$kv->get("searchname:all");
 $list=json_decode($list,true);
 foreach($list as $k=>$v){
     //$name=trim(explode("(",$list[$k]['name'])[0]);
 //$ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
     $name=$list[$k]['searchname'];
-    $url2="https://api.coinmarketcap.com/v1/ticker/".$name."/";
-    $results=json_decode(curls($url2),true);
+    echo $url2="https://api.coinmarketcap.com/v1/ticker/".$name."/";
+    $results=json_decode(file_get_contents_https($url2),true);
     if(isset($results['error'])){
     continue;
     }
