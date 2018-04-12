@@ -20,7 +20,7 @@ $ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
     $githuburl=$tmpstr4;
     //echo $sql="update ico_Analysis set Github_url='".$githuburl."' where name='".$data[$k]['name']."'";
     //MySQLRunSQL($sql);
-    $sql="update ico_Analysis set Current_market_value='".$Current_market_value."',Current_Circulation='".$Current_Circulation."',Current_Single_price='".$Current_Single_price."'  where id='".$data[$k]['id']."'";
+    echo $sql="update ico_Analysis set Current_market_value='".$Current_market_value."',Current_Circulation='".$Current_Circulation."',Current_Single_price='".$Current_Single_price."'  where id='".$list[$k]['id']."'";
     MySQLRunSQL($sql);
     
 }
