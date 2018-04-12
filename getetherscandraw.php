@@ -3,14 +3,14 @@ include('bootstraps.php');
 $sql="select * from ico_Analysis where DataSource='icorating'";
 $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
-    echo $name=trim(explode("(",$list[$k]['name'])[0]);
+    $name=trim(explode("(",$list[$k]['name'])[0]);
 $ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
     $url="https://etherscan.io/searchHandler?term=".$ticker;echo $url;
     $re=curls($url);
     $re=str_replace("[","",str_replace("]",'',$re));
     $relist=explode(",",$re);
     foreach($relist as $kk=>$vv){
-    $tmpname=explode(")",explode("(",$relist[$kk])[1])[0];
+    echo $tmpname=explode(")",explode("(",$relist[$kk])[1])[0];
         $rename=explode(" Token",explode("0x",$relist[$kk])[1])[0];
         if(strtoupper($tmpname)==strtoupper($ticker)&&strtoupper($name)==strtoupper($rename)){
         $token=explode("\\",explode("\\t",$relist[$kk])[1])[0];
