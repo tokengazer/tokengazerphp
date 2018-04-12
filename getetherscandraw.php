@@ -9,6 +9,14 @@ $ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
     $re=curls($url);
     $re=str_replace("[","",str_replace("]",'',$re));
     $relist=explode(",",$re);
+    foreach($relist as $kk=>$vv){
+    $tmpname=explode(")",explode("(",$relist[$kk])[1])[0];
+        if(strtoupper($tmpname)==strtoupper($ticker)){
+        $token=explode("\\",explode("\\t",$relist[$kk])[1])[0];
+            $url1="https://etherscan.io/token/tokenholderchart/".$token."?range=100";
+            echo $url1;
+        }
+    }
     print_r($relist);die;
 }
 die;
