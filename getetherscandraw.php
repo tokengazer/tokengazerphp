@@ -17,7 +17,7 @@ $ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
             echo $url1;
         }
     }
-    print_r($relist);die;
+    
 }
 die;
 $url="https://etherscan.io/token/tokenholderchart/0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0?range=100";
