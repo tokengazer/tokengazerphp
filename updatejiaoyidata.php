@@ -26,7 +26,6 @@ $ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
     
 }
 echo $i;
-die;
 
 function curls($url){
     $headers = array(
