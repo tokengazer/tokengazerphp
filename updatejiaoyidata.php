@@ -2,6 +2,7 @@
 include('bootstraps.php');
 $sql="select * from ico_Analysis ";
 $list=MySQLGetData($sql);
+$i=0;
 foreach($list as $k=>$v){
     $name=trim(explode("(",$list[$k]['name'])[0]);
 $ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
@@ -20,10 +21,11 @@ $ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
     $githuburl=$tmpstr4;
     //echo $sql="update ico_Analysis set Github_url='".$githuburl."' where name='".$data[$k]['name']."'";
     //MySQLRunSQL($sql);
-    echo $sql="update ico_Analysis set Current_market_value='".$Current_market_value."',Current_Circulation='".$Current_Circulation."',Current_Single_price='".$Current_Single_price."'  where id='".$list[$k]['id']."'";
+    $sql="update ico_Analysis set Current_market_value='".$Current_market_value."',Current_Circulation='".$Current_Circulation."',Current_Single_price='".$Current_Single_price."'  where id='".$list[$k]['id']."'";
     MySQLRunSQL($sql);
     
 }
+echo $i;
 die;
 
 function curls($url){
