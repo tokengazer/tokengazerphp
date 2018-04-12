@@ -6,7 +6,7 @@ foreach($list as $k=>$v){
     $name=trim(explode("(",$list[$k]['name'])[0]);
 $ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
     $url2="https://api.coinmarketcap.com/v1/ticker/".$name."/";
-    $data=curl2($url2);
+    $data=curls($url2);
            print_r($data);
     
 }
