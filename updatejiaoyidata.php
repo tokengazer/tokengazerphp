@@ -42,28 +42,30 @@ foreach($list as $k=>$v){
 echo $i;
 
 function curls($url){
-    $headers = array(
-        'accept: application/json, text/javascript, */*; q=0.01',
-       
-    );
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array('X-FORWARDED-FOR:8.8.8.8′, ‘CLIENT-IP:8.8.8.8'));  //构造IP
-    curl_setopt($curl, CURLOPT_REFERER, 'http://www.5lazy.cn/ ');   //构造来路
-    curl_setopt($curl, CURLOPT_HEADER, 1);
-
-    //设置抓取的url
-    curl_setopt($curl, CURLOPT_URL, $url);
-    //curl_setopt($curl, CURLOPT_POST, 1);
-    //设置头文件的信息作为数据流输出
-    //curl_setopt($curl, CURLOPT_HEADER, 0);
-    //设置获取的信息以文件流的形式返回，而不是直接输出。
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-
-    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-    //执行命令
-    $data = curl_exec($curl);
-    //关闭URL请求
-    curl_close($curl);
+    $autoFollow=0;
+    $post='';
+    $ch = curl_init();
+        $user_agent = 'Safari Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) AppleWebKit/537.73.11 (KHTML, like Gecko) Version/7.0.1 Safari/5';
+        curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);
+        // 2. 设置选项，包括URL
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+        curl_setopt($ch, CURLOPT_HEADER, 0); 
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-FORWARDED-FOR:61.135.169.125', 'CLIENT-IP:61.135.169.125'));  //构造IP
+        curl_setopt($ch, CURLOPT_REFERER, "http://www.baidu.com/");   //构造来路
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+        if($autoFollow){
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);  //启动跳转链接
+            curl_setopt($ch, CURLOPT_AUTOREFERER, true);  //多级自动跳转
+        }   
+        //  
+        if($post!=''){
+            curl_setopt($ch, CURLOPT_POST, 1);//post提交方式
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+        }   
+        // 3. 执行并获取HTML文档内容
+        $output = curl_exec($ch);
+        curl_close($ch);
     //显示获得的数据
     if (substr($data, 0,3) == pack("CCC",0xef,0xbb,0xbf)) {
         $data = substr($data, 3);
