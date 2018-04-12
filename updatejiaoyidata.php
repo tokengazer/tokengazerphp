@@ -64,7 +64,7 @@ function curls($url){
             curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
         }   
         // 3. 执行并获取HTML文档内容
-        $output = curl_exec($ch);
+        $data = curl_exec($ch);
         curl_close($ch);
     //显示获得的数据
     if (substr($data, 0,3) == pack("CCC",0xef,0xbb,0xbf)) {
