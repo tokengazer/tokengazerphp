@@ -6,7 +6,7 @@ foreach($list as $k=>$v){
 $ticker=explode("",explode("(",$list[$k]['name'])[1])[0];
     $url="https://etherscan.io/searchHandler?term=".$ticker;
     $re=file_get_contents_https($url);
-    echo $re;
+    echo $re[0];
 }
 die;
 $url="https://etherscan.io/token/tokenholderchart/0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0?range=100";
