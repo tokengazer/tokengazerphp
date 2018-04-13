@@ -12,7 +12,7 @@ $i=0;
 foreach($str2 as $k=>$v){
 	$url=explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$k])[1])[0];
     $data['logo']=explode("\"",explode("<img width=\"150\" height=\"150\" src=\"//",$str2[$k])[1])[0];
-    $arr[$i]['name']=$name=explode("</a>",explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$k])[1])[1])[0];
+    echo $arr[$i]['name']=$name=explode("</a>",explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$k])[1])[1])[0];
     $contents1=file_get_contents_https($url);
     $arr[$i]['githhuburl']=$githuburl="https://github.com/".explode("\"",explode("https://github.com/",$contents1)[1])[0];
     $i++;
