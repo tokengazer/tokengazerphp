@@ -14,16 +14,15 @@ foreach($str2 as $k=>$v){
     $data['logo']=explode("\"",explode("data-src=\"",$str2[$k])[1])[0];
     $arr[$i]['name']=$name=explode("</a>",explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$k])[1])[1])[0];
     $contents1=file_get_contents_https($url);
-    $arr[$i]['githhuburl']=$githuburl="https://github.com/".explode("\"",explode("https://github.com/",$contents1)[1])[0];
-    echo $sql='insert into ico_Analysis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops");';
-    
+    $arr[$i]['githuburl']=$githuburl="https://github.com/".explode("\"",explode("https://github.com/",$contents1)[1])[0];
     if($arr[$i]['name']!=''){
     $ret = $kv->delete('icodropsproducts:'.$i);
         $kv->add('icodropsproducts:'.$i, json_encode($arr[$i],true));
-    echo $sql='insert into ico_Analysis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops");';
+    $sql='insert into ico_Analysis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops");';
     //MySQLRunSQL($sql);
      $kv->get('icodropsproducts:'.$i);
-    }$i++;
+    }
+    $i++;
     
 }
 die;
@@ -34,14 +33,15 @@ $str2=explode("<div class=\"ico-main-info\">",$str1);
 unset($str2[0]);
 foreach($str2 as $k=>$v){
 	$url=explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$k])[1])[0];
+    $data['logo']=explode("\"",explode("data-src=\"",$str2[$k])[1])[0];
     $arr[$i]['name']=$name=explode("</a>",explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$k])[1])[1])[0];
     $contents1=file_get_contents_https($url);
-    $arr[$i]['githhuburl']=$githuburl="https://github.com/".explode("\"",explode("https://github.com/",$contents1)[1])[0];
+    $arr[$i]['githuburl']=$githuburl="https://github.com/".explode("\"",explode("https://github.com/",$contents1)[1])[0];
     $i++;
     if($arr[$i]['name']!=''){
     $ret = $kv->delete('icodropsproducts:'.$i);
         $kv->add('icodropsproducts:'.$i, json_encode($arr[$i],true));
-    $sql='insert into ico_Analysis (name,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.$arr[$i]['githuburl'].'","icodrops");';
+    $sql='insert into ico_Analysis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops");';
     MySQLRunSQL($sql);
      $kv->get('icodropsproducts:'.$i);
     }
@@ -54,14 +54,15 @@ $str2=explode("<div class=\"ico-main-info\">",$str1);
 unset($str2[0]);
 foreach($str2 as $k=>$v){
 	$url=explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$k])[1])[0];
+    $data['logo']=explode("\"",explode("data-src=\"",$str2[$k])[1])[0];
     $arr[$i]['name']=$name=explode("</a>",explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$k])[1])[1])[0];
     $contents1=file_get_contents_https($url);
-    $arr[$i]['githhuburl']=$githuburl="https://github.com/".explode("\"",explode("https://github.com/",$contents1)[1])[0];
+    $arr[$i]['githuburl']=$githuburl="https://github.com/".explode("\"",explode("https://github.com/",$contents1)[1])[0];
     $i++;
     if($arr[$i]['name']!=''){
     $ret = $kv->delete('icodropsproducts:'.$i);
         $kv->add('icodropsproducts:'.$i, json_encode($arr[$i],true));
-    $sql='insert into ico_Analysis (name,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.$arr[$i]['githuburl'].'","icodrops");';
+    $sql='insert into ico_Analysis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops");';
     MySQLRunSQL($sql);
      $kv->get('icodropsproducts:'.$i);
     }
