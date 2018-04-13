@@ -17,7 +17,7 @@ foreach($str2 as $k=>$v){
     $i++;
     $ret = $kv->delete('icodropsproducts:'.$i);
         $kv->add('icodropsproducts:'.$i, json_encode($arr[$i],true));
-    $sql='insert into project_list (name,githuburl,price,DataSource) values("'.$arr[$i]['name'].'","'.$arr[$i]['githuburl'].'",0,"icodrops");';
+    $sql='insert into ico_Analysis (name,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.$arr[$i]['githuburl'].'","icodrops");';
     MySQLRunSQL($sql);
      $kv->get('icodropsproducts:'.$i);
 }
@@ -35,7 +35,7 @@ foreach($str2 as $k=>$v){
     $i++;
     $ret = $kv->delete('icodropsproducts:'.$i);
         $kv->add('icodropsproducts:'.$i, json_encode($arr[$i],true));
-    $sql='insert into project_list (name,githuburl,price,DataSource) values("'.$arr[$i]['name'].'","'.$arr[$i]['githuburl'].'",0,"icodrops");';
+    $sql='insert into ico_Analysis (name,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.$arr[$i]['githuburl'].'","icodrops");';
     MySQLRunSQL($sql);
      $kv->get('icodropsproducts:'.$i);
 }
@@ -53,7 +53,7 @@ foreach($str2 as $k=>$v){
     $i++;
     $ret = $kv->delete('icodropsproducts:'.$i);
         $kv->add('icodropsproducts:'.$i, json_encode($arr[$i],true));
-    $sql='insert into project_list (name,githuburl,price,DataSource) values("'.$arr[$i]['name'].'","'.$arr[$i]['githuburl'].'",0,"icodrops");';
+    $sql='insert into ico_Analysis (name,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.$arr[$i]['githuburl'].'","icodrops");';
     MySQLRunSQL($sql);
      $kv->get('icodropsproducts:'.$i);
 }
