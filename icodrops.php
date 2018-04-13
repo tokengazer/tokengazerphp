@@ -29,6 +29,7 @@ foreach($str2 as $k=>$v){
 $url = 'https://icodrops.com/category/upcoming-ico/';
 $content = file_get_contents_https($url);
 $str1 = trim(getSonString($content, "<h3 class=\"col-md-12 col-12 not_rated\">All</h3>", "<div class=\"tabs__content\">"));
+$str2=array();
 $str2=explode("<div class=\"ico-main-info\">",$str1);
 unset($str2[0]);
 foreach($str2 as $k=>$v){
@@ -50,6 +51,7 @@ $i=0;
 $url = 'https://icodrops.com/category/ended-ico/';
 $content = file_get_contents_https($url);
 $str1 = trim(getSonString($content, "<h3 class=\"col-md-12 col-12 not_rated\">All</h3>", "<div class=\"tabs__content\">"));
+$str2=array();
 $str2=explode("<div class=\"ico-main-info\">",$str1);
 unset($str2[0]);
 foreach($str2 as $k=>$v){
