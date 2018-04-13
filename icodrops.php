@@ -21,12 +21,11 @@ foreach($str2 as $k=>$v){
         $kv->add('icodropsproducts:'.$i, json_encode($arr[$i],true));
          $sql="select * from ico_Analysis where name ='".$arr[$j]['name']."'";
         if(count(MySQLGetData($sql))>=1){
-            print_r(MySQLGetData($sql));die;
-        echo $sql="update ico_Analysis set ICO_Raise_money='".$data[$k]['Ico_Raise_money']."' where name='".$name."'";die;
+            $sql="update ico_Analysis set ICO_Raise_money='".$data[$k]['Ico_Raise_money']."' where name='".$name."'";
         }
         else{
-    echo $sql='insert into ico_Analysis (name,logo,Github_url,DataSource,ICO_Raise_money) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops","'.$data[$k]['Ico_Raise_money'].'");';
-    die;
+            $sql='insert into ico_Analysis (name,logo,Github_url,DataSource,ICO_Raise_money) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops","'.$data[$k]['Ico_Raise_money'].'");';
+    
         }
         MySQLRunSQL($sql);
      $kv->get('icodropsproducts:'.$i);
