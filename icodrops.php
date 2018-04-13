@@ -21,6 +21,7 @@ foreach($str2 as $k=>$v){
         $kv->add('icodropsproducts:'.$i, json_encode($arr[$i],true));
          $sql="select * from ico_Analysis where name ='".$arr[$j]['name']."'";
         if(count(MySQLGetData($sql))>=1){
+            print_r(MySQLGetData($sql));die;
         echo $sql="update ico_Analysis set ICO_Raise_money='".$data[$k]['Ico_Raise_money']."' where name='".$name."'";die;
         }
         else{
