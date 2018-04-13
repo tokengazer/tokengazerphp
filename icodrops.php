@@ -22,7 +22,7 @@ foreach($str2 as $k=>$v){
         $kv->add('icodropsproducts:'.$i, json_encode($arr[$i],true));
          $sql="select * from ico_Analysis where name ='".$arr[$j]['name']."'";
         if(count(MySQLGetData($sql))>=1){
-            $sql="update ico_Analysis set ICO_Raise_money='".$data[$k]['Ico_Raise_money']."',icolink='".$data[$k]['icolink']."' where name='".$name."'";
+            $sql="update ico_Analysis set ICO_Raise_money='".$data[$k]['Ico_Raise_money']."',icolink='".$data[$k]['icolink']."' where name='".$name."' and DataSource='icodrops'";
         }
         else{
             $sql='insert into ico_Analysis (name,logo,Github_url,DataSource,ICO_Raise_money,icolink) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops","'.$data[$k]['Ico_Raise_money'].'","'.$data[$k]['icolink'].'");';
@@ -54,7 +54,7 @@ foreach($str2 as $k=>$v){
         $sql="select * from ico_Analysis where name ='".$arr[$j]['name']."'";
         $sql="select * from ico_Analysis where name ='".$arr[$j]['name']."'";
         if(count(MySQLGetData($sql))>=1){
-            $sql="update ico_Analysis set ICO_Raise_money='".$data[$k]['Ico_Raise_money']."',icolink='".$data[$k]['icolink']."' where name='".$name."'";
+            $sql="update ico_Analysis set ICO_Raise_money='".$data[$k]['Ico_Raise_money']."',icolink='".$data[$k]['icolink']."' where name='".$name."' and DataSource='icodrops'";
         }
         else{
             $sql='insert into ico_Analysis (name,logo,Github_url,DataSource,ICO_Raise_money,icolink) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops","'.$data[$k]['Ico_Raise_money'].'","'.$data[$k]['icolink'].'");';
@@ -90,7 +90,7 @@ foreach($str2 as $k=>$v){
         $kv->add('icodropsproducts:'.$i, json_encode($arr[$i],true));
     $sql="select * from ico_Analysis where name ='".$arr[$j]['name']."'";
         if(count(MySQLGetData($sql))>=1){
-            $sql="update ico_Analysis set ICO_Raise_money='".$data[$k]['Ico_Raise_money']."',icolink='".$data[$k]['icolink']."' where name='".$name."'";
+            $sql="update ico_Analysis set ICO_Raise_money='".$data[$k]['Ico_Raise_money']."',icolink='".$data[$k]['icolink']."' where name='".$name."' and DataSource='icodrops'";
         }
         else{
             $sql='insert into ico_Analysis (name,logo,Github_url,DataSource,ICO_Raise_money,icolink) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops","'.$data[$k]['Ico_Raise_money'].'","'.$data[$k]['icolink'].'");';
