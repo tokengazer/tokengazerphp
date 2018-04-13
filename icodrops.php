@@ -15,7 +15,7 @@ foreach($str2 as $k=>$v){
     echo $data[$k]['Ico_Raise_money']=trim(explode("</div>",explode("<div id='categ_desctop'>",$str2[$k])[1])[0]);
     $arr[$i]['name']=$name=explode("</a>",explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$k])[1])[1])[0];
     $contents1=file_get_contents_https($url);
-    echo $data[$k]['icolink']=explode("\"",explode("<a id='ccc' href=\"")[1])[0];
+    echo $data[$k]['icolink']=explode("\"",explode("<a id='ccc' href=\"",$str2[$k])[1])[0];
     //$arr[$i]['githuburl']=$githuburl="https://github.com/".explode("\"",explode("https://github.com/",$contents1)[1])[0];
     if($arr[$i]['name']!=''){
     $ret = $kv->delete('icodropsproducts:'.$i);
@@ -47,7 +47,7 @@ foreach($str2 as $k=>$v){
     echo $data[$k]['Ico_Raise_money']=trim(explode("</div>",explode("<div id='categ_desctop'>",$str2[$k])[1])[0]);
     $arr[$j]['name']=$name=explode("</a>",explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$k])[1])[1])[0];
     $contents1=file_get_contents_https($url);
-    $data[$k]['icolink']=explode("\"",explode("<a id='ccc' href=\"")[1])[0];
+    $data[$k]['icolink']=explode("\"",explode("<a id='ccc' href=\"",$str2[$k])[1])[0];
     //$arr[$j]['githuburl']=$githuburl="https://github.com/".explode("\"",explode("https://github.com/",$contents1)[1])[0];
     $i++;
     if($arr[$j]['name']!=''){
@@ -82,7 +82,7 @@ foreach($str2 as $k=>$v){
     echo $data[$k]['Ico_Raise_money']=trim(explode("</div>",explode("<div id='categ_desctop'>",$str2[$k])[1])[0]);
     $arr[$j]['name']=$name=explode("</a>",explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$k])[1])[1])[0];
     $contents1=file_get_contents_https($url);
-    $data[$k]['icolink']=explode("\"",explode("<a id='ccc' href=\"")[1])[0];
+    $data[$k]['icolink']=explode("\"",explode("<a id='ccc' href=\"",$str2[$k])[1])[0];
     //$arr[$j]['githuburl']=$githuburl="https://github.com/".explode("\"",explode("https://github.com/",$contents1)[1])[0];
     $i++;
     if($arr[$j]['name']!=''){
