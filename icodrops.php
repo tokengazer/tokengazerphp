@@ -20,7 +20,7 @@ foreach($str2 as $k=>$v){
     $ret = $kv->delete('icodropsproducts:'.$i);
         $kv->add('icodropsproducts:'.$i, json_encode($arr[$i],true));
     echo $sql='insert into ico_Analysis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops");';
-    continue;MySQLRunSQL($sql);
+    //MySQLRunSQL($sql);
      $kv->get('icodropsproducts:'.$i);
     }
 }
