@@ -16,6 +16,8 @@ foreach($str2 as $k=>$v){
     $contents1=file_get_contents_https($url);
     $arr[$i]['githhuburl']=$githuburl="https://github.com/".explode("\"",explode("https://github.com/",$contents1)[1])[0];
     $i++;
+    echo $sql='insert into ico_Analysis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops");';
+    
     if($arr[$i]['name']!=''){
     $ret = $kv->delete('icodropsproducts:'.$i);
         $kv->add('icodropsproducts:'.$i, json_encode($arr[$i],true));
