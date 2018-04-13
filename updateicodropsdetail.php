@@ -23,6 +23,7 @@ $url="https://icodrops.com/".str_replace(" ","-",trim($results[$k]['name']))."/"
     $whitelist=explode(",",explode("Whitelist: </span>",$html)[1])[0];
     $cannotareas=explode("</li>",explode("Сan't participate: </span>",$html)[1])[0];
     $platform=explode("</li>",explode("Accepts: </span>",$html)[1])[0];
-    
+    $sql="update icco_Analysis set whitepaper='".$whitepaper."',ticker='".$ticker."',whitelist='".$whitelist."',Ico_time='".$icostartdate."',Platform='".$platform."',cannotareas='".$cannotareas."',website='".$website."' where id=".$$results[$k]['id']."";
+    MySQLRunSQL($sql);
 }
 ?>
