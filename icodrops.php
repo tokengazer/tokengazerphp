@@ -19,8 +19,8 @@ foreach($str2 as $k=>$v){
     if($arr[$i]['name']!=''){
     $ret = $kv->delete('icodropsproducts:'.$i);
         $kv->add('icodropsproducts:'.$i, json_encode($arr[$i],true));
-    $sql='insert into ico_Analysis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops");';
-    MySQLRunSQL($sql);
+    echo $sql='insert into ico_Analysis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops");';
+    continue;MySQLRunSQL($sql);
      $kv->get('icodropsproducts:'.$i);
     }
 }
