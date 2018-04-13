@@ -15,7 +15,6 @@ foreach($str2 as $k=>$v){
     $arr[$i]['name']=$name=explode("</a>",explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$k])[1])[1])[0];
     $contents1=file_get_contents_https($url);
     $arr[$i]['githhuburl']=$githuburl="https://github.com/".explode("\"",explode("https://github.com/",$contents1)[1])[0];
-    $i++;
     echo $sql='insert into ico_Analysis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops");';
     
     if($arr[$i]['name']!=''){
@@ -24,7 +23,8 @@ foreach($str2 as $k=>$v){
     echo $sql='insert into ico_Analysis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops");';
     //MySQLRunSQL($sql);
      $kv->get('icodropsproducts:'.$i);
-    }
+    }$i++;
+    
 }
 die;
 $url = 'https://icodrops.com/category/upcoming-ico/';
