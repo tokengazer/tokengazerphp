@@ -13,6 +13,6 @@ $url="https://icodrops.com/".str_replace(" ","-",trim($results[$k]['name']))."/"
     $websitetmpstr=explode("\" target=\"_blank\" rel=\"nofollow\"><div class=\"button\" >WEBSITE",$html)[0];
     $website=explode("<a href=\"",$websitetmpstr)[count(explode("<a href=\"",$websitetmpstr))-1];
     $whitepapertmpstr=explode("\" target=\"_blank\" rel=\"nofollow\"><div class=\"button\" >WHITEPAPER",$html)[0];
-    echo $whitepaper=explode("<a href=\"",$websitetmpstr)[count(explode("<a href=\"",$whitepapertmpstr))-1];
+    echo $whitepaper=explode("<a href=\"",$whitepapertmpstr)[count(explode("<a href=\"",$whitepapertmpstr))-1];
 }
 ?>
