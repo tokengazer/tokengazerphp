@@ -15,7 +15,7 @@ $str1 = getSonString($content, $head1, $end1);
 $str1 = getSonString($str1, '<tbody>', '</tbody>');
 $trlist=explode("<tr data-href=",$str1);
 $urlist=array();
-print_r($str1);
+//print_r($str1);
 foreach($trlist as $kk=>$vv){
 echo $urllist[$kk]['url']=explode("'",$trlist[$kk])[0];
 }
