@@ -7,7 +7,7 @@ foreach($data as $k=>$v){
     if(strstr($name," ")){
     $name=str_replace(" ","-",$name);
     }
-    $url="https://icorating.com/ico/".$name."/details/";
+    echo $url="https://icorating.com/ico/".$name."/details/";
 
 //$url="https://icorating.com/ico/crowd-machine/details/";
 $html=file_get_contents_https($url);
@@ -122,6 +122,6 @@ $SocialMedia;
     $linkedin=$tmpstr2;
     //$sql="INSERT INTO `app_tokenworm`.`icoratingdetail` (`id`, `pid`, `website`,`whitepaper`,`createtime`, `PreICOstartdate`,`PreICOenddate`, `ICOstartdate`, `ICOenddate`, `ICOTokenSupply`, `Ticker`, `Type`, `TokenStandard`, `AdditionalTokenEmission`, `AcceptedCurrencies`, `BonusProgram`, `Tokendistribution`, `ICOPlatform`, `BugDetection`, `BitcointalkSignatureCampaign`, `Bounty`, `Translation`, `SocialMedia`) VALUES (NULL, ".$data[$k]['id'].",'".$website."','".$whitepaper."', '".date("Y-m-d H:i:s")."', '".$PreICOstartdate."','".$PreICOenddate."', '".$ICOstartdate."', '".$ICOenddate."', '".$ICOTokenSupply."', '".$Ticker."', '".$Type."', '".$TokenStandard."', '".$AdditionalTokenEmission."','".$AcceptedCurrencies."', '".$BonusProgram."', '".$Tokendistribution."', '".$ICOPlatform."', '".$BugDetection."', '".$BitcointalkSignatureCampaign."', '".$Bounty."', '".$Translation."', '".$SocialMedia."');";
     echo $sql="update ico_Analysis set website='".$website."',whitepaper='".$whitepaper."',Ico_time='".$ICOstartdate."',ticker='".$Ticker."',ICO_HardCap='".$HardCap."',origin='".$regin."',Platform='".$platform."',linkedin='".$linkedin."' where id=".$data[$k]['id']." and DataSource='icorating';";
-    MySQLRunSQL($sql);
+   // MySQLRunSQL($sql);
 }
 ?>
