@@ -67,7 +67,7 @@ foreach($str2 as $k=>$v){
     
    
 }
-$c=0;
+$c=-1;
 $trlist=explode("<tr data-href='",$str3);
 $urllist=array();
 foreach($trlist as $kk=>$vv){
@@ -96,7 +96,7 @@ if($kk!=0&&$kk%2==0){
         $logo=str_replace("\" />","",$logo);
         $logo=str_replace("</td>","",$logo);
         $arr[$i]['logo']=$logo;
-    
+    $c++;
     }
 }
 echo count($str3);
