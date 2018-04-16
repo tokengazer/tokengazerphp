@@ -27,7 +27,7 @@ $str3 = getSonString($str3, '<tbody>', '</tbody>');
 $count=count($str2);
 $str3=explode('<td>',$str3);
 $i=0;
-$c=1;
+$c=0;
 $arr=array();
 foreach($str2 as $k=>$v){
     //print_r($str2);
@@ -65,7 +65,7 @@ foreach($str2 as $k=>$v){
     $c++;
    
 }
-$c=1;
+$c=0;
 $trlist=explode("<tr data-href='",$str3);
 $urllist=array();
 foreach($trlist as $kk=>$vv){
