@@ -33,7 +33,7 @@ foreach($str2 as $k=>$v){
         $arr[$i]['name']=$name;
         }
          $url=getSonString($str2[$k],"<tr data-href='","'>",$str2[$k]);
-        $sql="update ico_Analysis set icolink='".$url."' where name='".$name."'";
+        $sql="update ico_Analysis set icolink='".$url."' where name='".$arr[$i]['name']."'";
         if($name==''){
         continue;
         }
@@ -64,7 +64,7 @@ if($kk==0||$kk%2==0){
         }
          $url=getSonString($str3[$kk],"<tr data-href='","'>",$str3[$kk]);
         //$con1=file_get_contents_https($url);
-        $sql="update ico_Analysis set icolink='".$url."' where name='".$name."'";
+        $sql="update ico_Analysis set icolink='".$url."' where name='".$arr[$i]['name']."'";
     //$sql='insert into ico_Analysis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.trim($logo).'","'.$arr[$i]['githuburl'].'","icorating");';
     MySQLRunSQL($sql);
      $kv->get('products:'.$i);
