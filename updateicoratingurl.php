@@ -21,7 +21,7 @@ $str3 = getSonString($content, $head2, $end2);
 $str3 = getSonString($str3, '<tbody>', '</tbody>');
 $count=count($str2);
 $str3=explode('<td>',$str3);
-$i=0;
+$i=-1;
 $arr=array();
 foreach($str2 as $k=>$v){
     if($k==0||$k%2==0){
