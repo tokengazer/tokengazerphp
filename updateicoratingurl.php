@@ -13,7 +13,11 @@ $head1 = '<h2>Investment Rating</h2>';
 $end1 = '</tbody>';
 $str1 = getSonString($content, $head1, $end1);
 $str1 = getSonString($str1, '<tbody>', '</tbody>');
-
+$trlist=explode("<tr data-href='",$str1);
+$urllist=array();
+foreach($trlist as $kk=>$vv){
+$urllist[$kk]=explode("'",$trlist[$kk])[0];
+}
 //print_r($trlist);
 //print_r($str1);
 $str2=explode('<td>',$str1);
@@ -23,7 +27,8 @@ $str3 = getSonString($content, $head2, $end2);
 $str3 = getSonString($str3, '<tbody>', '</tbody>');
 $count=count($str2);
 $str3=explode('<td>',$str3);
-$i=0;
+$i=$c=0;
+
 $arr=array();
 foreach($str2 as $k=>$v){
     //print_r($str2);
@@ -36,7 +41,8 @@ foreach($str2 as $k=>$v){
         }else{
         $arr[$i]['name']=$name;
         }
-        $url=getSonString($str2[$k],"<tr data-href='","'>",$str2[$k]);
+        //$url=getSonString($str2[$k],"<tr data-href='","'>",$str2[$k]);
+        $url=$urllist[$c];
         echo $sql="update ico_Analysis set icolink='".$url."' where name='".$arr[$i]['name']."'";
         if($name==''){
         continue;
@@ -54,9 +60,15 @@ foreach($str2 as $k=>$v){
         $arr[$i]['logo']=$logo;
     
     }
+    $c++;
    
 }
-
+$c=0;
+$trlist=explode("<tr data-href='",$str3);
+$urllist=array();
+foreach($trlist as $kk=>$vv){
+$urllist[$kk]=explode("'",$trlist[$kk])[0];
+}
 foreach($str3 as $kk=>$vv){
 if($kk!=0&&$kk%2==0){
     $name=trim(explode("</td",$str3[$kk])[0]);
