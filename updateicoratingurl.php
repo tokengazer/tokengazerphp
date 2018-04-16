@@ -82,8 +82,9 @@ if($kk!=0&&$kk%2==0){
         }else{
         $arr[$i]['name']=$name;
         }
-         $url=getSonString($str3[$kk],"<tr data-href='","'>",$str3[$kk]);
+         //$url=getSonString($str3[$kk],"<tr data-href='","'>",$str3[$kk]);
         //$con1=file_get_contents_https($url);
+    $url=$urllist[$c];
         $sql="update ico_Analysis set icolink='".$url."' where name='".$arr[$i]['name']."'";
     //$sql='insert into ico_Analysis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.trim($logo).'","'.$arr[$i]['githuburl'].'","icorating");';
     MySQLRunSQL($sql);
