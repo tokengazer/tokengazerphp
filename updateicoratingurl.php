@@ -31,6 +31,7 @@ $str3=explode('<td>',$str3);
 $i=0;
 $arr=array();
 foreach($str2 as $k=>$v){
+    echo $k;
     //print_r($str2);
     if($k%2==0||$k!=0){
         
