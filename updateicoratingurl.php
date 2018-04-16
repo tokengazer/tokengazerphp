@@ -18,7 +18,6 @@ $urllist=array();
 foreach($trlist as $kk=>$vv){
 $urllist[$kk]=explode("'",$trlist[$kk])[0];
 }
-print_r($urllist);die;
 //print_r($str1);
 $str2=explode('<td>',$str1);
 $head2 = '<h2>Unassessed</h2>';
@@ -71,6 +70,8 @@ $urllist=array();
 foreach($trlist as $kk=>$vv){
 $urllist[$kk]=explode("'",$trlist[$kk])[0];
 }
+print_r($urllist);die;
+
 foreach($str3 as $kk=>$vv){
 if($kk!=0&&$kk%2==0){
     $name=trim(explode("</td",$str3[$kk])[0]);
