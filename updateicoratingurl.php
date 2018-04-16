@@ -33,7 +33,7 @@ $arr=array();
 foreach($str2 as $k=>$v){
     echo $k;
     //print_r($str2);
-    if($k%2==0||$k!=0){
+    if($k%2==0&&$k!=0){
         
     echo $name=trim(explode("</td",$str2[$k])[0]);
         if(strstr($name,"'>"))
