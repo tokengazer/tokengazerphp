@@ -13,7 +13,7 @@ $head1 = '<h2>Investment Rating</h2>';
 $end1 = '</tbody>';
 $str1 = getSonString($content, $head1, $end1);
 $str1 = getSonString($str1, '<tbody>', '</tbody>');
-$trlist=explode("<tr data",$str1);
+$trlist=explode("<tr data-href='",$str1);
 $urlist=array();
 //print_r($str1);
 foreach($trlist as $kk=>$vv){
