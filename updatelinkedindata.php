@@ -16,7 +16,7 @@ $data['fromEmail']='';
 $data['sourceAlias']='0_7r5yezRXCiA_H0CRD8sf6DhOjTKUNps5xGTqeX8EEoi';
 $data['csrfToken']='ajax%3A4574782901628969978';
 $data['loginCsrfParam']='8b7842d2-2827-4c20-8ee0-2662adece62e';
-$curls('https://www.linkedin.com/uas/login-submit');
+curls('https://www.linkedin.com/uas/login-submit');
 function curls($url){
     $headers = array(
     );
