@@ -57,7 +57,9 @@ unset($tmp[0]);$i=1;
         $website=explode("<td colspan=\"2\">",$websitehtml)[1];
         $website=explode("<a target=\"_blank\" href=\"",$website)[1];
         $website1=explode("\"",$website)[0];
-        
+        $linkedinurl=explode("<td colspan=\"2\">",$websitehtml)[6];
+        $linkedinurl=explode("<a target=\"_blank\" href=\"",$linkedinurl)[1];
+        echo $linkedinurl=explode("\"",$linkedinurl)[0];
         $whitepaper=explode("<td colspan=\"2\">",$websitehtml)[3];
         $whitepaper=explode("<a target=\"_blank\" href=\"",$whitepaper)[1];
         echo $whitepaper=explode("\"",$whitepaper)[0];
@@ -70,10 +72,10 @@ unset($tmp[0]);$i=1;
         }
         if(count($has)==0){
         //没有就插入
-        $sql='insert into ico_Analysis (name,Github_url,DataSource,Ico_time,Team,origin,whitepaper,website,logo) values("'.$data[$i]['name'].'","'.$data[$i]['githuburl'].'","tokenmarket","'.$icostartdate.'","'.$member.'","'.$origin.'","'.$whitepaper.'","'.$website1.'","'.$logo.'");';
+        $sql='insert into ico_Analysis (name,Github_url,DataSource,Ico_time,Team,origin,whitepaper,website,logo,linkedin) values("'.$data[$i]['name'].'","'.$data[$i]['githuburl'].'","tokenmarket","'.$icostartdate.'","'.$member.'","'.$origin.'","'.$whitepaper.'","'.$website1.'","'.$logo.'","'.$linkedinurl.'");';
     }else{
         //有就更新
-            //$sql="update ico_Analysis "
+            $sql="update ico_Analysis set name='"..$data[$i]['name']."',Github_url='".$data[$i]['githuburl']."',Ico_time='".$icostartdate."',Team='".$member."',origin='".$origin."',whitepaper='".$whitepaper."',website='".$website1."',logo='".$logo."',linkedin='".$linkedurl."'";
         }
         MySQLRunSQL($sql);
         /*
