@@ -70,7 +70,7 @@ $urllist=array();
 foreach($trlist as $kk=>$vv){
 $urllist[$kk]=explode("'",$trlist[$kk])[0];
 }
-print_r($urllist);die;
+print_r($trlist);die;
 
 foreach($str3 as $kk=>$vv){
 if($kk!=0&&$kk%2==0){
