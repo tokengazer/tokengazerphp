@@ -45,7 +45,7 @@ foreach($str2 as $k=>$v){
         if($arr[$i]['name']=='AppCoins (APPC)'){
         print_r($urllist[$c]);
         }
-        echo $sql="update ico_Analysis set icolink='".$url."' where name='".$arr[$i]['name']."'";
+        $sql="update ico_Analysis set icolink='".$url."' where name='".$arr[$i]['name']."'";
         if($name==''){
         continue;
         }
