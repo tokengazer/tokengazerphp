@@ -13,6 +13,11 @@ $head1 = '<h2>Investment Rating</h2>';
 $end1 = '</tbody>';
 $str1 = getSonString($content, $head1, $end1);
 $str1 = getSonString($str1, '<tbody>', '</tbody>');
+$trlist=explode("<tr data-href=",$str1);
+$urlist=array();
+foreach($trlist as $kk=>$vv){
+echo $urllist[$kk]['url']=explode("\"",$v)[0];
+}
 //print_r($str1);
 $str2=explode('<td>',$str1);
 $head2 = '<h2>Unassessed</h2>';
@@ -24,7 +29,6 @@ $str3=explode('<td>',$str3);
 $i=0;
 $arr=array();
 foreach($str2 as $k=>$v){
-    print_r($str2[$k]);
     if($k==0||$k%2==0){
         print_r($str2[$k]);
     echo $name=trim(explode("</td",$str2[$k])[0]);
