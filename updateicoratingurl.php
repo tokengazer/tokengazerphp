@@ -24,6 +24,7 @@ $head2 = '<h2>Unassessed</h2>';
 $end2 = '</tbody>';
 $str3 = getSonString($content, $head2, $end2);
 $str3 = getSonString($str3, '<tbody>', '</tbody>');
+$tmpstr3=$str3;
 $count=count($str2);
 $str3=explode('<td>',$str3);
 $i=0;
@@ -65,7 +66,7 @@ foreach($str2 as $k=>$v){
    
 }
 $c=-1;
-$trlist=explode("<tr data-href='",$str3);
+$trlist=explode("<tr data-href='",$tmpstr3);
 $urllist=array();
 foreach($trlist as $kk=>$vv){
 $urllist[$kk]=explode("'",$trlist[$kk])[0];
