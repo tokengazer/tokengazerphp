@@ -17,9 +17,9 @@ $trlist=explode("<tr data-href='",$str1);
 $urlist=array();
 //print_r($str1);
 foreach($trlist as $kk=>$vv){
-echo $urllist[$kk]['url']=explode("'",$trlist[$kk])[0];
+$urllist[$kk]['url']=explode("'",$trlist[$kk])[0];
 }
-print_r($trlist);
+//print_r($trlist);
 //print_r($str1);
 $str2=explode('<td>',$str1);
 $head2 = '<h2>Unassessed</h2>';
