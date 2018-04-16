@@ -14,13 +14,13 @@ $end1 = '</tbody>';
 $str1 = getSonString($content, $head1, $end1);
 $str1 = getSonString($str1, '<tbody>', '</tbody>');
 //print_r($str1);
-$str2=explode('<td>',$str1);
+$str2=explode('<tr>',$str1);
 $head2 = '<h2>Unassessed</h2>';
 $end2 = '</tbody>';
 $str3 = getSonString($content, $head2, $end2);
 $str3 = getSonString($str3, '<tbody>', '</tbody>');
 $count=count($str2);
-$str3=explode('<td>',$str3);
+$str3=explode('<tr>',$str3);
 $i=0;
 $arr=array();
 foreach($str2 as $k=>$v){
