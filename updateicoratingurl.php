@@ -32,7 +32,7 @@ foreach($str2 as $k=>$v){
         }else{
         $arr[$i]['name']=$name;
         }
-         $url=getSonString($str2[$k],"<tr data-href='","'>",$str2[$k]);
+         echo $url=getSonString($str2[$k],"<tr data-href='","'>",$str2[$k]);die;
         $sql="update ico_Analysis set icolink='".$url."' where name='".$arr[$i]['name']."'";
         if($name==''){
         continue;
