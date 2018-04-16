@@ -42,10 +42,7 @@ foreach($str2 as $k=>$v){
         }
         //$url=getSonString($str2[$k],"<tr data-href='","'>",$str2[$k]);
         $url=$urllist[$c];
-        if($arr[$i]['name']=='AppCoins (APPC)'){
-        print_r($urllist[$c]);
-            
-        }
+        
         $sql="update ico_Analysis set icolink='".$url."' where name='".$arr[$i]['name']."'";
         if($name==''){
         continue;
