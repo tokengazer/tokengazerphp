@@ -1,5 +1,5 @@
 <?php
-include('bootstraps.php');echo 1;
+include('bootstraps.php');
 $sql="select id, Github_url from ico_Analysis where Github_url <> '' and Github_url <>'https://github.com/' ";
 $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
