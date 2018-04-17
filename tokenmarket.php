@@ -67,7 +67,7 @@ unset($tmp[0]);$i=1;
          if($githuburl!=''){
         $data[$k]['githuburl']=$githuburl="https://github.com/".explode("\"",$githuburl)[0].',';
         }
-        $sql="select * from ico_Analysis where name='".$data[$i]['name']."'";
+        echo $sql="select * from ico_Analysis where name='".$data[$i]['name']."'";
         $has=MySQLGetData($sql);echo count($has);die;
         }
         if(count($has)==0){
