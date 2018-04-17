@@ -75,7 +75,7 @@ unset($tmp[0]);$i=1;
     }else{
         //有就更新
             if($logo!=''){
-            $sql="update ico_Analysis set name='".$data[$i]['name']."',Github_url='".$data[$i]['githuburl']."',Ico_time='".$icostartdate."',Team='".$member."',origin='".$origin."',whitepaper='".$whitepaper."',website='".$website1."',logo='".$logo."',linkedin='".$linkedurl."' where id=".$has[0]['id']." and  name='".$data[$i]['name']."' and DataSource='tokenmarket'";
+            echo $sql="update ico_Analysis set name='".$data[$i]['name']."',Github_url='".$data[$i]['githuburl']."',Ico_time='".$icostartdate."',Team='".$member."',origin='".$origin."',whitepaper='".$whitepaper."',website='".$website1."',logo='".$logo."',linkedin='".$linkedurl."' where id=".$has[0]['id']." and  name='".$data[$i]['name']."' and DataSource='tokenmarket'";
             }
          }
         MySQLRunSQL($sql);
