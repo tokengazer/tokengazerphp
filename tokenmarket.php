@@ -67,8 +67,8 @@ unset($tmp[0]);$i=1;
          if($githuburl!=''){
         $data[$k]['githuburl']=$githuburl="https://github.com/".explode("\"",$githuburl)[0].',';
         }
-        //$sql="select * from ico_Analysis where name='".$data[$i]['name']."'";
-        //$has=MySQLGetData($sql);
+        $sql="select * from ico_Analysis where name='".$data[$i]['name']."'";
+        $has=MySQLGetData($sql);
         }
         if(count($has)==0){
         //没有就插入
