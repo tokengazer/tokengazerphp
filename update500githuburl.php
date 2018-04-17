@@ -23,14 +23,14 @@ foreach($url1 as $k=>$v){
     $contents1=file_get_contents_https("https://coinmarketcap.com/currencies/".strtolower($url1[$k]['name']).'/');
     $arr[$i]['name']=$url1[$k]['id'];//echo "https://coinmarketcap.com/currencies/".$url1[$k]['id'];
     //print_r($contents1);die;
-    echo $arr[$i]['githuburl']=$githuburl[$i]=getSonString($contents1,'<span class="glyphicon glyphicon-hdd text-gray" title="Source Code"></span> <a href="','" target="');
+    $arr[$i]['githuburl']=$githuburl[$i]=getSonString($contents1,'<span class="glyphicon glyphicon-hdd text-gray" title="Source Code"></span> <a href="','" target="');
     $kv->delete('products:'.$i);
     $kv->add('products:'.$i, json_encode($arr[$i],true));
     $kv->get('products:'.$i);
     $kv->delete('coinmarketproducts:'.$i);
     $kv->add('coinmarketproducts:'.$i, json_encode($arr[$i],true));
     $kv->get('coinmarketproducts:'.$i);
-    $sql="update set Github_url='".$arr[$i]['githuburl']."' where id=".$url1[$k]['id']."";
+    echo $sql="update set Github_url='".$arr[$i]['githuburl']."' where id=".$url1[$k]['id']."";
         MySQLRunSQL($sql);
     $i++;
 }
