@@ -59,10 +59,10 @@ unset($tmp[0]);$i=1;
         $website1=explode("\"",$website)[0];
         $linkedinurl=explode("<td colspan=\"2\">",$websitehtml)[6];
         $linkedinurl=explode("<a target=\"_blank\" href=\"",$linkedinurl)[1];
-        echo $linkedinurl=explode("\"",$linkedinurl)[0];
+        $linkedinurl=explode("\"",$linkedinurl)[0];
         $whitepaper=explode("<td colspan=\"2\">",$websitehtml)[3];
         $whitepaper=explode("<a target=\"_blank\" href=\"",$whitepaper)[1];
-        echo $whitepaper=explode("\"",$whitepaper)[0];
+        $whitepaper=explode("\"",$whitepaper)[0];
         $githuburl=explode("https://github.com/",$tmp2)[1];
          if($githuburl!=''){
         $data[$k]['githuburl']=$githuburl="https://github.com/".explode("\"",$githuburl)[0].',';
