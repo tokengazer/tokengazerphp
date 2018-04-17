@@ -1,7 +1,7 @@
 <?php
 include('bootstraps.php');
 $url = 'https://tokenmarket.net/blockchain/all-assets';
-$content = file_get_contents($url);
+$content = file_get_contents_https($url);
 $counts=explode("<small>Showing <strong>",$content)[1];
 $counts=explode("</strong> assets</small>",$counts)[0];
 $pages= ceil($counts/20);
