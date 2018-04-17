@@ -16,7 +16,9 @@ foreach($list as $k=>$v){
     $commits=0;
     
     foreach($results as $kk=>$vv){
-    $forks+=$results[$kk]['forks_count'];
+        $url=$results[$kk]['url'];
+        $re=json_decode(file_get_contents_https($url),true);;
+    $forks+=$re['network_count'];
         $stars+=$results[$kk]['stargazers_count'];
     $watchers+=$results[$kk]['watchers'];
        $lastupdatetime=bijiaotimes($lastupdatetime,$results[$kk]['pushed_at']);
