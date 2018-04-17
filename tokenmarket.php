@@ -7,7 +7,6 @@ $counts=explode("</strong> assets</small>",$counts)[0];
 $pages= ceil($counts/20);
 $kv = new SaeKV();
 $ret = $kv->init("xowlw2kmk2");
-echo 1;
 //for($i=0;$i<$pages;$i++){
 $contents=file_get_contents_https("https://tokenmarket.net/blockchain/all-assets?batch_num=0&batch_size=".$counts);
     $str=explode("<tbody>",$contents)[1];
