@@ -21,7 +21,7 @@ unset($tmp[0]);$i=1;
         $data[$k]['name']=$name;
         $sql="select * from ico_Analysis where name='".$data[$i]['name']."'";
         $has=MySQLGetData($sql);
-        if(count($has)==0){
+        //if(count($has)==0){
         $url=explode('"',$url[1])[0];
         $tmp2=file_get_contents_https($url);
             $logo=explode("<img id=\"asset-logo-primary\" src=\"",$tmp2)[1];
@@ -87,10 +87,8 @@ unset($tmp[0]);$i=1;
     //echo $kv->get('tokenmarketproducts:'.$i);
        
         $i++;
-    }
+    //}
    $ret = $kv->delete('tokenmarketproducts:all');
         $kv->add('tokenmarketproducts:all', json_encode($data,true));
     
      $kv->get('tokenmarketproducts:all');
-       
-die;
