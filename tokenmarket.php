@@ -9,7 +9,8 @@ $kv = new SaeKV();
 $ret = $kv->init("xowlw2kmk2");
 //for($i=0;$i<$pages;$i++){
 $contents=file_get_contents_https("https://tokenmarket.net/blockchain/all-assets?batch_num=0&batch_size=".$counts);
-    $str=explode("<tbody>",$contents)[1];
+print_r($contents);die;    
+$str=explode("<tbody>",$contents)[1];
 $str=explode("</tbody>",$str)[0];
     $tmp=explode("<td class=\"col-asset-name\">",$str);
 unset($tmp[0]);$i=1;
