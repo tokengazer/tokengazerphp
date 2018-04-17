@@ -14,7 +14,7 @@ $end1 = '</tbody>';
 $str1 = getSonString($content, $head1, $end1);
 $str1 = getSonString($str1, '<tbody>', '</tbody>');
 //print_r($str1);
-$str2=explode('<tr>',$str1);
+$str2=explode('<td>',$str1);
 $head2 = '<h2>Unassessed</h2>';
 $end2 = '</tbody>';
 $str3 = getSonString($content, $head2, $end2);
