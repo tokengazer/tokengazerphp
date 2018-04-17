@@ -30,7 +30,7 @@ foreach($url1 as $k=>$v){
     $kv->delete('coinmarketproducts:'.$i);
     $kv->add('coinmarketproducts:'.$i, json_encode($arr[$i],true));
     $kv->get('coinmarketproducts:'.$i);
-    echo $sql="update set Github_url='".$arr[$i]['githuburl']."' where id=".$url1[$k]['id']."";
+    echo $sql="update ico_Analysis set Github_url='".$arr[$i]['githuburl']."' where id=".$url1[$k]['id']."";
         MySQLRunSQL($sql);
     $i++;
 }
