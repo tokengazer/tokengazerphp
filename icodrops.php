@@ -41,23 +41,23 @@ $str1 = trim(getSonString($content, "<h3 class=\"col-md-12 col-12 not_rated\">Al
 $str2=array();
 $str2=explode("<div class=\"ico-main-info\">",$str1);
 unset($str2[0]);
-foreach($str2 as $k=>$v){
-	$url=explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$k])[1])[0];
+foreach($str2 as $kk=>$vv){
+	$url=explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$kk])[1])[0];
     $data['logo']=explode("\"",explode("data-src=\"",$str2[$k])[1])[0];
-    $data[$k]['Ico_Raise_money']=trim(explode("</div>",explode("<div id='categ_desctop'>",$str2[$k])[1])[0]);
-    $arr[$j]['name']=$name=explode("</a>",explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$k])[1])[1])[0];
+    $data[$kk]['Ico_Raise_money']=trim(explode("</div>",explode("<div id='categ_desctop'>",$str2[$kk])[1])[0]);
+    $arr[$j]['name']=$name=explode("</a>",explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$kk])[1])[1])[0];
     $contents1=file_get_contents_https($url);
-    $data[$k]['icolink']=explode("\"",explode("<a id='ccc' href=\"",$str2[$k])[1])[0];
+    $data[$kk]['icolink']=explode("\"",explode("<a id='ccc' href=\"",$str2[$kk])[1])[0];
     //$arr[$j]['githuburl']=$githuburl="https://github.com/".explode("\"",explode("https://github.com/",$contents1)[1])[0];
     $i++;
     if($arr[$j]['name']!=''){
         $sql="select * from ico_Analysis where name ='".$arr[$j]['name']."'";
         $sql="select * from ico_Analysis where name ='".$arr[$j]['name']."'";
         if(count(MySQLGetData($sql))>=1){
-            $sql="update ico_Analysis set ICO_Raise_money='".$data[$k]['Ico_Raise_money']."',icolink='".$data[$k]['icolink']."' where name='".$name."' and DataSource='icodrops'";
+            $sql="update ico_Analysis set ICO_Raise_money='".$data[$kk]['Ico_Raise_money']."',icolink='".$data[$kk]['icolink']."' where name='".$name."' and DataSource='icodrops'";
         }
         else{
-            $sql='insert into ico_Analysis (name,logo,Github_url,DataSource,ICO_Raise_money,icolink) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops","'.$data[$k]['Ico_Raise_money'].'","'.$data[$k]['icolink'].'");';
+            $sql='insert into ico_Analysis (name,logo,Github_url,DataSource,ICO_Raise_money,icolink) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops","'.$data[$kk]['Ico_Raise_money'].'","'.$data[$kk]['icolink'].'");';
     
         }
     $ret = $kv->delete('icodropsproducts:'.$i);
@@ -76,11 +76,11 @@ $str1 = trim(getSonString($content, "<h3 class=\"col-md-12 col-12 not_rated\">Al
 $str2=array();
 $str2=explode("<div class=\"ico-main-info\">",$str1);
 unset($str2[0]);
-foreach($str2 as $k=>$v){
-	$url=explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$k])[1])[0];
-    $data['logo']=explode("\"",explode("data-src=\"",$str2[$k])[1])[0];
-    $data[$k]['Ico_Raise_money']=trim(explode("</div>",explode("<div id='categ_desctop'>",$str2[$k])[1])[0]);
-    $arr[$j]['name']=$name=explode("</a>",explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$k])[1])[1])[0];
+foreach($str2 as $kkk=>$vvv){
+	$url=explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$kkk])[1])[0];
+    $data['logo']=explode("\"",explode("data-src=\"",$str2[$kkk])[1])[0];
+    $data[$k]['Ico_Raise_money']=trim(explode("</div>",explode("<div id='categ_desctop'>",$str2[$kkk])[1])[0]);
+    $arr[$j]['name']=$name=explode("</a>",explode("\" rel=\"bookmark\">",explode("<h3><a href=\"",$str2[$kkk])[1])[1])[0];
     $contents1=file_get_contents_https($url);
     $data[$k]['icolink']=explode("\"",explode("<a id='ccc' href=\"",$str2[$k])[1])[0];
     //$arr[$j]['githuburl']=$githuburl="https://github.com/".explode("\"",explode("https://github.com/",$contents1)[1])[0];
@@ -90,10 +90,10 @@ foreach($str2 as $k=>$v){
         $kv->add('icodropsproducts:'.$i, json_encode($arr[$i],true));
     $sql="select * from ico_Analysis where name ='".$arr[$j]['name']."'";
         if(count(MySQLGetData($sql))>=1){
-            $sql="update ico_Analysis set ICO_Raise_money='".$data[$k]['Ico_Raise_money']."',icolink='".$data[$k]['icolink']."' where name='".$name."' and DataSource='icodrops'";
+            $sql="update ico_Analysis set ICO_Raise_money='".$data[$kkk]['Ico_Raise_money']."',icolink='".$data[$kkk]['icolink']."' where name='".$name."' and DataSource='icodrops'";
         }
         else{
-            $sql='insert into ico_Analysis (name,logo,Github_url,DataSource,ICO_Raise_money,icolink) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops","'.$data[$k]['Ico_Raise_money'].'","'.$data[$k]['icolink'].'");';
+            $sql='insert into ico_Analysis (name,logo,Github_url,DataSource,ICO_Raise_money,icolink) values("'.$arr[$i]['name'].'","'.$data['logo'].'","'.$arr[$i]['githuburl'].'","icodrops","'.$data[$kkk]['Ico_Raise_money'].'","'.$data[$kkk]['icolink'].'");';
     
         }MySQLRunSQL($sql);
      $kv->get('icodropsproducts:'.$j);
