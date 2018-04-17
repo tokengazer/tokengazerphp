@@ -75,7 +75,7 @@ unset($tmp[0]);$i=1;
         $sql='insert into ico_Analysis (name,Github_url,DataSource,Ico_time,Team,origin,whitepaper,website,logo,linkedin) values("'.$data[$i]['name'].'","'.$data[$i]['githuburl'].'","tokenmarket","'.$icostartdate.'","'.$member.'","'.$origin.'","'.$whitepaper.'","'.$website1.'","'.$logo.'","'.$linkedinurl.'");';
     }else{
         //有就更新
-            $sql="update ico_Analysis set name='".$data[$i]['name']."',Github_url='".$data[$i]['githuburl']."',Ico_time='".$icostartdate."',Team='".$member."',origin='".$origin."',whitepaper='".$whitepaper."',website='".$website1."',logo='".$logo."',linkedin='".$linkedurl."'";
+            $sql="update ico_Analysis set name='".$data[$i]['name']."',Github_url='".$data[$i]['githuburl']."',Ico_time='".$icostartdate."',Team='".$member."',origin='".$origin."',whitepaper='".$whitepaper."',website='".$website1."',logo='".$logo."',linkedin='".$linkedurl."' where id=".$has[0]['id'].";
         }
         MySQLRunSQL($sql);
         /*
