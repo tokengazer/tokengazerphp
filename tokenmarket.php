@@ -72,7 +72,7 @@ unset($tmp[0]);$i=1;
         }
         if(count($has)==0){
         //没有就插入
-        $sql='insert into ico_Analysis (name,Github_url,DataSource,Ico_time,Team,origin,whitepaper,website,logo,linkedin) values("'.$data[$i]['name'].'","'.$data[$i]['githuburl'].'","tokenmarket","'.$icostartdate.'","'.$member.'","'.$origin.'","'.$whitepaper.'","'.$website1.'","'.$logo.'","'.$linkedinurl.'");';
+        $sql='insert into ico_Analysis (name,Github_url,DataSource,Ico_time,Team,origin,whitepaper,website,logo,linkedin,icolink) values("'.$data[$i]['name'].'","'.$data[$i]['githuburl'].'","tokenmarket","'.$icostartdate.'","'.$member.'","'.$origin.'","'.$whitepaper.'","'.$website1.'","'.$logo.'","'.$linkedinurl.'","'.$url.'");';
     }else{
         //有就更新
             if($logo!=''){
