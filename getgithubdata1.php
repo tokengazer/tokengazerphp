@@ -17,7 +17,8 @@ foreach($list as $k=>$v){
     
     foreach($results as $kk=>$vv){
         $url=$results[$kk]['url'];
-        $re=json_decode(file_get_contents_https($url),true);;
+        $re=json_decode(file_get_contents_https($url),true);
+        print_r($re);
     $forks+=$re['network_count'];
         $stars+=$results[$kk]['stargazers_count'];
     $watchers+=$results[$kk]['watchers'];
