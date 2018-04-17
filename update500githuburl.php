@@ -20,7 +20,7 @@ $arr=array();
 foreach($url1 as $k=>$v){
     set_time_limit();
 //$contents1=file_get_contents_https("https://coinmarketcap.com".$url1[$k]);
-    "https://coinmarketcap.com/currencies/".$url1[$k]['name'].'/';
+    echo "https://coinmarketcap.com/currencies/".$url1[$k]['name'].'/';
     echo $contents1=file_get_contents_https("https://coinmarketcap.com/currencies/".$url1[$k]['name'].'/');
     $arr[$i]['name']=$url1[$k]['id'];//echo "https://coinmarketcap.com/currencies/".$url1[$k]['id'];
     //print_r($contents1);die;
