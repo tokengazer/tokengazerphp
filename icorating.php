@@ -22,6 +22,7 @@ $count=count($str2);
 $str3=explode('<td>',$str3);
 $i=0;
 $arr=array();
+print_r($str2);die;
 foreach($str2 as $k=>$v){
     if($k==0||$k%2==0){
     $name=trim(explode("</td",$str2[$k])[0]);
