@@ -44,7 +44,7 @@ MySQLRunSQL($sql);
         if(count(MySQLGetData($sql))>0){
         
         }else{
-        echo $sql="insert into TeamMember values(NULL,'".$data[$k]['member'][$k1]['name']."','".$data[$k]['member'][$k1]['headimg']."',$id,'".$data[$k]['member'][$k1]['linkedin']."','Advisors')";
+         $sql="insert into TeamMember values(NULL,'".$data[$k]['member'][$k1]['name']."','".$data[$k]['member'][$k1]['headimg']."',$id,'".$data[$k]['member'][$k1]['linkedin']."','Advisors')";
             MySQLRunSQL($sql);
         }
     }
