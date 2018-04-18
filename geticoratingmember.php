@@ -37,7 +37,7 @@ MySQLRunSQL($sql);
     continue;
     }
     foreach($tmparr as $k1=>$v1){
-    $data[$k]['member'][$k1]['headimg']=explode("\"",explode("src=\"",$tmparr[$k1])[1])[0];
+    $data[$k]['member'][$k1]['headimg']="https://icorating.com".explode("\"",explode("src=\"",$tmparr[$k1])[1])[0];
         $data[$k]['member'][$k1]['name']=explode("\"",explode("<a title=\"",$tmparr[$k1])[1])[0];
         $data[$k]['member'][$k1]['linkedin']="https://www.linkedin.com".explode("\"",explode("https://www.linkedin.com",$tmparr[$k1])[1])[0];
         $sql="select * from TeamMember where name='".$data[$k]['member'][$k1]['name']."' and pid=$id";
