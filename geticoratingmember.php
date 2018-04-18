@@ -18,7 +18,7 @@ MySQLRunSQL($sql);
     }
     foreach($tmparr as $kk=>$vv){
     $data[$k]['mamber'][$kk]['headimg']=explode("\"",explode("src=\"",$tmparr[$kk])[1])[0];
-        $data[$k]['mamber'][$kk]['name']=explode("\"",explode("<a title=\"Stepan",$tmparr[$kk])[1])[0];
+        $data[$k]['mamber'][$kk]['name']=explode("\"",explode("<a title=\"",$tmparr[$kk])[1])[0];
         $data[$k]['member'][$kk]['linkedin']=explode("\"",explode("https://www.linkedin.com",$tmparr[$kk])[1])[0];
         echo $sql="select * from TeamMember where name='".$data[$k]['member'][$kk]['name']."' and pid=$id";
         if(count(MySQLGetData($sql))>=0){
