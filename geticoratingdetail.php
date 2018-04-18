@@ -1,5 +1,8 @@
 <?php
 include('bootstraps.php');
+if (!function_exists("pcntl_fork")) {  
+    die("pcntl extention is must !");  
+} 
 $sql="select id ,icolink from ico_Analysis where name <>'' and DataSource='icorating'";
 $data=MySQLGetData($sql);
  
