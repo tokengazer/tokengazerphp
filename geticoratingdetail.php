@@ -10,6 +10,7 @@ foreach($data as $k=>$v){
     $url=$data[$k]['icolink'];
 
 //$url="https://icorating.com/ico/crowd-machine/details/";
+    echo $url.'/details/';
 $html=file_get_contents_https($url.'/details/');
 $str =explode("uk-table",$html)[1];
 $str=explode("Pre-ICO start date:",$str)[1];
