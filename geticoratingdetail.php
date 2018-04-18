@@ -11,7 +11,7 @@ foreach($data as $k=>$v){
 
 //$url="https://icorating.com/ico/crowd-machine/details/";
     
-$html=file_get_contents_https($url.'details/');
+$html1=$html=file_get_contents_https($url.'details/');
 $str =explode("uk-table",$html)[1];
 $str=explode("Pre-ICO start date:",$str)[1];
 $PreICOstartdate=getSonString($str,"<td>","</td>");
@@ -79,7 +79,7 @@ $str =explode("uk-table",$html)[4];
 $str=explode("ICO Platform:",$str)[1];
 $ICOPlatform=getSonString($str,"<td>","</td>");
     
-$str1=explode("<td>Registration Country:</td>",$html)[1];
+$str1=explode("<td>Registration Country:</td>",$html1)[1];
     $str =explode("uk-table",$html)[4];print_r($str1);die;
 $regin=getSonString($str,"<td>","</td>");
     $str =explode("uk-table",$html)[4];
