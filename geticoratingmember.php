@@ -16,6 +16,7 @@ MySQLRunSQL($sql);
     if(count($tmparr)==0){
     continue;
     }
+    unset($tmparr[count($tmparr)]);
     foreach($tmparr as $kk=>$vv){
         $data[$k]['member'][$kk]['headimg']="https://icorating.com".explode("\"",explode("src=\"",$tmparr[$kk])[1])[0];
         $data[$k]['member'][$kk]['name']=explode("\"",explode("<a title=\"",$tmparr[$kk])[1])[0];
