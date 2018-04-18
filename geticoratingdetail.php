@@ -8,7 +8,7 @@ foreach($data as $k=>$v){
     $name=str_replace(" ","-",$name);
     }
     $url=$data[$k]['icolink'];
-echo 1;
+echo 1;die;
 //$url="https://icorating.com/ico/crowd-machine/details/";
     
 $html1=$html=file_get_contents_https($url.'details/');
