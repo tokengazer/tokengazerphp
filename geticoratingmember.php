@@ -31,20 +31,19 @@ MySQLRunSQL($sql);
     $founders=explode("<tbody>",$html1)[2];
     
    $tmparr=explode("<tr>",$founders);
-    print_r($tmparr);
     unset($tmparr[0]);
     if(count($tmparr)==0){
     continue;
     }
-    foreach($tmparr as $kk=>$vv){
-    $data[$k]['member'][$kk]['headimg']=explode("\"",explode("src=\"",$tmparr[$kk])[1])[0];
-        $data[$k]['member'][$kk]['name']=explode("\"",explode("<a title=\"Stepan",$tmparr[$kk])[1])[0];
-        $data[$k]['member'][$kk]['linkedin']="https://www.linkedin.com".explode("\"",explode("https://www.linkedin.com",$tmparr[$kk])[1])[0];
-        $sql="select * from TeamMember where name='".$data[$k]['member'][$kk]['name']."' and pid=$id";
+    foreach($tmparr as $k1=>$v1){
+    $data[$k]['member'][$k1]['headimg']=explode("\"",explode("src=\"",$tmparr[$k1])[1])[0];
+        $data[$k]['member'][$k1]['name']=explode("\"",explode("<a title=\"Stepan",$tmparr[$k1])[1])[0];
+        $data[$k]['member'][$k1]['linkedin']="https://www.linkedin.com".explode("\"",explode("https://www.linkedin.com",$tmparr[$k1])[1])[0];
+        $sql="select * from TeamMember where name='".$data[$k]['member'][$k1]['name']."' and pid=$id";
         if(count(MySQLGetData($sql))>0){
         
         }else{
-        echo $sql="insert into TeamMember values(NULL,'".$data[$k]['member'][$kk]['name']."','".$data[$k]['member'][$kk]['headimg']."',$id,'".$data[$k]['member'][$kk]['linkedin']."','Advisors')";
+        echo $sql="insert into TeamMember values(NULL,'".$data[$k]['member'][$k1]['name']."','".$data[$k]['member'][$k1]['headimg']."',$id,'".$data[$k]['member'][$k1]['linkedin']."','Advisors')";
             MySQLRunSQL($sql);
         }
     }
