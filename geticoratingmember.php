@@ -19,7 +19,7 @@ MySQLRunSQL($sql);
     foreach($tmparr as $kk=>$vv){
         $data[$k]['member'][$kk]['headimg']="https://icorating.com".explode("\"",explode("src=\"",$tmparr[$kk])[1])[0];
         $data[$k]['member'][$kk]['name']=explode("\"",explode("<a title=\"",$tmparr[$kk])[1])[0];
-        $data[$k]['member'][$kk]['linkedin']=explode("\"",explode("https://www.linkedin.com",$tmparr[$kk])[1])[0];
+        $data[$k]['member'][$kk]['linkedin']="https://www.linkedin.com".explode("\"",explode("https://www.linkedin.com",$tmparr[$kk])[1])[0];
         echo $sql="select * from TeamMember where name='".$data[$k]['member'][$kk]['name']."' and pid=$id";
         if(count(MySQLGetData($sql))>0){
         
@@ -37,7 +37,7 @@ MySQLRunSQL($sql);
     foreach($tmparr as $kk=>$vv){
     $data[$k]['member'][$kk]['headimg']=explode("\"",explode("src=\"",$tmparr[$kk])[1])[0];
         $data[$k]['member'][$kk]['name']=explode("\"",explode("<a title=\"Stepan",$tmparr[$kk])[1])[0];
-        $data[$k]['member'][$kk]['linkedin']=explode("\"",explode("https://www.linkedin.com",$tmparr[$kk])[1])[0];
+        $data[$k]['member'][$kk]['linkedin']="https://www.linkedin.com".explode("\"",explode("https://www.linkedin.com",$tmparr[$kk])[1])[0];
         $sql="select * from TeamMember where name='".$data[$k]['member'][$kk]['name']."' and pid=$id";
         if(count(MySQLGetData($sql))>0){
         
