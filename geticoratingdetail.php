@@ -9,7 +9,7 @@ foreach($data as $k=>$v){
 echo 1;
 //$url="https://icorating.com/ico/crowd-machine/details/";
     
-$html1=$html=file_get_contents_https($url.'details/');continue;
+echo $html1=$html=file_get_contents_https($url.'details/');continue;
 $str =explode("uk-table",$html)[1];
 $str=explode("Pre-ICO start date:",$str)[1];
 $PreICOstartdate=getSonString($str,"<td>","</td>");
