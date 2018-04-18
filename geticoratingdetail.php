@@ -87,7 +87,7 @@ $str1=explode("<td>Registration Year:</td>",$html1)[1];
 $regyear=explode("</td>",explode("<td>",$str1)[1])[0];
     $str =explode("uk-table",$html)[4];
 $str1=explode("<td>Office adress:</td>",$html1)[1];
-$regin.=".".=explode("</td>",explode("<td>",$str1)[1])[0];;
+$regin.=".".explode("</td>",explode("<td>",$str1)[1])[0];;
  $ICOPlatform;
 $str =explode("uk-table",$html)[5];
 $str=explode("Bug Detection:",$str)[1];
