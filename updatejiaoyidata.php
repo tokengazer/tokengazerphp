@@ -19,7 +19,7 @@ foreach($list as $k=>$v){
 //$ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
     $name=$list[$k]['searchname'];
     if($list[$k]['id']>=614||$list[$k]['id']<=266){
-    continue;
+    //continue;
     }
     echo $url2="https://api.coinmarketcap.com/v1/ticker/".$name."/";
     $results[$k]=json_decode(curls($url2),true);
