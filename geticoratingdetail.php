@@ -33,9 +33,9 @@ $ICOTokenSupply=getSonString($str,"<td>","</td>");
     $str =explode("uk-table",$html)[2];
 $str=explode("Soft cap size:",$str)[1];
 $SoftCap=getSonString($str,"<td>","</td>");
-    $str =explode("uk-table",$html)[2];
+    $str =explode("uk-table",$html)[2];print_r($str);die;
 $str=explode("Hard cap size:",$str)[1];
-    print_r($str);die;
+    
 $HardCap=getSonString($str,"<td>","</td>");
  $ICOTokenSupply;
 $str =explode("uk-table",$html)[3];
