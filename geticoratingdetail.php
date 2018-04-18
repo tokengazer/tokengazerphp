@@ -1,6 +1,6 @@
 <?php
 include('bootstraps.php');
-$sql="select * from ico_Analysis where name <>'' and DataSource='icorating'";
+$sql="select * from ico_Analysis where name <>'' and DataSource='icorating' and id>1347";
 $data=MySQLGetData($sql);
 foreach($data as $k=>$v){
  $name=explode(" (",$data[$k]['name'])[0];
