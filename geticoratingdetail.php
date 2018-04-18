@@ -37,7 +37,7 @@ $SoftCap=getSonString($str,"<td>","</td>");
     $str =explode("uk-table",$html)[2];
 $str=explode("Hard cap size:",$str)[1];
     
-$HardCap=explode("</td>",explode("<td>",$str)[1])[0];
+echo $HardCap=explode("</td>",explode("<td>",$str)[1])[0];die;
  $ICOTokenSupply;
 $str =explode("uk-table",$html)[3];
 $str=explode("Ticker",$str)[1];
