@@ -1,6 +1,6 @@
 <?php
 include('bootstraps.php');
-$sql="select * from ico_Analysis where name <>'' and DataSource='icorating' and id not in( select pid from TeamMember)";
+$sql="select * from ico_Analysis as a where a.name <>'' and DataSource='icorating' and a.id not in( select pid from TeamMember)";
 $data=MySQLGetData($sql);
 foreach($data as $k=>$v){
  $url=$data[$k]['icolink'];
