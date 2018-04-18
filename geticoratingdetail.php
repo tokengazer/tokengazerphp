@@ -8,7 +8,7 @@ foreach($data as $k=>$v){
     $name=str_replace(" ","-",$name);
     }
     $url=$data[$k]['icolink'];
-echo 1;die;
+echo 1;
 //$url="https://icorating.com/ico/crowd-machine/details/";
     
 $html1=$html=file_get_contents_https($url.'details/');
@@ -104,19 +104,19 @@ $str=explode("Social Media:",$str)[1];
 $SocialMedia=explode("</div>",explode("<div class=\"uk-child-width-expand uk-grid-small uk-text-center\" uk-grid>",$html1)[1])[0];
     //$detailhtml=file_get_contents_https("https://icorating.com/ico/".strtolower($name)."/");
     $tmparr=explode("</span></a>",$SocialMedia);
-    foreach($tmparr as $kk=>$vv){
+    /*foreach($tmparr as $kk=>$vv){
 
         if(strpos($vv,'Website')!==false){
             $website=explode("\"",explode("<a target=\"_blank\" rel=\"nofollow\" href=\"",$vv)[1])[0];
         }else if(strpos($vv,'Linkedin')!==false){
             $linkedin=explode("\"",explode("<a target=\"_blank\" rel=\"nofollow\" href=\"",$vv)[1])[0];
         }
-    }
+    }*/
     /*$html2=file_get_contents_https($url);
     $tmparr2=explode("whitepaper",$html2);
     $whitepaper="https://icorating.com/upload/whitepaper/".explode("\"",$tmparr2[1])[0];*/
     //$sql="INSERT INTO `app_tokenworm`.`icoratingdetail` (`id`, `pid`, `website`,`whitepaper`,`createtime`, `PreICOstartdate`,`PreICOenddate`, `ICOstartdate`, `ICOenddate`, `ICOTokenSupply`, `Ticker`, `Type`, `TokenStandard`, `AdditionalTokenEmission`, `AcceptedCurrencies`, `BonusProgram`, `Tokendistribution`, `ICOPlatform`, `BugDetection`, `BitcointalkSignatureCampaign`, `Bounty`, `Translation`, `SocialMedia`) VALUES (NULL, ".$data[$k]['id'].",'".$website."','".$whitepaper."', '".date("Y-m-d H:i:s")."', '".$PreICOstartdate."','".$PreICOenddate."', '".$ICOstartdate."', '".$ICOenddate."', '".$ICOTokenSupply."', '".$Ticker."', '".$Type."', '".$TokenStandard."', '".$AdditionalTokenEmission."','".$AcceptedCurrencies."', '".$BonusProgram."', '".$Tokendistribution."', '".$ICOPlatform."', '".$BugDetection."', '".$BitcointalkSignatureCampaign."', '".$Bounty."', '".$Translation."', '".$SocialMedia."');";
-    echo $sql="update ico_Analysis set website='".$website."',Ico_time='".$ICOstartdate."',ticker='".$Ticker."',ICO_HardCap='".$HardCap."',origin='".$regin."',Platform='".$ICOPlatform."',linkedin='".$linkedin."',Ico_Total_Amount=".$ICOTokenSupply." where id=".$data[$k]['id']." and DataSource='icorating';";
+    echo $sql="update ico_Analysis set Ico_time='".$ICOstartdate."',ticker='".$Ticker."',ICO_HardCap='".$HardCap."',origin='".$regin."',Platform='".$ICOPlatform."',linkedin='".$linkedin."',Ico_Total_Amount=".$ICOTokenSupply." where id=".$data[$k]['id']." and DataSource='icorating';";
     MySQLRunSQL($sql);
 }
 ?>
