@@ -11,7 +11,7 @@ $html1=$html=file_get_contents_https($url.'team/');
 MySQLRunSQL($sql);
     $founders=explode("<tbody>",$html1)[1];
    $tmparr=explode("<tr>",$founders);
-    unset($tmparr[1]);
+    unset($tmparr[0]);
     foreach($tmparr as $kk=>$vv){
     print_r($tmparr);
     }
