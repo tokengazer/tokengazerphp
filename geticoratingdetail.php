@@ -113,9 +113,9 @@ $SocialMedia=explode("</div>",explode("<div class=\"uk-child-width-expand uk-gri
     foreach($tmparr as $kk=>$vv){
 
         if(strpos($vv,'Website')!==false){
-            $website=explode("\"",explode("<a target=\"_blank\" rel=\"nofollow\" href=\"")[1])[0];
+            $website=explode("\"",explode("<a target=\"_blank\" rel=\"nofollow\" href=\"",$vv)[1])[0];
         }else if(strpos($vv,'Linkedin')!==false){
-            $linkedin=explode("\"",explode("<a target=\"_blank\" rel=\"nofollow\" href=\"")[1])[0];
+            $linkedin=explode("\"",explode("<a target=\"_blank\" rel=\"nofollow\" href=\"",$vv)[1])[0];
         }
     }
     $html2=file_get_contents_https($url);
