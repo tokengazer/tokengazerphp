@@ -7,7 +7,7 @@ foreach($data as $k=>$v){
     if(strstr($name," ")){
     $name=str_replace(" ","-",$name);
     }
-    echo $url=$data[$k]['icolink'];
+    $url=$data[$k]['icolink'];
 
 //$url="https://icorating.com/ico/crowd-machine/details/";
 $html=file_get_contents_https($url);
@@ -35,7 +35,7 @@ $str=explode("Soft cap size:",$str)[1];
 $SoftCap=getSonString($str,"<td>","</td>");
     $str =explode("uk-table",$html)[2];
 $str=explode("Hard cap size:",$str)[1];
-    print_r($str);die;
+    print_r($html);die;
 $HardCap=getSonString($str,"<td>","</td>");
  $ICOTokenSupply;
 $str =explode("uk-table",$html)[3];
