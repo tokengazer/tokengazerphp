@@ -24,7 +24,7 @@ MySQLRunSQL($sql);
         if(count(MySQLGetData($sql))>=0){
         
         }else{
-        $sql="insert into TeamMember values(NULL,'".$data[$k]['mamber'][$kk]['name']."','".$data[$k]['mamber'][$kk]['headimg']."','".$data[$k]['member'][$kk]['linkedin']."','founder')";
+        echo $sql="insert into TeamMember values(NULL,'".$data[$k]['mamber'][$kk]['name']."','".$data[$k]['mamber'][$kk]['headimg']."','".$data[$k]['member'][$kk]['linkedin']."','founder')";
             MySQLRunSQL($sql);
         }
     }
