@@ -11,7 +11,7 @@ $notin.=$list[$kkk]['pid'];
 }
 $notin=substr($notin,0,strlen($notin)-1);
 $notin.=")";
-echo $sql="select * from ico_Analysis where DataSource='icorating' and id NOT in $notin";
+$sql="select * from ico_Analysis where DataSource='icorating' and id NOT in $notin";
 //$sql="select * from ico_Analysis as a where a.name <>'' and DataSource='icorating' and a.id not in( select pid from TeamMember)";
 $data=MySQLGetData($sql);
 foreach($data as $k=>$v){
