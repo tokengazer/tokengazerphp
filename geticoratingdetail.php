@@ -3,10 +3,7 @@ include('bootstraps.php');
 $sql="select * from ico_Analysis where name <>'' and DataSource='icorating'";
 $data=MySQLGetData($sql);
 foreach($data as $k=>$v){
- $name=explode(" (",$data[$k]['name'])[0];
-    if(strstr($name," ")){
-    $name=str_replace(" ","-",$name);
-    }
+ 
     $url=$data[$k]['icolink'];
 echo 1;
 //$url="https://icorating.com/ico/crowd-machine/details/";
