@@ -24,7 +24,7 @@ MySQLRunSQL($sql);
         if(count(MySQLGetData($sql))>0){
         
         }else{
-        echo $sql="insert into TeamMember values(NULL,'".$data[$k]['member'][$kk]['name']."','".$data[$k]['member'][$kk]['headimg']."','".$data[$k]['member'][$kk]['linkedin']."','founder')";
+        echo $sql="insert into TeamMember values(NULL,'".$data[$k]['member'][$kk]['name']."','".$data[$k]['member'][$kk]['headimg']."',$id,'".$data[$k]['member'][$kk]['linkedin']."','founder')";
             MySQLRunSQL($sql);
         }
     }
@@ -42,7 +42,7 @@ MySQLRunSQL($sql);
         if(count(MySQLGetData($sql))>0){
         
         }else{
-        $sql="insert into TeamMember values(NULL,'".$data[$k]['member'][$kk]['name']."','".$data[$k]['member'][$kk]['headimg']."','".$data[$k]['member'][$kk]['linkedin']."','Advisors')";
+        $sql="insert into TeamMember values(NULL,'".$data[$k]['member'][$kk]['name']."','".$data[$k]['member'][$kk]['headimg']."',$id,'".$data[$k]['member'][$kk]['linkedin']."','Advisors')";
             MySQLRunSQL($sql);
         }
     }
