@@ -111,7 +111,7 @@ $SocialMedia;
     $tmpstr1=explode("<td><a target=\"_blank\" href=\"",$tmpstr[1])[1];
     $tmpstr2=explode("\"",$tmpstr1)[0];
     $whitepaper="https://icorating.com/".$tmpstr2;
-    $tmpstr=explode("<td>Website:</td>",$detailhtml);print_r($tmpstr);die;
+    $tmpstr=explode("<td>Website:</td>",$detailhtml);print_r("https://icorating.com/ico/".$name."/");die;
     $tmpstr1=explode("<td><a target=\"_blank\" href=\"",$tmpstr[1])[1];
     $tmpstr2=explode("\"",$tmpstr1)[0];
     $website=$tmpstr2;
