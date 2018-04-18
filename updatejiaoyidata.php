@@ -21,7 +21,7 @@ foreach($list as $k=>$v){
     if($list[$k]['id']>=614||$list[$k]['id']<=266){
     //continue;
     }
-    echo $url2="https://api.coinmarketcap.com/v1/ticker/".$name."/";
+    $url2="https://api.coinmarketcap.com/v1/ticker/".$name."/";
     $results[$k]=json_decode(curls($url2),true);
     if(isset($results[$k]['error'])){
         //print_r($results[$k]);die;
@@ -38,7 +38,7 @@ foreach($list as $k=>$v){
     $githuburl=$tmpstr4;*/
     //echo $sql="update ico_Analysis set Github_url='".$githuburl."' where name='".$data[$k]['name']."'";
     //MySQLRunSQL($sql);
-    echo $sql="update ico_Analysis set Current_market_value='".$Current_market_value."',Current_Circulation='".$Current_Circulation."',Current_Single_price='".$Current_Single_price."'  where id='".$list[$k]['id']."'";
+    $sql="update ico_Analysis set Current_market_value='".$Current_market_value."',Current_Circulation='".$Current_Circulation."',Current_Single_price='".$Current_Single_price."'  where id='".$list[$k]['id']."'";
     MySQLRunSQL($sql);
     
 }
