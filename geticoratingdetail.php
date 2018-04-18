@@ -81,7 +81,7 @@ $ICOPlatform=getSonString($str,"<td>","</td>");
     
 $str1=explode("<td>Registration Country:</td>",$html1)[1];
     $str =explode("uk-table",$html)[4];
-$regin=explode("</td>",explode("<td>",$str1)[0])[1];print_r($regin);die;
+$regin=explode("</td>",explode("<td>",$str1)[1])[0];print_r($regin);die;
     $str =explode("uk-table",$html)[4];
 $str=explode("Registration Year:",$str)[1];
 $regyear=getSonString($str,"<td>","</td>");
