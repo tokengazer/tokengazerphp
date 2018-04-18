@@ -99,9 +99,9 @@ $Translation=getSonString($str,"<td>","</td>");
 $Translation;
 $str =explode("uk-table",$html)[5];
 $str=explode("Social Media:",$str)[1];
-$SocialMedia=explode("</div>",explode("<div class=\"uk-child-width-expand uk-grid-small uk-text-center\" uk-grid>",$html1)[1])[0];
+//$SocialMedia=explode("</div>",explode("<div class=\"uk-child-width-expand uk-grid-small uk-text-center\" uk-grid>",$html1)[1])[0];
     //$detailhtml=file_get_contents_https("https://icorating.com/ico/".strtolower($name)."/");
-    $tmparr=explode("</span></a>",$SocialMedia);
+    //$tmparr=explode("</span></a>",$SocialMedia);
     /*foreach($tmparr as $kk=>$vv){
 
         if(strpos($vv,'Website')!==false){
