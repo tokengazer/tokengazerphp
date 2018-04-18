@@ -24,7 +24,7 @@ $i=0;
 $arr=array();
 print_r($str2);die;
 foreach($str2 as $k=>$v){
-    if($k==0||$k%2==0){
+    if($k!=0&&$k%2==0){
     $name=trim(explode("</td",$str2[$k])[0]);
         if(strstr($name,"'>"))
         {
@@ -59,7 +59,7 @@ foreach($str2 as $k=>$v){
 }
 
 foreach($str3 as $kk=>$vv){
-if($kk==0||$kk%2==0){
+if($kk!=0&&$kk%2==0){
     $name=trim(explode("</td",$str3[$kk])[0]);
         if(strstr($name,"'>"))
         {
