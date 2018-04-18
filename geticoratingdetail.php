@@ -10,7 +10,7 @@ foreach($data as $k=>$v){
     $url=$data[$k]['icolink'];
 
 //$url="https://icorating.com/ico/crowd-machine/details/";
-    echo $url.'details/';
+    
 $html=file_get_contents_https($url.'details/');
 $str =explode("uk-table",$html)[1];
 $str=explode("Pre-ICO start date:",$str)[1];
@@ -35,8 +35,8 @@ $ICOTokenSupply=getSonString($str,"<td>","</td>");
 $str=explode("Soft cap size:",$str)[1];
 $SoftCap=getSonString($str,"<td>","</td>");
     $str =explode("uk-table",$html)[2];
-$str=explode("Hard cap size:",$html)[1];
-    print_r($html);die;
+$str=explode("Hard cap size:",$str)[1];
+    
 $HardCap=getSonString($str,"<td>","</td>");
  $ICOTokenSupply;
 $str =explode("uk-table",$html)[3];
