@@ -1,6 +1,16 @@
 <?php
 include('bootstraps.php');
-$sql="select * from ico_Analysis where DataSource='icorating' and id NOT in(1296,1297,1299,1300,1302,1303,1304,1305,1306,1307,138,1309,1310,1311,1312,1314,1315,1316,1319,1320,1321,1322,1324,1325,1326,1327,1328,1329,1330,1331,1332,1333,1334,1335,1336,1337,1338,1339,1340,1341,1342,13431344,1345,1346,1347,1348,1349,1352,1353,1355,1357,1358,1359,1360,1361,1362,1363,1364,1365,1366,1367,1368,1369,1371,1373)";
+$sql="select pid from TeamMember group by pid;";
+$list=MySQLGetData($sql);
+$notin="(";
+foreach($list as $kkk=>$vvv){
+$notin.=$list[$kkk]['pid'];
+    if($kkk!=count($list)+1){
+    $notin.=",";
+    }
+}
+$notin.=")";
+$sql="select * from ico_Analysis where DataSource='icorating' and id NOT in $notin";
 //$sql="select * from ico_Analysis as a where a.name <>'' and DataSource='icorating' and a.id not in( select pid from TeamMember)";
 $data=MySQLGetData($sql);
 foreach($data as $k=>$v){
