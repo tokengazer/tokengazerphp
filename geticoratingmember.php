@@ -29,7 +29,9 @@ MySQLRunSQL($sql);
         }
     }
     $founders=explode("<tbody>",$html1)[2];
+    
    $tmparr=explode("<tr>",$founders);
+    print_r($tmparr);
     unset($tmparr[0]);
     if(count($tmparr)==0){
     continue;
