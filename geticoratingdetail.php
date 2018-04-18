@@ -30,7 +30,7 @@ $ICOenddate=getSonString($str,"<td>","</td>");
  $ICOenddate;
 $str =explode("uk-table",$html)[2];
 $str=explode("ICO Token Supply:",$str)[1];
-$ICOTokenSupply=getSonString($str,"<td>","</td>");
+$ICOTokenSupply=(int)getSonString($str,"<td>","</td>");
     $str =explode("uk-table",$html)[2];
 $str=explode("Soft cap size:",$str)[1];
 $SoftCap=getSonString($str,"<td>","</td>");
