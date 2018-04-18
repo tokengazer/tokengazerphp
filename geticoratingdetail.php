@@ -78,9 +78,9 @@ $Tokendistribution=getSonString($str,"<td>","</td>");
 $str =explode("uk-table",$html)[4];
 $str=explode("ICO Platform:",$str)[1];
 $ICOPlatform=getSonString($str,"<td>","</td>");
-    $str =explode("uk-table",$html)[4];print_r($str);die;
-$str=explode("<td>Registration Country:</td>",$str)[1];
     
+$str=explode("<td>Registration Country:</td>",$str)[1];
+    $str =explode("uk-table",$html)[4];print_r($str);die;
 $regin=getSonString($str,"<td>","</td>");
     $str =explode("uk-table",$html)[4];
 $str=explode("Registration Year:",$str)[1];
@@ -124,7 +124,7 @@ $SocialMedia;
     $tmpstr2=explode("\"",$tmpstr1)[0];
     $linkedin=$tmpstr2;
     //$sql="INSERT INTO `app_tokenworm`.`icoratingdetail` (`id`, `pid`, `website`,`whitepaper`,`createtime`, `PreICOstartdate`,`PreICOenddate`, `ICOstartdate`, `ICOenddate`, `ICOTokenSupply`, `Ticker`, `Type`, `TokenStandard`, `AdditionalTokenEmission`, `AcceptedCurrencies`, `BonusProgram`, `Tokendistribution`, `ICOPlatform`, `BugDetection`, `BitcointalkSignatureCampaign`, `Bounty`, `Translation`, `SocialMedia`) VALUES (NULL, ".$data[$k]['id'].",'".$website."','".$whitepaper."', '".date("Y-m-d H:i:s")."', '".$PreICOstartdate."','".$PreICOenddate."', '".$ICOstartdate."', '".$ICOenddate."', '".$ICOTokenSupply."', '".$Ticker."', '".$Type."', '".$TokenStandard."', '".$AdditionalTokenEmission."','".$AcceptedCurrencies."', '".$BonusProgram."', '".$Tokendistribution."', '".$ICOPlatform."', '".$BugDetection."', '".$BitcointalkSignatureCampaign."', '".$Bounty."', '".$Translation."', '".$SocialMedia."');";
-    echo $sql="update ico_Analysis set website='".$website."',whitepaper='".$whitepaper."',Ico_time='".$ICOstartdate."',ticker='".$Ticker."',ICO_HardCap='".$HardCap."',origin='".$regin."',Platform='".$platform."',linkedin='".$linkedin."' where id=".$data[$k]['id']." and DataSource='icorating';";
+    echo $sql="update ico_Analysis set website='".$website."',whitepaper='".$whitepaper."',Ico_time='".$ICOstartdate."',ticker='".$Ticker."',ICO_HardCap='".$HardCap."',origin='".$regin."',Platform='".$ICOPlatform."',linkedin='".$linkedin."' where id=".$data[$k]['id']." and DataSource='icorating';";
     MySQLRunSQL($sql);
 }
 ?>
