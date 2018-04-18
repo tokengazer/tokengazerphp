@@ -79,7 +79,7 @@ $str =explode("uk-table",$html)[4];
 $str=explode("ICO Platform:",$str)[1];
 $ICOPlatform=getSonString($str,"<td>","</td>");
     
-$str=explode("<td>Registration Country:</td>",$str)[1];
+$str=explode("<td>Registration Country:</td>",$html)[1];
     $str =explode("uk-table",$html)[4];print_r($str);die;
 $regin=getSonString($str,"<td>","</td>");
     $str =explode("uk-table",$html)[4];
