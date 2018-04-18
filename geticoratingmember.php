@@ -5,7 +5,7 @@ $list=MySQLGetData($sql);
 $notin="(";
 foreach($list as $kkk=>$vvv){
 $notin.=$list[$kkk]['pid'];
-    if($kkk!=count($list)+1){
+    if($kkk!=count($list)){
     $notin.=",";
     }
 }
