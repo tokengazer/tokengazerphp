@@ -17,64 +17,6 @@ $engcells=explode(",","logo,name,ticker,DataSource,Current_market_value,Current_
 
 export($name.date("Y-m-d")."csv",$cell,$data);
 
-
-
-
-//简单过滤
-function strFilter($str){
-    $str = str_replace('`', '', $str);
-    $str = str_replace('·', '', $str);
-    $str = str_replace('~', '', $str);
-    $str = str_replace('!', '', $str);
-    $str = str_replace('！', '', $str);
-    $str = str_replace('@', '', $str);
-    $str = str_replace('#', '', $str);
-    $str = str_replace('$', '', $str);
-    $str = str_replace('￥', '', $str);
-    $str = str_replace('%', '', $str);
-    $str = str_replace('^', '', $str);
-    $str = str_replace('……', '', $str);
-    $str = str_replace('&', '', $str);
-    $str = str_replace('*', '', $str);
-    $str = str_replace('(', '', $str);
-    $str = str_replace(')', '', $str);
-    $str = str_replace('（', '', $str);
-    $str = str_replace('）', '', $str);
-    $str = str_replace('-', '', $str);
-    $str = str_replace('_', '', $str);
-    $str = str_replace('——', '', $str);
-    $str = str_replace('+', '', $str);
-    $str = str_replace('=', '', $str);
-    $str = str_replace('|', '', $str);
-    $str = str_replace('\\', '', $str);
-    $str = str_replace('[', '', $str);
-    $str = str_replace(']', '', $str);
-    $str = str_replace('【', '', $str);
-    $str = str_replace('】', '', $str);
-    $str = str_replace('{', '', $str);
-    $str = str_replace('}', '', $str);
-    $str = str_replace(';', '', $str);
-    $str = str_replace('；', '', $str);
-    $str = str_replace(':', '', $str);
-    $str = str_replace('：', '', $str);
-    $str = str_replace('\'', '', $str);
-    $str = str_replace('"', '', $str);
-    $str = str_replace('“', '', $str);
-    $str = str_replace('”', '', $str);
-    $str = str_replace(',', '', $str);
-    $str = str_replace('，', '', $str);
-    $str = str_replace('<', '', $str);
-    $str = str_replace('>', '', $str);
-    $str = str_replace('《', '', $str);
-    $str = str_replace('》', '', $str);
-    $str = str_replace('.', '', $str);
-    $str = str_replace('。', '', $str);
-    $str = str_replace('/', '', $str);
-    $str = str_replace('、', '', $str);
-    $str = str_replace('?', '', $str);
-    $str = str_replace('？', '', $str);
-    return trim($str);
-}
 /*function exportExcel($expTitle,$expCellName,$expTableData,$cell=''){
     $xlsTitle = iconv('utf-8', 'gb2312', $expTitle);//文件名称
     $fileName = $expTitle.date('_YmdHis');//or $xlsTitle 文件名称可根据自己情况设定
