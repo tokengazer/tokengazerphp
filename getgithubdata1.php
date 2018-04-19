@@ -6,7 +6,7 @@ $access_tokenlist=['b26b6fe9c7beaba6edf83661c666d3ad5588b35a','764fca41598e100fb
 
 $list=MySQLGetData($sql);
 
-echo $limit=ceil(count($list)/10);
+$limit=ceil(count($list)/10);
 for($i=0;$i<10;$i++){
 
     foreach($list as $k=>$v){
@@ -16,7 +16,7 @@ for($i=0;$i<10;$i++){
         $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
         }
         $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0]."/repos";
-        if($k<=($i+1)*$limit){
+        if($k<=($i+1)*$limit&&$k>$i*$limit){
         $url[$i][$k]['url']=$baseurl;
         }
     }
