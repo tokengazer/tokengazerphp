@@ -50,7 +50,7 @@ exportExcel($name.date("Y-m-d")."csv",$cell,$data);
     $objWriter->save('php://output');
     exit;
 }*/
-    public function exportExcel($expTitle,$expCellName,$expTableData){  
+public function exportExcel($expTitle,$expCellName,$expTableData){  
         $xlsTitle = iconv('utf-8', 'gb2312', $expTitle);//文件名称  
         $fileName = $_SESSION['loginAccount'].date('_YmdHis');//or $xlsTitle 文件名称可根据自己情况设定  
         $cellNum = count($expCellName);  
