@@ -1,8 +1,8 @@
 <?php
 include("PHPExcel/PHPExcel.php");
 include('bootstraps.php');
-if(isset($_POST['name'])) {
-    $name = trim(strFilter($_POST['name']));
+if(isset($_GET['name'])) {
+    $name = trim(strFilter($_GET['name']));
 }else{
     $name=' ';
 }
