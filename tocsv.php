@@ -11,7 +11,7 @@ if(isset($_GET['name'])) {
 
 }
 $data=MySQLGetData($sql);
-$sql="select column_name from information_schema.COLUMNS where table_name='ico_Analysis'";
+$sql="select column_name from COLUMNS where table_name='ico_Analysis'";
 $engcells=$cell=MySQLGetData($sql);
 exportExcel($name.date("Y-m-d")."csv",$engcells,$data);
 function exportExcel($expTitle,$expCellName,$expTableData){
