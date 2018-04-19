@@ -18,14 +18,14 @@ foreach($list as $k=>$v){
         for($i=0;$i<10;$i++){
         if($k<=($i+1)*$limit&&$k>$i*$limit){
         $url[$i][$k]['url']=$baseurl;
-            $url[$i][$k]['token']=$access_token[$i];
+            echo $url[$i][$k]['token']=$access_token[$i];
             if(count($url[$i])==$limit){
             continue;
             }
         }
     }
     
-}
+}die;
 $mh = curl_multi_init();  
 foreach($url as $kk=>$vv){
     foreach($url[$kk] as $kkk=>$vvv){
