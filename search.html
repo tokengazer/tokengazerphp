@@ -66,7 +66,7 @@
     $name=$('#name').val();
         if($name!=''){
         $.ajax({
-        url:'searchapi.php';,
+        url:'searchapi.php',
             method:"POST",
             data:{name:name},
                success:function(res){
