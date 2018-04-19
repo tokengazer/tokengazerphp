@@ -75,7 +75,7 @@ print_r($url);/*
     MySQLRunSQL($sql);
     }*/
     
-}
+//}
 function curls($url){
     $headers = array(
         'Authorization:token  b26b6fe9c7beaba6edf83661c666d3ad5588b35a',
