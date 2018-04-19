@@ -1,7 +1,7 @@
 <?php
 include('bootstraps.php');
 $name=strFilter($_POST['name']);
-$sql="select * from ico_Analysis as a ,TeamMember as t,a.id=t.pid where a.name like '%$name%' ;";
+$sql="select * from ico_Analysis as a ,TeamMember where a.id=t.pid a.name like '%$name%' ;";
 $data=MySQLGetData($sql);
 if(count($data)==0){
 $re['erroCode']=-1;
