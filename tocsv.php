@@ -75,7 +75,7 @@ function strFilter($str){
     $str = str_replace('？', '', $str);
     return trim($str);
 }
-function exportExcel($expTitle,$expCellName,$expTableData,$cell=''){
+/*function exportExcel($expTitle,$expCellName,$expTableData,$cell=''){
     $xlsTitle = iconv('utf-8', 'gb2312', $expTitle);//文件名称
     $fileName = $expTitle.date('_YmdHis');//or $xlsTitle 文件名称可根据自己情况设定
     $cellNum = count($expCellName);
@@ -107,8 +107,8 @@ function exportExcel($expTitle,$expCellName,$expTableData,$cell=''){
     $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
     $objWriter->save('php://output');
     exit;
-}
- static function export($title,$map,$data,$firstRow){  
+}*/
+public static function export($title,$map,$data,$firstRow){  
 //如果要导出xls而不是xlsx，则改为require_once 'PHPExcel/Writer/Excel5.php';  
   
             $objPHPExcel = new PHPExcel();  
