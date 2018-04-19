@@ -29,18 +29,17 @@ foreach($list as $k=>$v){
 $mh = curl_multi_init();  
 foreach($url as $kk=>$vv){
     foreach($url[$kk] as $kkk=>$vvv){
-	$conn[$i] = curl_init($url[$kk][$kkk]['url']);   
-      curl_setopt($conn[$i], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");   
-      curl_setopt($conn[$i], CURLOPT_HEADER ,0);   
-      curl_setopt($conn[$i], CURLOPT_CONNECTTIMEOUT,60);   
-      curl_setopt($conn[$i], CURLOPT_FILE,$st); // 设置将爬取的代码写入文件   
-      curl_multi_add_handle ($mh,$conn[$i]); 
+	$conn[$kk] = curl_init($url[$kk][$kkk]['url']);   
+      curl_setopt($conn[$kk], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");   
+      curl_setopt($conn[$kk], CURLOPT_HEADER ,0);   
+      curl_setopt($conn[$kk], CURLOPT_CONNECTTIMEOUT,60);   
+      curl_multi_add_handle ($mh,$conn[$kk]); 
         $headers = array(
         'Authorization:token  '.$url[$kk][$kkk]['token'].'',
         'Accept:application/vnd.github.hellcat-preview+json',
         'User-Agent: Awesome-Octocat-App',
     );
-        curl_setopt($conn[$i], CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($conn[$kk], CURLOPT_HTTPHEADER, $headers);
         
     }
 }
@@ -49,10 +48,11 @@ do {
   curl_multi_exec($mh,$active);   
 } while ($active);  // 执行   
      
-foreach ($urls as $i => $url) {   
-  curl_multi_remove_handle($mh,$conn[$i]);   
-  curl_close($conn[$i]);   
-} // 结束清理   
+foreach($url as $kk=>$vv){
+    foreach($url[$kk] as $kkk=>$vvv){
+	curl_multi_remove_handle($mh,$conn[$kk]);   
+  curl_close($conn[$kk]);   
+}} // 结束清理   
      
 curl_multi_close($mh);   
 }
