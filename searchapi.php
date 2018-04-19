@@ -3,7 +3,7 @@ include('bootstraps.php');
 $name=trim(strFilter($_POST['name']));
 $sql="select a.* from ico_Analysis as a ,b.name,b.pid,b.headimg,b.linkedinurl from TeamMember asb where a.name like '%$name%' and a.id=b.pid;";
 $data=MySQLGetData($sql);
-if(count($data)==0){=
+if(count($data)==0){
 $re['erroCode']=-1;
     $re['count']=0;
 }else{
