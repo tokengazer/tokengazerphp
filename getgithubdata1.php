@@ -5,8 +5,8 @@ $access_tokenlist=['b26b6fe9c7beaba6edf83661c666d3ad5588b35a','764fca41598e100fb
     //echo count($access_tokenlist);die;
 
 $list=MySQLGetData($sql);
-echo count($list);
-$limit=ceil(count($list)/10);
+
+echo $limit=ceil(count($list)/10);
 for($i=0;$i<10;$i++){
 
     foreach($list as $k=>$v){
