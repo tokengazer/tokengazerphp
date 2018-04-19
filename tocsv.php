@@ -11,9 +11,8 @@ if(isset($_GET['name'])) {
 
 }
 $data=MySQLGetData($sql);
-$cells="id,logo,name,ticker,DataSource,Current_market_value,Current_Single_Price,Current_Circulation,Circulation_unit,Total_Count,Twitter_Fanscount,Facebook_Friends,Telegram_fans,Github_url,GithubCommits,GithubStars,GithubWatches,GithubForks,Github_lastupdatetime,Ico_time,ICO_Price_Usd,ICO_Price_ETH,ICO_Distribution_Ratio,Presales,ICO_Total_Amount,ICO_TotalCount,ICO_HardCap,ICO_Raise_money,Business,Technology,Team,Token,Operation,members,origin,whitepaper,website,cannotareas,Platform,icolink,linkedin";
-$cell=explode(',',$cells);
-$engcells=explode(",","id,logo,name,ticker,DataSource,Current_market_value,Current_Single_Price,Current_Circulation,Circulation_unit,Total_Count,Twitter_Fanscount,Facebook_Friends,Telegram_fans,Github_url,GithubCommits,GithubStars,GithubWatches,GithubForks,Github_lastupdatetime,Ico_time,ICO_Price_Usd,ICO_Price_ETH,ICO_Distribution_Ratio,Presales,ICO_Total_Amount,ICO_TotalCount,ICO_HardCap,ICO_Raise_money,Business,Technology,Team,Token,Operation,members,origin,whitepaper,website,cannotareas,Platform,icolink,linkedin");
+$sql="select column_name from information_schema.COLUMNS where table_name='ico_Analysis'";
+$engcells=$cell=MySQLGetData($sql);
 exportExcel($name.date("Y-m-d")."csv",$engcells,$data);
 function exportExcel($expTitle,$expCellName,$expTableData){
     $xlsTitle = iconv('utf-8', 'gb2312', $expTitle);
