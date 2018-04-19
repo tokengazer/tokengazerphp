@@ -2,9 +2,11 @@
 include("PHPExcel/PHPExcel.php");
 include('bootstraps.php');
 if(isset($_GET['name'])) {
+    $name=$_GET['name'];
     $sql="select a.*,b.name as founder,b.headimg,b.linkedinurl,b.role from ico_Analysis as a left join TeamMember as b on a.id=b.pid where a.name like '%$name%' ;";
 
 }else{
+    $name='AllIco';
    $sql="select a.* from ico_Analysis as a  ;";
 
 }
