@@ -25,7 +25,7 @@ foreach($list as $k=>$v){
         }
     }
     
-}die;
+}
 $mh = curl_multi_init();  
 foreach($url as $kk=>$vv){
     foreach($url[$kk] as $kkk=>$vvv){
