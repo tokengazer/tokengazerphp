@@ -50,7 +50,7 @@ export($name.date("Y-m-d")."csv",$cell,$data);
     $objWriter->save('php://output');
     exit;
 }*/
-public static function export($title,$map,$data,$firstRow){
+function export($title,$map,$data,$firstRow){
     $objPHPExcel = new PHPExcel();
     $objPHPExcel->getProperties()->setCreator('http://www.style.net')
         ->setLastModifiedBy('http://www.style.net')
