@@ -4,13 +4,23 @@ $sql="select id, Github_url from ico_Analysis where Github_url <> '' and Github_
 $access_tokenlist=['b26b6fe9c7beaba6edf83661c666d3ad5588b35a','764fca41598e100fb730e919f2c8793e4a0ceecf','e29a49e909d16af8b8585546e30f95ac0d073c7b','4e576749984599118e4d08c60cb671b1fb8b42cd','0bafb53c51a442f703305a6efa89110d9d1cb432','bf36187659ed6a982026b6b98b7b5c29b8c0ce58','000d0b14d5c3679189027db01830f15185acd80a','7fb8e14f38be5e329c5fd91f53500bddaa79c389','3d17e08990a655987ef012323d96781965b5bed8','af3fdfd6abbc63e62f14309883528ae54f3dfe21'];
     echo count($access_tokenlist);die;
 $list=MySQLGetData($sql);
-foreach($list as $k=>$v){
-//$list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
-    $baseurl=str_replace("https://github.com/","",$list[$k]['Github_url']);
-    if(strrpos($baseurl,",")==strlen($baseurl)-1){
-    $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
+$limit=ceil(count($list)/10);
+for($i=0;$i<10;$i++){
+
+    foreach($list as $k=>$v){
+    //$list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
+        $baseurl=str_replace("https://github.com/","",$list[$k]['Github_url']);
+        if(strrpos($baseurl,",")==strlen($baseurl)-1){
+        $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
+        }
+        $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0]."/repos";
+        if($k<=($i+1)*$limit){
+        $url[$i][$k]['url']=$baseurl;
+        }
     }
-    $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0]."/repos";
+    
+}
+print_r($url);/*
     $results=json_decode(curls($baseurl),true);;
     //print_r(curls($baseurl));
     $forks=$watchers=$stars=$commits=0;
