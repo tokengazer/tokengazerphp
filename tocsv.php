@@ -5,7 +5,7 @@ if(isset($_GET['name'])) {
     $sql="select a.*,b.name as founder,b.headimg,b.linkedinurl,b.role from ico_Analysis as a left join TeamMember as b on a.id=b.pid where a.name like '%$name%' ;";
 
 }else{
-   $sql="select a.*,b.name as founder,b.headimg,b.linkedinurl,b.role from ico_Analysis as a left join TeamMember as b on a.id=b.pid ;";
+   $sql="select a.* from ico_Analysis as a  ;";
 
 }
 $data=MySQLGetData($sql);
