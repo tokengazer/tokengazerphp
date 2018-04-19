@@ -64,9 +64,7 @@ function export($title,$map,$data,$firstRow){
         $objPHPExcel->getActiveSheet()->getStyle($k.'1')->getFont()->setBold(true);
         $objPHPExcel->getActiveSheet()->getStyle($k.'1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
     }
-    foreach ($firstRow as $k=>$v){
-        $objPHPExcel->setActiveSheetIndex(0)->setCellValue($k,$v);
-    }
+    
     $i = 2;
     foreach ($data as $k=>$v) {
         foreach ($map as $col=>$name) {
