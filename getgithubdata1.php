@@ -48,14 +48,14 @@ print_r($url);/*
         }
         
     }*/
-    }
+   /* }
     
     
     echo $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$watchers.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$k]['id'];
     /*if($k==0){
     break;
     }*/
-    MySQLRunSQL($sql);
+    /*MySQLRunSQL($sql);
     $forks=$watches=$stars=$commits=0;
     /*if(strrpos($baseurl,"/")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
