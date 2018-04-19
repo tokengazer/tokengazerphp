@@ -108,6 +108,7 @@
         $.ajax({
         url:'searchapi.php',
             method:"POST",
+            dataType:"json",
             data:{name:$name1},
                success:function(res){
                    if(res.erroCode==-1){
