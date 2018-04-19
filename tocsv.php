@@ -108,7 +108,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$cell=''){
     $objWriter->save('php://output');
     exit;
 }
-public static function export($title,$map,$data,$firstRow){  
+ static function export($title,$map,$data,$firstRow){  
 //如果要导出xls而不是xlsx，则改为require_once 'PHPExcel/Writer/Excel5.php';  
   
             $objPHPExcel = new PHPExcel();  
