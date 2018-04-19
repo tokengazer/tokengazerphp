@@ -4,7 +4,7 @@ include('bootstraps.php');
 if(isset($_POST['name'])) {
     $name = trim(strFilter($_POST['name']));
 }else{
-    $name='';
+    $name=' ';
 }
 $sql="select a.*,b.name as founder,b.headimg,b.linkedinurl,b.role from ico_Analysis as a left join TeamMember as b on a.id=b.pid where a.name like '%$name%' ;";
 $data=MySQLGetData($sql);
