@@ -51,10 +51,10 @@ do {
     $forks=$watchers=$stars=$commits=0;
     $lastupdatetime="2000-04-10 0:0:0";
     $commits=0;
-    
-    foreach($results as $kk=>$vv){
-        $url=$results[$kk]['url'];
-        $re=json_decode(curls($url),true);
+    $round=floor(rand(0,9));
+    foreach($results as $cc=>$dd){
+        $url=$results[$cc]['url'];
+        $re=json_decode(curls($url,$access_tokenlist[$round]),true);
     $forks+=$re['network_count'];
         $stars+=$re['stargazers_count'];
     $watchers+=$re['subscribers_count'];
