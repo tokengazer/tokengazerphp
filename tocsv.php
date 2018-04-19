@@ -3,11 +3,11 @@ include("PHPExcel/PHPExcel.php");
 include('bootstraps.php');
 if(isset($_GET['name'])) {
     $name=$_GET['name'];
-    $sql="select a.* from ico_Analysis as a  where a.name like '%$name%' ;";
+    $sql="select * from ico_Analysis where name like '%$name%' ;";
 
 }else{
     $name='AllIco';
-   $sql="select a.* from ico_Analysis as a  ;";
+   $sql="select * from ico_Analysis;";
 
 }
 $data=MySQLGetData($sql);
