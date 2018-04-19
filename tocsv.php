@@ -2,15 +2,17 @@
 include("PHPExcel/PHPExcel.php");
 include('bootstraps.php');
 if(isset($_GET['name'])) {
-    $name = trim(strFilter($_GET['name']));
+    $sql="select a.*,b.name as founder,b.headimg,b.linkedinurl,b.role from ico_Analysis as a left join TeamMember as b on a.id=b.pid where a.name like '%$name%' ;";
+
 }else{
-    $name=' ';
+   $sql="select a.*,b.name as founder,b.headimg,b.linkedinurl,b.role from ico_Analysis as a left join TeamMember as b on a.id=b.pid ;";
+
 }
 $sql="select a.*,b.name as founder,b.headimg,b.linkedinurl,b.role from ico_Analysis as a left join TeamMember as b on a.id=b.pid where a.name like '%$name%' ;";
 $data=MySQLGetData($sql);
-$cells="Logo,Name,ticker,DataSource,Current_market_value,Current_Single_Price,Current_Circulation,Circulation_unit,Total_Count,Twitter_Fanscount,Facebook_Friends,Telegram_fans,Github_url,GithubCommits,GithubStars,GithubWatches,GithubForks,Github_lastupdatetime,Ico_time,ICO_Price_Usd,ICO_Price_ETH,ICO_Distribution_Ratio,Presales,ICO_Total_Amount,ICO_TotalCount,ICO_HardCap,ICO_Raise_money,Business,Technology,Team,Token,Operation,members,origin,whitepaper,website,cannotareas,Platform,icolink,linkedin";
+$cells="Name,ticker,DataSource,Current_market_value,Current_Single_Price,Current_Circulation,Circulation_unit,Total_Count,Twitter_Fanscount,Facebook_Friends,Telegram_fans,Github_url,GithubCommits,GithubStars,GithubWatches,GithubForks,Github_lastupdatetime,Ico_time,ICO_Price_Usd,ICO_Price_ETH,ICO_Distribution_Ratio,Presales,ICO_Total_Amount,ICO_TotalCount,ICO_HardCap,ICO_Raise_money,Business,Technology,Team,Token,Operation,members,origin,whitepaper,website,cannotareas,Platform,icolink,linkedin";
 $cell=explode(',',$cells);
-$engcells=explode(",","Logo,Name,ticker,DataSource,Current_market_value,Current_Single_Price,Current_Circulation,Circulation_unit,Total_Count,Twitter_Fanscount,Facebook_Friends,Telegram_fans,Github_url,GithubCommits,GithubStars,GithubWatches,GithubForks,Github_lastupdatetime,Ico_time,ICO_Price_Usd,ICO_Price_ETH,ICO_Distribution_Ratio,Presales,ICO_Total_Amount,ICO_TotalCount,ICO_HardCap,ICO_Raise_money,Business,Technology,Team,Token,Operation,members,origin,whitepaper,website,cannotareas,Platform,icolink,linkedin");
+$engcells=explode(",","Name,ticker,DataSource,Current_market_value,Current_Single_Price,Current_Circulation,Circulation_unit,Total_Count,Twitter_Fanscount,Facebook_Friends,Telegram_fans,Github_url,GithubCommits,GithubStars,GithubWatches,GithubForks,Github_lastupdatetime,Ico_time,ICO_Price_Usd,ICO_Price_ETH,ICO_Distribution_Ratio,Presales,ICO_Total_Amount,ICO_TotalCount,ICO_HardCap,ICO_Raise_money,Business,Technology,Team,Token,Operation,members,origin,whitepaper,website,cannotareas,Platform,icolink,linkedin");
 
 exportExcel($name.date("Y-m-d")."csv",$cell,$data,$engcells);
 
