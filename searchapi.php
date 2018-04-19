@@ -1,6 +1,6 @@
 <?php
 include('bootstraps.php');
-$name=strFilter($_POST['name']);
+$name=trim(strFilter($_POST['name']));
 $sql="select * from ico_Analysis as a ,TeamMember where a.id=t.pid a.name like '%$name%' ;";
 $data=MySQLGetData($sql);
 if(count($data)==0){
