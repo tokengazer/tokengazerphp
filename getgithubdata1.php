@@ -55,7 +55,7 @@ foreach($url as $kk=>$vv){
 }} // 结束清理   
      
 curl_multi_close($mh);   
-}
+
 print_r($url);/*
     $results=json_decode(curls($baseurl),true);;
     //print_r(curls($baseurl));
