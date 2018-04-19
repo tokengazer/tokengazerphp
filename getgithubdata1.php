@@ -77,7 +77,7 @@ do {
     /*if($k==0){
     break;
     }*/
-    MySQLRunSQL($sql);
+    //MySQLRunSQL($sql);
     $forks=$watches=$stars=$commits=0;
     if(strrpos($baseurl,"/")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
