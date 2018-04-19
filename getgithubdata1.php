@@ -45,7 +45,8 @@ foreach($url as $kk=>$vv){
 }
      
 do {   
-  curl_multi_exec($mh,$active);   
+  $re=curl_multi_exec($mh,$active); 
+    print_r($re);
 } while ($active);  // 执行   
      
 foreach($url as $kk=>$vv){
