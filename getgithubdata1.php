@@ -6,7 +6,7 @@ $access_tokenlist=['b26b6fe9c7beaba6edf83661c666d3ad5588b35a','764fca41598e100fb
 
 $list=MySQLGetData($sql);
 
-$limit=ceil(count($list)/10)
+$limit=ceil(count($list)/10);
 
 foreach($list as $k=>$v){
     //$list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
