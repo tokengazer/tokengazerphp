@@ -24,9 +24,9 @@
   
   <div class="col-lg-6">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search for...">
+      <input type="text" id="name" class="form-control" placeholder="Search for...">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
+        <button class="btn btn-default" onclick="search()"type="button">Go!</button>
       </span>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
@@ -61,6 +61,22 @@
         </tr>
       </tbody>
 </table>
-    
+    <script>
+    function search(){
+    $name=$('#name').val();
+        if($name!=''){
+        $.ajax({
+        url:'searchapi.php';,
+            method:"POST",
+            data:{name:name},
+               success:function(res){
+        console.log(res);
+        }
+        
+        
+        })
+        }
+    }
+    </script>
     </body>
 </html>
