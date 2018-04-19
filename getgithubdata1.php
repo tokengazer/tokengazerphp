@@ -18,7 +18,7 @@ foreach($list as $k=>$v){
         for($i=0;$i<10;$i++){
         if($k<=($i+1)*$limit&&$k>$i*$limit){
         $url[$i][$k]['url']=$baseurl;
-            echo $url[$i][$k]['token']=$access_tokenlist[$i];
+            $url[$i][$k]['token']=$access_tokenlist[$i];
             if(count($url[$i])==$limit){
             continue;
             }
@@ -46,7 +46,47 @@ foreach($url as $kk=>$vv){
      
 do {   
   $re=curl_multi_exec($mh,$active); 
-    print_r($re);
+    $results=json_decode($re,true);;
+    //print_r(curls($baseurl));
+    $forks=$watchers=$stars=$commits=0;
+    $lastupdatetime="2000-04-10 0:0:0";
+    $commits=0;
+    
+    foreach($results as $kk=>$vv){
+        $url=$results[$kk]['url'];
+        $re=json_decode(curls($url),true);
+    $forks+=$re['network_count'];
+        $stars+=$re['stargazers_count'];
+    $watchers+=$re['subscribers_count'];
+       $lastupdatetime=bijiaotimes($lastupdatetime,$results[$kk]['pushed_at']);
+        $commits=0;
+    for($i=0;$i<5;$i++){
+      $url="https://api.github.com/repos/bitcoin/bitcoin/contributors?page=".$i."&per_page=100";
+        $res=json_decode(curls($url),true);
+        foreach($res as $kkk=>$vvv){
+        $commits+=$res[$kkk]['contributions'];
+             $res[$kkk]['contributions']."<br/>";
+        }
+        if(count($res)==0){
+            echo $commits;
+        break 1;
+        }
+        
+    }}
+    echo $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$watchers.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$k]['id'];
+    /*if($k==0){
+    break;
+    }*/
+    MySQLRunSQL($sql);
+    $forks=$watches=$stars=$commits=0;
+    if(strrpos($baseurl,"/")==strlen($baseurl)-1){
+    $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
+    }
+    $data=json_decode(curls($baseurl),true);;
+    if(isset($data['message'])){
+    //continue;
+       // echo $baseurl.",</br>";
+    }
 } while ($active);  // 执行   
      
 foreach($url as $kk=>$vv){
@@ -57,7 +97,7 @@ foreach($url as $kk=>$vv){
      
 curl_multi_close($mh);   
 
-print_r($url);/*
+/*
     $results=json_decode(curls($baseurl),true);;
     //print_r(curls($baseurl));
     $forks=$watchers=$stars=$commits=0;
