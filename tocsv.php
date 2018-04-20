@@ -65,7 +65,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
             if($key != 'img'){
                 $objActSheet->setCellValue("$letter[$j]$i",$value);
             }
-            unset($key);
+            
             $j++;
         }
         
@@ -75,7 +75,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
         header('Content-Type: application/vnd.ms-excel');
     //下载的excel文件名称，为Excel5，后缀为xls，不过影响似乎不大
     $savefile=$expTitle;
-    header('Content-Disposition: attachment;filename="' . $savefile . '.CSV"');
+    header('Content-Disposition: attachment;filename="' . $savefile.$k . '.CSV"');
     header('Cache-Control: max-age=0');
     // 用户下载excel
     $objWriter = PHPExcel_IOFactory::createWriter($excel, 'CSV');
