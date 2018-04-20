@@ -64,7 +64,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
             if($key != 'img'){
                 $objActSheet->setCellValue("$letter[$j]$i",$value);
             }
-            unset($expTableData[$i - 2]);
+            unset($expTableData[$key]);
             $j++;
         }
         
