@@ -1,6 +1,7 @@
 <?php
 include("PHPExcel/PHPExcel.php");
 include('bootstraps.php');
+ini_set('memory_limit','256M');
 if(isset($_GET['name'])) {
     $name=$_GET['name'];
     $sql="select * from ico_Analysis where name like '%$name%' ;";
