@@ -1,5 +1,4 @@
 <?php
-include("PHPExcel/PHPExcel.php");
 include('bootstraps.php');
 if(isset($_GET['name'])) {
     $name=$_GET['name'];
@@ -10,6 +9,8 @@ if(isset($_GET['name'])) {
    $sql="select * from ico_Analysis where id=1;";
 
 }
+include("PHPExcel/PHPExcel.php");
+
 $data=MySQLGetData($sql);
 $cells="logo,name,ticker,DataSource,Current_market_value,Current_Single_Price,Current_Circulation,Circulation_unit,Total_Count,Twitter_Fanscount,Facebook_Friends,Telegram_fans,Github_url,GithubCommits,GithubStars,GithubWatches,GithubForks,Github_lastupdatetime,Ico_time,ICO_Price_Usd,ICO_Price_ETH,ICO_Distribution_Ratio,Presales,ICO_Total_Amount,ICO_TotalCount,ICO_HardCap,ICO_Raise_money,Business,Technology,Team,Token,Operation,members,origin,whitepaper,website,cannotareas,Platform,icolink,linkedin";
 $cell=explode(',',$cells);
