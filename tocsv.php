@@ -50,7 +50,7 @@ function exportExcel($expTitle,$expCellName,$expTableData=array(),$engcell){
     $objActSheet->getColumnDimension('D')->setWidth(15);
     $getrows="select count(*) from ico_Analysis ";
     $count=MySQLGetData($getrows);
-    $count=$count[0['count(*)']];
+    $count=$count[0]['count(*)'];
     //这里$i初始值设置为2，$j初始值设置为0，自己体会原因
     $pages=floor($count/500);
     //echo $pages;die;
