@@ -18,92 +18,82 @@ $cell=explode(',',$cells);
 $engcells=explode(",","logo,name,ticker,DataSource,Current_market_value,Current_Single_Price,Current_Circulation,Circulation_unit,Total_Count,Twitter_Fanscount,Facebook_Friends,Telegram_fans,Github_url,GithubCommits,GithubStars,GithubWatches,GithubForks,Github_lastupdatetime,Ico_time,ICO_Price_Usd,ICO_Price_ETH,ICO_Distribution_Ratio,Presales,ICO_Total_Amount,ICO_TotalCount,ICO_HardCap,ICO_Raise_money,Business,Technology,Team,Token,Operation,members,origin,whitepaper,website,cannotareas,Platform,icolink,linkedin");
 exportExcel($name.date("Y-m-d")."csv",$engcells,$data,$engcell);
 function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
-    $xlsTitle = iconv('utf-8', 'gb2312', $expTitle);
-    $fileName = date('_YmdHis');
-    $objPHPExcel = new PHPExcel();
-
-    /*$cellNum = count($expCellName);
-    $dataNum = count($expTableData);
-    $objPHPExcel = new PHPExcel();
-    $cellName=$engcell;// = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','AA','AB','AC','AD','AE','AF','AG','AH','AI','AJ','AK','AL','AM','AN','AO','AP','AQ','AR','AS','AT','AU','AV','AW','AX','AY','AZ');
-
-    $objPHPExcel->getActiveSheet(0)->mergeCells('A1:'.$cellName[$cellNum-1].'1');
-    $objPHPExcel->setActiveSheetIndex(0)->setCellValue('A1', $expTitle.'  Export time:'.date('Y-m-d H:i:s'));
-    for($i=0;$i<$cellNum;$i++){
-        $objPHPExcel->setActiveSheetIndex(0)->setCellValue($cellName[$i].'2', $expCellName[$i][1]);
-    }
-    for($i=0;$i<$dataNum;$i++){
-        for($j=0;$j<$cellNum;$j++){
-            $objPHPExcel->getActiveSheet(0)->setCellValue($cellName[$j].($i+3), $expTableData[$i][$expCellName[$j][0]]);
+    $excel = new PHPExcel();
+        
+        //设置excel属性
+        $objActSheet = $excel->getActiveSheet();
+        //根据有生成的excel多少列，$letter长度要大于等于这个值
+        $letter = array('A','B','C','D','E','F','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','AA','AB','AC','AD','AE','AF','AG');
+        //设置当前的sheet
+        $excel->setActiveSheetIndex(0);
+        //设置sheet的name
+        $objActSheet->setTitle('TEST');
+        //设置表头
+        for($i = 0;$i < count($expCellName);$i++) {
+            //单元宽度自适应,1.8.1版本phpexcel中文支持勉强可以，自适应后单独设置宽度无效
+            //$objActSheet->getColumnDimension("$letter[$i]")->setAutoSize(true); 
+            //设置表头值，这里的setCellValue第二个参数不能使用iconv，否则excel中显示false
+            $objActSheet->setCellValue("$letter[$i]1",$fileheader[$i]); 
+            //设置表头字体样式
+            $objActSheet->getStyle("$letter[$i]1")->getFont()->setName('微软雅黑');
+            //设置表头字体大小
+            $objActSheet->getStyle("$letter[$i]1")->getFont()->setSize(12);
+            //设置表头字体是否加粗
+            $objActSheet->getStyle("$letter[$i]1")->getFont()->setBold(true);
+            //设置表头文字垂直居中
+            $objActSheet->getStyle("$letter[$i]1")->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+            //设置文字上下居中
+            $objActSheet->getStyle($letter[$i])->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+            //设置表头外的文字垂直居中
+            $excel->setActiveSheetIndex(0)->getStyle($letter[$i])->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
         }
-    }
-    header('pragma:public');
-    header('Content-type:application/vnd.ms-excel;charset=utf-8;name="'.$xlsTitle.'.xls"');
-    header("Content-Disposition:attachment;filename=$fileName.xls");
-    $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-    $objWriter->save('php://output');
-    exit;*/
-    //定义配置
-    $topNumber = 2;//表头有几行占用
-    $xlsTitle = iconv('utf-8', 'gb2312', $expTitle);//文件名称
-    $fileName = $expTitle.date('_YmdHis');//文件名称
-    $cellKey = $expCellName;
-
-    //写在处理的前面（了解表格基本知识，已测试）
-//     $objPHPExcel->getActiveSheet()->getDefaultRowDimension()->setRowHeight(20);//所有单元格（行）默认高度
-//     $objPHPExcel->getActiveSheet()->getDefaultColumnDimension()->setWidth(20);//所有单元格（列）默认宽度
-//     $objPHPExcel->getActiveSheet()->getRowDimension('1')->setRowHeight(30);//设置行高度
-//     $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(30);//设置列宽度
-//     $objPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setSize(18);//设置文字大小
-//     $objPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setBold(true);//设置是否加粗
-//     $objPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->getColor()->setARGB(PHPExcel_Style_Color::COLOR_WHITE);// 设置文字颜色
-//     $objPHPExcel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);//设置文字居左（HORIZONTAL_LEFT，默认值）中（HORIZONTAL_CENTER）右（HORIZONTAL_RIGHT）
-//     $objPHPExcel->getActiveSheet()->getStyle('A1')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);//垂直居中
-//     $objPHPExcel->getActiveSheet()->getStyle('A1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);//设置填充颜色
-//     $objPHPExcel->getActiveSheet()->getStyle('A1')->getFill()->getStartColor()->setARGB('FF7F24');//设置填充颜色
-
-    //处理表头标题
-    $objPHPExcel->getActiveSheet()->mergeCells('A1:'.$cellKey[count($expCellName)-1].'1');//合并单元格（如果要拆分单元格是需要先合并再拆分的，否则程序会报错）
-//处理表头
-    foreach ($expCellName as $k=>$v)
-    {
-        $objPHPExcel->setActiveSheetIndex(0)->setCellValue($cellKey[$k].$topNumber, $v[1]);//设置表头数据
-        $objPHPExcel->getActiveSheet()->freezePane($cellKey[$k].($topNumber+1));//冻结窗口
-        $objPHPExcel->getActiveSheet()->getStyle($cellKey[$k].$topNumber)->getFont()->setBold(true);//设置是否加粗
-        $objPHPExcel->getActiveSheet()->getStyle($cellKey[$k].$topNumber)->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);//垂直居中
-        if($v[3] > 0)//大于0表示需要设置宽度
-        {
-            $objPHPExcel->getActiveSheet()->getColumnDimension($cellKey[$k])->setWidth($v[3]);//设置列宽度
-        }
-    }
-    //处理数据
-    foreach ($expTableData as $k=>$v)
-    {
-        foreach ($cellName as $k1=>$v1)
-        {die;
-            $objPHPExcel->getActiveSheet()->setCellValue($cellKey[$k1].($k+1+$topNumber), $v[$v1[0]]);
-            if($v['end'] > 0)
-            {
-                if($v1[2] == 1)//这里表示合并单元格
-                {
-                    $objPHPExcel->getActiveSheet()->mergeCells($cellKey[$k1].$v['start'].':'.$cellKey[$k1].$v['end']);
-                    $objPHPExcel->getActiveSheet()->getStyle($cellKey[$k1].$v['start'])->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+        //单独设置D列宽度为15
+        $objActSheet->getColumnDimension('D')->setWidth(15);
+        //这里$i初始值设置为2，$j初始值设置为0，自己体会原因
+        for ($i = 2;$i <= count($expTableData) + 1;$i++) {
+            $j = 0;
+            foreach ($expTableData[$i - 2] as $key=>$value) {
+                //不是图片时将数据加入到excel，这里数据库存的图片字段是img
+                if($key != 'img'){
+                    $objActSheet->setCellValue("$letter[$j]$i",$value);
                 }
+                //是图片是加入图片到excel
+                if($key == 'img'){
+                    if($value != ''){
+                        $value = iconv("UTF-8","GB2312",$value); //防止中文命名的文件
+                        // 图片生成
+                        $objDrawing[$key] = new PHPExcel_Worksheet_Drawing();
+                        // 图片地址
+                        $objDrawing[$key]->setPath('.\Uploads'.$value);
+                        // 设置图片宽度高度
+                        $objDrawing[$key]->setHeight('80px'); //照片高度
+                        $objDrawing[$key]->setWidth('80px'); //照片宽度
+                        // 设置图片要插入的单元格
+                        $objDrawing[$key]->setCoordinates('D'.$i);
+                        // 图片偏移距离
+                        $objDrawing[$key]->setOffsetX(12);
+                        $objDrawing[$key]->setOffsetY(12);
+                        //下边两行不知道对图片单元格的格式有什么作用，有知道的要告诉我哟^_^
+                        //$objDrawing[$key]->getShadow()->setVisible(true);
+                        //$objDrawing[$key]->getShadow()->setDirection(50);
+                        $objDrawing[$key]->setWorksheet($objActSheet);
+                    }
+                }
+                $j++;
             }
-            if($v1[4] != "" && in_array($v1[4], array("LEFT","CENTER","RIGHT")))
-            {
-                $v1[4] = eval('return PHPExcel_Style_Alignment::HORIZONTAL_'.$v1[4].';');
-                //这里也可以直接传常量定义的值，即left,center,right；小写的strtolower
-                $objPHPExcel->getActiveSheet()->getStyle($cellKey[$k1].($k+1+$topNumber))->getAlignment()->setHorizontal($v1[4]);
-            }
+            //设置单元格高度，暂时没有找到统一设置高度方法
+            $objActSheet->getRowDimension($i)->setRowHeight('80px');
         }
-    }
-    //导出execl
-    header('pragma:public');die;
-    header('Content-type:application/vnd.ms-excel;charset=utf-8;name="'.$xlsTitle.'.xls"');
-    header("Content-Disposition:attachment;filename=$fileName.xls");//attachment新窗口打印inline本窗口打印
-    $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-    $objWriter->save('php://output');
-    exit;
+        header('Content-Type: application/vnd.ms-excel');
+        //下载的excel文件名称，为Excel5，后缀为xls，不过影响似乎不大
+        header('Content-Disposition: attachment;filename="' . $savefile . '.xlsx"'); 
+        header('Cache-Control: max-age=0');
+        // 用户下载excel
+        $objWriter = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
+        $objWriter->save('php://output');
+        // 保存excel在服务器上
+        //$objWriter = new PHPExcel_Writer_Excel2007($excel);
+        //或者$objWriter = new PHPExcel_Writer_Excel5($excel);
+        //$objWriter->save("保存的文件地址/".$savefile);
 }
 ?>
