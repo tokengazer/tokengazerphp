@@ -1,5 +1,6 @@
 <?php
 include('bootstraps.php');
+ini_set (‘memory_limit’, ‘128M’)
 if(isset($_GET['name'])) {
     $name=$_GET['name'];
    echo $sql="select * from ico_Analysis where name like '%$name%' ;";die;
