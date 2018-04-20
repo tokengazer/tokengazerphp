@@ -48,7 +48,7 @@ function exportExcel($expTitle,$expCellName,$expTableData=array(),$engcell){
     }
     //单独设置D列宽度为15
     $objActSheet->getColumnDimension('D')->setWidth(15);
-    $getrows="select count(*) from ico_Analysis ";
+    echo $getrows="select count(*) from ico_Analysis ";die;
     $count=MySQLGetData($getrows)['count(*)'];
     //这里$i初始值设置为2，$j初始值设置为0，自己体会原因
     $pages=floor($count/500);
