@@ -57,7 +57,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
         }else{
         $limit=($k+1)*1000+1;
         } 
-        
+         ob_flush();
     for ($i = 2+($k*1000);$i <= $limit+2;$i++) {
        $j = 0;
         foreach ($expTableData[$i - 2] as $key=>$value) {
