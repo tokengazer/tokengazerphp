@@ -49,7 +49,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
     //单独设置D列宽度为15
     $objActSheet->getColumnDimension('D')->setWidth(15);
     //这里$i初始值设置为2，$j初始值设置为0，自己体会原因
-    $pages=floor(count($expTableData)/2000);
+    $pages=floor(count($expTableData)/1000);
     //echo $pages;die;
     for($k=0;$k<$pages;$k++){
         if($k==$pages-1){
@@ -57,10 +57,17 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
         }else{
         $limit=($k+1)*1000+1;
         } 
+        if($k==0){
+        $start=2;
+            $c=2;
+        }else{
+        $start=$k*1000;
+            $c=0;
+        }
          ob_flush();
-    for ($i = 2+($k*2000);$i <= $limit+2;$i++) {
+    for ($i =$start;$i <= $limit+2;$i++) {
        $j = 0;
-        foreach ($expTableData[$i - 2] as $key=>$value) {
+        foreach ($expTableData[$i - $c] as $key=>$value) {
             $objActSheet->setCellValue("$letter[$j]$i",$expTableData[$i - 2][$key]);
             $j++;
         }
