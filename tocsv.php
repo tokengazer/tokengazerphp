@@ -67,12 +67,12 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
          ob_flush();*/
     for ($i =2;$i <= 3718;$i++) {
        $j = 0;
-        foreach ($expTableData[$i - $c] as $key=>$value) {
-            $objActSheet->setCellValue("$letter[$j]$i",$expTableData[$i -$c][$key]);
+        foreach ($expTableData[$i - 2] as $key=>$value) {
+            $objActSheet->setCellValue("$letter[$j]$i",$expTableData[$i -2][$key]);
             unset($value);
             $j++;
         }
-            unset($expTableData[$i -$c][$key]);
+            unset($expTableData[$i -2][$key]);
         
         
     }
