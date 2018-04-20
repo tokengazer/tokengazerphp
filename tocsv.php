@@ -2,7 +2,7 @@
 include('bootstraps.php');
 if(isset($_GET['name'])) {
     $name=$_GET['name'];
-    echo $sql="select * from ico_Analysis where name like '%$name%' ;";
+    $sql="select * from ico_Analysis where name like '%$name%' ;";
 
 }else{
     $name='AllIco';
