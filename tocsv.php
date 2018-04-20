@@ -68,7 +68,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
             
             $j++;
         }
-        unset($expTableData[$i]);
+        unset($expTableData[$i-2]);
     }
         
         //设置单元格高度，暂时没有找到统一设置高度方法
