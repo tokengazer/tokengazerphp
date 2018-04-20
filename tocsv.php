@@ -7,7 +7,7 @@ if(isset($_GET['name'])) {
 
 }else{
     $name='AllIco';
-   $sql="select * from ico_Analysis;";
+   $sql="select * from ico_Analysis where id=1;";
 
 }
 $data=MySQLGetData($sql);
