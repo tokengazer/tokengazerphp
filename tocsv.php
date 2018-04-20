@@ -66,7 +66,6 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
                 $objActSheet->setCellValue("$letter[$j]$i",$value);
             }
             unset($key);
-            unset($value);
             $j++;
         }
         
