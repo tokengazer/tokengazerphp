@@ -73,11 +73,11 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
         }
         unset($expTableData[$i-2]);
     }
-    
+    print_r($objActSheet);
     
         //echo $i,",";continue;
         //设置单元格高度，暂时没有找到统一设置高度方法
-        $objActSheet->getRowDimension($i)->setRowHeight('80px');
+       /* $objActSheet->getRowDimension($i)->setRowHeight('80px');
         header('Content-Type: application/vnd.ms-excel');
     //下载的excel文件名称，为Excel5，后缀为xls，不过影响似乎不大
     $savefile=$expTitle;
@@ -85,7 +85,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
     header('Cache-Control: max-age=0');
     // 用户下载excel
     $objWriter = PHPExcel_IOFactory::createWriter($excel, 'CSV');
-    $objWriter->save('php://output');
+    $objWriter->save('php://output');*/
         }
     
     // 保存excel在服务器上
