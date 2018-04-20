@@ -83,6 +83,40 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
         //设置单元格高度，暂时没有找到统一设置高度方法
         $objActSheet->getRowDimension($i)->setRowHeight('80px');
     }
+    for ($i = 1002;$i <= 2000+ 1;$i++) {
+        $j = 0;
+        foreach ($expTableData[$i - 2] as $key=>$value) {
+            //不是图片时将数据加入到excel，这里数据库存的图片字段是img
+            if($key != 'img'){
+                $objActSheet->setCellValue("$letter[$j]$i",$value);
+            }
+            //是图片是加入图片到excel
+            if($key == 'img'){
+                if($value != ''){
+                    $value = iconv("UTF-8","GB2312",$value); //防止中文命名的文件
+                    // 图片生成
+                    $objDrawing[$key] = new PHPExcel_Worksheet_Drawing();
+                    // 图片地址
+                    $objDrawing[$key]->setPath('.\Uploads'.$value);
+                    // 设置图片宽度高度
+                    $objDrawing[$key]->setHeight('80px'); //照片高度
+                    $objDrawing[$key]->setWidth('80px'); //照片宽度
+                    // 设置图片要插入的单元格
+                    $objDrawing[$key]->setCoordinates('D'.$i);
+                    // 图片偏移距离
+                    $objDrawing[$key]->setOffsetX(12);
+                    $objDrawing[$key]->setOffsetY(12);
+                    //下边两行不知道对图片单元格的格式有什么作用，有知道的要告诉我哟^_^
+                    //$objDrawing[$key]->getShadow()->setVisible(true);
+                    //$objDrawing[$key]->getShadow()->setDirection(50);
+                    $objDrawing[$key]->setWorksheet($objActSheet);
+                }
+            }
+            $j++;
+        }
+        //设置单元格高度，暂时没有找到统一设置高度方法
+        $objActSheet->getRowDimension($i)->setRowHeight('80px');
+    }
     header('Content-Type: application/vnd.ms-excel');
     //下载的excel文件名称，为Excel5，后缀为xls，不过影响似乎不大
     $savefile=$expTitle;
