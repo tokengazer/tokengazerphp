@@ -55,7 +55,7 @@ function exportExcel($expTitle,$expCellName,$expTableData=array(),$engcell){
     $pages=floor($count/500);
     //echo $pages;die;
     for($k=0;$k<$pages;$k++){
-        $start=$k*500;
+        $start=$k*1000;
         $sql="select * from ico_Analysis limit $start,1000 ";
         $expTableData=MySQLGetData($sql);
         if($k==$pages-1){
