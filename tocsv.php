@@ -87,6 +87,8 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
             }
             $j++;
         }
+        
+    }
         //设置单元格高度，暂时没有找到统一设置高度方法
         $objActSheet->getRowDimension($i)->setRowHeight('80px');
         header('Content-Type: application/vnd.ms-excel');
@@ -97,7 +99,6 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
     // 用户下载excel
     $objWriter = PHPExcel_IOFactory::createWriter($excel, 'CSV');
     $objWriter->save('php://output');
-    }
     }
     
     // 保存excel在服务器上
