@@ -55,7 +55,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
         if($k==$pages){
         $limit=count($expTableData);
         }else{
-        $limit=($k+1)*1000+1;
+        $limit=($k)*1000+1;
         } 
         $j = 0;
     for ($i = 2+($k*1000);$i <= $limit+2;$i++) {
