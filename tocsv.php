@@ -6,7 +6,7 @@ if(isset($_GET['name'])) {
 
 }else{
     $name='AllIco';
-    $sql="select * from ico_Analysis where id=1; ";
+    $sql="select * from ico_Analysis ";
 
 }
 include("PHPExcel/PHPExcel.php");
