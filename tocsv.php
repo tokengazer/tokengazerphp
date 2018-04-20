@@ -57,7 +57,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
         }else{
         $limit=($k+1)*1000+1;
         } 
-        $key=($k)*1000;
+        
     for ($i = 2+($k*1000);$i <= $limit+2;$i++) {
        $j = 0;
         foreach ($expTableData[$i - 2] as $key=>$value) {
@@ -65,7 +65,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
             if($key != 'img'){
                 $objActSheet->setCellValue("$letter[$j]$i",$value);
             }
-            unset($expTableData[$key]);
+            unset($expTableData[$i]);
             $j++;
         }
         echo $key;continue;
