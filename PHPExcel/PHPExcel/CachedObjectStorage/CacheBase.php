@@ -170,7 +170,7 @@ abstract class PHPExcel_CachedObjectStorage_CacheBase {
 	 * @return	array of string
 	 */
 	public function getCellList() {
-		return array_keys($this->_cellCache);
+		return $this->_cellCache;
 	}	//	function getCellList()
 
 
