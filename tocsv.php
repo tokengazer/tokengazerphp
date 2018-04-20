@@ -61,14 +61,10 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
     for ($i = 2+($k*1000);$i <= $limit+2;$i++) {
        $j = 0;
         foreach ($expTableData[$i - 2] as $key=>$value) {
-            //不是图片时将数据加入到excel，这里数据库存的图片字段是img
-            if($key != 'img'){
-                $objActSheet->setCellValue("$letter[$j]$i",$value);
-            }
-            
+            $objActSheet->setCellValue("$letter[$j]$i",$expTableData[$i - 2][$key]);
             $j++;
         }
-        unset($expTableData[$i-2]);
+        //unset($expTableData[$i-2]);
     }
         
         //设置单元格高度，暂时没有找到统一设置高度方法
