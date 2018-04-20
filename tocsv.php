@@ -51,14 +51,14 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
     //这里$i初始值设置为2，$j初始值设置为0，自己体会原因
     $pages=ceil(count($expTableData)/1000);
     //echo $pages;die;
-    for($k=0;$k<=$pages+1;$k++){
+    for($k=0;$k<=$pages;$k++){
         if($k==$pages){
         $limit=count($expTableData);
         }else{
         $limit=($k+1)*1000+1;
-        }
+        } $j = 0;
     for ($i = 2+($k*1000);$i <= $limit+2;$i++) {
-        $j = 0;
+       
         foreach ($expTableData[$i - 2] as $key=>$value) {
             //不是图片时将数据加入到excel，这里数据库存的图片字段是img
             if($key != 'img'){
