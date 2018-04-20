@@ -57,9 +57,8 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
         }else{
         $limit=($k+1)*1000+1;
         }
-        $j = 0;
     for ($i = 2+($k*1000);$i <= $limit+2;$i++) {
-        
+        $j = 0;
         foreach ($expTableData[$i - 2] as $key=>$value) {
             //不是图片时将数据加入到excel，这里数据库存的图片字段是img
             if($key != 'img'){
