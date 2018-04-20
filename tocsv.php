@@ -55,9 +55,8 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
         if($k==$pages){
         $limit=count($expTableData);
         }else{
-        $limit=($k)*1000+1;
+        $limit=($k+1)*1000+1;
         } 
-        
     for ($i = 2+($k*1000);$i <= $limit+2;$i++) {
        $j = 0;
         foreach ($expTableData[$i - 2] as $key=>$value) {
@@ -75,7 +74,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
         header('Content-Type: application/vnd.ms-excel');
     //下载的excel文件名称，为Excel5，后缀为xls，不过影响似乎不大
     $savefile=$expTitle;
-    header('Content-Disposition: attachment;filename="' . $savefile.$k . '.CSV"');
+    header('Content-Disposition: attachment;filename="' . $savefile . '.CSV"');
     header('Cache-Control: max-age=0');
     // 用户下载excel
     $objWriter = PHPExcel_IOFactory::createWriter($excel, 'CSV');
