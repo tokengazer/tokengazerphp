@@ -65,10 +65,10 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
             if($key != 'img'){
                 $objActSheet->setCellValue("$letter[$j]$i",$value);
             }
-            unset($expTableData[$i]);
+            
             $j++;
         }
-        
+        unset($expTableData[$i]);
     }
         
         //设置单元格高度，暂时没有找到统一设置高度方法
