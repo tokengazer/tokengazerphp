@@ -1,6 +1,6 @@
 <?php
 include('bootstraps.php');
-if(isset($_GET['name'])) {
+/*if(isset($_GET['name'])) {
     $name=$_GET['name'];
     $sql="select * from ico_Analysis where name like '%$name%' ;";
 
@@ -8,15 +8,15 @@ if(isset($_GET['name'])) {
     $name='AllIco';
     $sql="select * from ico_Analysis ";
 
-}
+}*/
 include("PHPExcel/PHPExcel.php");
 
 $data=MySQLGetData($sql);
 $cells="id,name,logo,ticker,DataSource,Current_market_value,Current_Single_Price,Current_Circulation,Circulation_unit,Total_Count,Twitter_Fanscount,Facebook_Friends,Telegram_fans,Github_url,GithubCommits,GithubStars,GithubWatches,GithubForks,Github_lastupdatetime,Ico_time,ICO_Price_Usd,ICO_Price_ETH,ICO_Distribution_Ratio,Presales,ICO_Total_Amount,ICO_TotalCount,ICO_HardCap,ICO_Raise_money,Business,Technology,Team,Token,Operation,members,origin,whitepaper,website,cannotareas,Platform,icolink,linkedin";
 $cell=explode(',',$cells);
-$engcells=explode(",","id,name,logo,ticker,DataSource,Current_market_value,Current_Single_Price,Current_Circulation,Circulation_unit,Total_Count,Twitter_Fanscount,Facebook_Friends,Telegram_fans,Github_url,GithubCommits,GithubStars,GithubWatches,GithubForks,Github_lastupdatetime,Ico_time,ICO_Price_Usd,ICO_Price_ETH,ICO_Distribution_Ratio,Presales,ICO_Total_Amount,ICO_TotalCount,ICO_HardCap,ICO_Raise_money,Business,Technology,Team,Token,Operation,members,origin,whitepaper,website,cannotareas,Platform,icolink,linkedin");
+$engcells=(",","id,name,logo,explodeticker,DataSource,Current_market_value,Current_Single_Price,Current_Circulation,Circulation_unit,Total_Count,Twitter_Fanscount,Facebook_Friends,Telegram_fans,Github_url,GithubCommits,GithubStars,GithubWatches,GithubForks,Github_lastupdatetime,Ico_time,ICO_Price_Usd,ICO_Price_ETH,ICO_Distribution_Ratio,Presales,ICO_Total_Amount,ICO_TotalCount,ICO_HardCap,ICO_Raise_money,Business,Technology,Team,Token,Operation,members,origin,whitepaper,website,cannotareas,Platform,icolink,linkedin");
 exportExcel($name.date("Y-m-d")."csv",$engcells,$data,$engcells);
-function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
+function exportExcel($expTitle,$expCellName,$expTableData=array(),$engcell){
     $excel = new PHPExcel();
 
     //设置excel属性
@@ -48,10 +48,15 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
     }
     //单独设置D列宽度为15
     $objActSheet->getColumnDimension('D')->setWidth(15);
+    $getrows="select count(*) from ico_Analysis ";
+    $count=MySQLGetaData($getrows)['count(*)'];
     //这里$i初始值设置为2，$j初始值设置为0，自己体会原因
-    $pages=floor(count($expTableData)/1000);
+    $pages=floor($count/500);
     //echo $pages;die;
     for($k=0;$k<$pages;$k++){
+        $start=$k*500;
+        $sql="select * from ico_Analysis limit $start,5000 ";
+        $expTableData=MySQLGetData($sql);
         if($k==$pages-1){
         $limit=count($expTableData);
         }else{
@@ -65,17 +70,17 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
             $c=0;
         }
          ob_flush();
-    for ($i =2;$i <= 3718;$i++) {
+    for ($i =2;$i <= $limit;$i++) {
        $j = 0;
         foreach ($expTableData[$i - $c] as $key=>$value) {
             $objActSheet->setCellValue("$letter[$j]$i",$expTableData[$i -$c][$key]);
             unset($value);
             $j++;
-        }
+        	}
             unset($expTableData[$i -$c][$key]);
         
         
-    }
+    	}
    
     
         //echo $i,",";continue;
