@@ -50,7 +50,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
     $objActSheet->getColumnDimension('D')->setWidth(15);
     //这里$i初始值设置为2，$j初始值设置为0，自己体会原因
     $pages=floor(count($expTableData)/1000);
-    for($k=0;$k<$pages;$k++){
+    for($k=0;$k<=$pages;$k++){
     for ($i = 2+($k*1000);$i <= ($k+1)*1000+ 1;$i++) {
         $j = 0;
         foreach ($expTableData[$i - 2] as $key=>$value) {
