@@ -51,7 +51,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
     //这里$i初始值设置为2，$j初始值设置为0，自己体会原因
     $pages=floor(count($expTableData)/1000);
     //echo $pages;die;
-    for($k=0;$k<$pages;$k++){
+    /*for($k=0;$k<$pages;$k++){
         if($k==$pages-1){
         $limit=count($expTableData);
         }else{
@@ -64,8 +64,8 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
         $start=$k*1000;
             $c=0;
         }
-         ob_flush();
-    for ($i =$start;$i <= $limit+2;$i++) {
+         ob_flush();*/
+    for ($i =2;$i <= 3718;$i++) {
        $j = 0;
         foreach ($expTableData[$i - $c] as $key=>$value) {
             $objActSheet->setCellValue("$letter[$j]$i",$expTableData[$i -$c][$key]);
@@ -89,7 +89,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
     // 用户下载excel
     $objWriter = PHPExcel_IOFactory::createWriter($excel, 'CSV');
     $objWriter->save('php://output');
-        }
+        //}
     
     // 保存excel在服务器上
     //$objWriter = new PHPExcel_Writer_Excel2007($excel);
