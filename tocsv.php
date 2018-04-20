@@ -66,7 +66,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
         }
         unset($expTableData[$i-2]);
     }
-        echo $i,",";continue;
+        //echo $i,",";continue;
         //设置单元格高度，暂时没有找到统一设置高度方法
         $objActSheet->getRowDimension($i)->setRowHeight('80px');
         header('Content-Type: application/vnd.ms-excel');
