@@ -3,7 +3,7 @@ include('bootstraps.php');
 set_time_limit(0);
 
 
-$sql="select * from ico_Analysis where id<=499 id>228";
+$sql="select * from ico_Analysis where id<=499 and id>228";
 $url1=MySQLGetData($sql);
 
 $arr=array();
