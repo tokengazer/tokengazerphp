@@ -22,8 +22,9 @@ function file_get_contents_httpcode($url) {
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $content = curl_exec($ch);
-    curl_close($ch);
+    
     return $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE); ;
+    curl_close($ch);
 }
 //header("Location http://tokenworm.applinzi.com/coinmarketcap.php?p=".$page);
 // 初始化SaeKV对象
