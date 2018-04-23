@@ -8,12 +8,37 @@ $name=trim(explode("(",$list1[$kk]['name'])[0]);
 $data[$kk]['searchname']=str_replace(" ","-",$name);
     $data[$kk]['id']=$list1[$kk]['id'];
 }
-$kv = new SaeKV();
-$ret = $kv->init("xowlw2kmk2");
+//$kv = new SaeKV();
+//$ret = $kv->init("xowlw2kmk2");
 //$ret = $kv->delete('searchname:all');
   //      $kv->add('searchname:all', json_encode($data,true));
-$list=$kv->get("searchname:all");
-$list=json_decode($list,true);
+//$list=$kv->get("searchname:all");
+//$list=json_decode($list,true);
+$webhtml=file_get_contents_https("https://coinmarketcap.com/all/views/all/");
+$datahtml=@explode("</tbody>",@explode("<tbody>",$webhtml)[1])[0];
+$dataarr=explode("<tr ",$datahtml);
+foreach($dataarr as $kk=>$vv){
+
+     $name=explode("\">",explode("<td class=\"no-wrap currency-name\" data-sort=\"",$dataarr[$kk])[1])[0];
+    $marketcap=trim(str_replace("</td","",explode("</td>",explode(">",explode("<td class=\"no-wrap market-cap text-right\" ",$dataarr[$kk])[1])[1])[0]));
+    $price=explode("\"",explode("class=\"price\" data-usd=\"",$dataarr[$kk])[1])[0];
+    if(strpos($price,'$')===false){
+        $price="$".$price;
+    }
+    $volume=explode("\"",explode("class=\"volume\" data-usd=\"",$dataarr[$kk])[1])[0];
+    $perhour=explode("\"",explode("data-timespan=\"1h\" data-percentusd=\"",$dataarr[$kk])[1])[0]."%";
+    $perday=explode("\"",explode("data-timespan=\"24h\" data-percentusd=\"",$dataarr[$kk])[1])[0]."%";
+    $perweek=explode("\"",explode("data-timespan=\"7d\" data-percentusd=\"",$dataarr[$kk])[1])[0]."%";
+    $Current_Circulation=explode("\"",explode("data-supply=\"",$dataarr[$kk])[1])[0];
+    foreach($list1 as $k=>$v){
+        if($list1[$k]['name']==$name){
+            echo $sql="update ico_Analysis set Current_market_value='".$volume."',Current_Circulation='".$Current_Circulation."',Current_Single_price='".$price."' ,perhour='$perhour',perday='$perday',perweek='$perweek' where id='".$list[$k]['id']."'";
+            MySQLRunSQL($sql);
+        }
+    }
+}
+echo $datahtml;
+die;
 foreach($list as $k=>$v){
     //$name=trim(explode("(",$list[$k]['name'])[0]);
 //$ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
