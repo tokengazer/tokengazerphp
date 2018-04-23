@@ -11,7 +11,7 @@ $kv = new SaeKV();
 $ret = $kv->init("xowlw2kmk2");
 $sql="select * from ico_Analysis where id<=499  and website=''";
 $coinmarketmap=json_decode(file_get_contents_https("https://s2.coinmarketcap.com/generated/search/quick_search.json"),true);
-print_r($coinmarketmap);die;
+//print_r($coinmarketmap);die;
 //$sql="select * from ico_Analysis where id<=499 and Github_url='' and id>399";
 $url1=MySQLGetData($sql);
     //$content=getSonString($content,"<tbody>","</tbody>");
@@ -21,6 +21,11 @@ $i=$start;
 $arr=array();
 foreach($url1 as $k=>$v){
     set_time_limit();
+    foreach($coinmarketmap as $kk=>$vv){
+    if($coinmarketmap[$kk]['name']==$url1[$k]['name']){
+    $url1[$k]['name']=$coinmarketmap[$kk]['tokens'][1];
+    }
+    }
 //$contents1=file_get_contents_https("https://coinmarketcap.com".$url1[$k]);
     $contents1=file_get_contents_https("https://coinmarketcap.com/currencies/".strtolower($url1[$k]['name']).'/');
     $arr[$i]['name']=$url1[$k]['id'];//echo "https://coinmarketcap.com/currencies/".$url1[$k]['id'];
