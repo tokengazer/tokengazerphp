@@ -9,7 +9,7 @@ $p='';
 }
 $kv = new SaeKV();
 $ret = $kv->init("xowlw2kmk2");
-$sql="select * from ico_Analysis where id<=499 and id>218";
+$sql="select * from ico_Analysis where id<=499 and id>442";
 
 //$sql="select * from ico_Analysis where id<=499 and Github_url='' and id>399";
 $url1=MySQLGetData($sql);
