@@ -11,6 +11,20 @@ $kv = new SaeKV();
 $ret = $kv->init("xowlw2kmk2");
 $sql="select * from ico_Analysis where id<=499  and website=''";
 $coinmarketmap=json_decode(file_get_contents_https("https://s2.coinmarketcap.com/generated/search/quick_search.json"),true);
+foreach($coinmarketmap as $k=>$v){
+$sql="select * from ico_Analysis where name='".$coinmarket[$k]['name']."';";
+    $re=MySQLGetData($sql);
+    if($count($re)==0){
+    $sql="insert into ico_Analysis (id,name,ticker,DataSource) value (NULL,'".$coinmarket[$k]['name']."','".$coinmarket[$k]['tokens'][1]."','coinmarket');";
+        $id=MySQLRunSQL($sql);
+    }
+    else{
+    $id=$re[0]['id'];
+    }
+    $sql="insert into coin_rank values(Null,".$id.",".$coinmarkermap[$k]['rank'].");";
+    MySQLRunSQL($sql);
+}
+return;
 //print_r($coinmarketmap);die;
 //$sql="select * from ico_Analysis where id<=499 and Github_url='' and id>399";
 $url1=MySQLGetData($sql);
