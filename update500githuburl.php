@@ -24,8 +24,8 @@ foreach($url1 as $k=>$v){
     $contents1=file_get_contents_https("https://coinmarketcap.com/currencies/".strtolower($url1[$k]['name']).'/');
     $arr[$i]['name']=$url1[$k]['id'];//echo "https://coinmarketcap.com/currencies/".$url1[$k]['id'];
     //print_r($contents1);die;
-    $arr[$i]['githuburl']=$website=getSonString($contents1,'<span class="glyphicon glyphicon-hdd text-gray" title="Source Code"></span> <a href="','" target="');
-    $arr[$i]['website']=explode("\"",explode("<li><span class=\"glyphicon glyphicon-link text-gray\" title=\"Website\"></span> <a href=\"",$contents)[1])[0];
+    $arr[$i]['githuburl']=$github[$i]=getSonString($contents1,'<span class="glyphicon glyphicon-hdd text-gray" title="Source Code"></span> <a href="','" target="');
+    $arr[$i]['website']=$website=explode("\"",explode("<li><span class=\"glyphicon glyphicon-link text-gray\" title=\"Website\"></span> <a href=\"",$contents)[1])[0];
     $kv->delete('products:'.$i);
     $kv->add('products:'.$i, json_encode($arr[$i],true));
     $kv->get('products:'.$i);
