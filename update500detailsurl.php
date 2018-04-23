@@ -9,7 +9,7 @@ $url1=MySQLGetData($sql);
 $arr=array();
 foreach($url1 as $k=>$v){
 
-echo file_get_contents_httpcode("https://icodrops.com/".$url1[$k]['name']."/");
+echo file_get_contents_httpcode("https://icodrops.com/".$url1[$k]['name']."/");die;
 }
 echo '完成';
 
