@@ -14,7 +14,7 @@ $coinmarketmap=json_decode(file_get_contents_https("https://s2.coinmarketcap.com
 foreach($coinmarketmap as $k=>$v){
 $sql="select * from ico_Analysis where name='".$coinmarket[$k]['name']."';";
     $re=MySQLGetData($sql);
-    if($ount($re)==0){
+    if(count($re)==0){
     $sql="insert into ico_Analysis (id,name,ticker,DataSource) value (NULL,'".$coinmarket[$k]['name']."','".$coinmarket[$k]['tokens'][1]."','coinmarket');";
         $id=MySQLRunSQL($sql);
     }
