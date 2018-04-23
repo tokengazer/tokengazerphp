@@ -8,8 +8,12 @@ $url1=MySQLGetData($sql);
 
 $arr=array();
 foreach($url1 as $k=>$v){
-
-echo file_get_contents_httpcode("https://icodrops.com/".$url1[$k]['name']."/");echo "https://icodrops.com/".$url1[$k]['name']."/";
+$checkurl="https://icodrops.com/".$url1[$k]['name']."/";
+$httpcode= file_get_contents_httpcode($checkurl);
+    if($httpcode==200){
+    $sql="update set icolink='$checkurl' where id="$url1[$k]['id'];
+        MySQLRunSQL($sql);
+    }
 }
 echo '完成';
 
