@@ -21,7 +21,7 @@ $sql="select * from ico_Analysis where name='".$coinmarketmap[$k]['name']."';";
     else{
     $id=$re[0]['id'];
     }
-    $sql="insert into coin_rank values(Null,".$id.",".$coinmarkermap[$k]['rank'].");";
+    echo $sql="insert into coin_rank values(Null,".$id.",".$coinmarkermap[$k]['rank'].");";
     MySQLRunSQL($sql);
 }
 return;
