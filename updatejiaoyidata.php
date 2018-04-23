@@ -32,7 +32,7 @@ foreach($dataarr as $kk=>$vv){
     $Current_Circulation=explode("\"",explode("data-supply=\"",$dataarr[$kk])[1])[0];
     foreach($list1 as $k=>$v){
         if($list1[$k]['name']==$name){
-            echo $sql="update ico_Analysis set Current_market_value='".$volume."',Current_Circulation='".$Current_Circulation."',Current_Single_price='".$price."' ,perhour='$perhour',perday='$perday',perweek='$perweek' where id='".$list[$k]['id']."'";
+            echo $sql="update ico_Analysis set Current_market_value='".$volume."',Current_Circulation='".$Current_Circulation."',Current_Single_price='".$price."' ,perhour='$perhour',perday='$perday',perweek='$perweek' where id='".$list1[$k]['id']."'";
             MySQLRunSQL($sql);
         }
     }
