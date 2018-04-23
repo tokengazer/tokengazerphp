@@ -9,22 +9,9 @@ $p='';
 }
 $kv = new SaeKV();
 $ret = $kv->init("xowlw2kmk2");
-$sql="select * from ico_Analysis where id<=499  and website=''";
+$sql="select * from ico_Analysis where DataSource='coinmarket' and website=''";
 $coinmarketmap=json_decode(file_get_contents_https("https://s2.coinmarketcap.com/generated/search/quick_search.json"),true);
-foreach($coinmarketmap as $k=>$v){
-$sql="select * from ico_Analysis where name='".$coinmarketmap[$k]['name']."';";
-    $re=MySQLGetData($sql);
-    if(count($re)==0){
-    $sql="insert into ico_Analysis (id,name,ticker,DataSource) value (NULL,'".$coinmarketmap[$k]['name']."','".$coinmarketmap[$k]['tokens'][1]."','coinmarket');";
-        $id=MySQLRunSQL($sql);
-    }
-    else{
-    $id=$re[0]['id'];
-    }
-    echo $sql="insert into coin_rank values(Null,".$id.",".$coinmarketmap[$k]['rank'].");";
-    MySQLRunSQL($sql);
-}
-return;
+
 //print_r($coinmarketmap);die;
 //$sql="select * from ico_Analysis where id<=499 and Github_url='' and id>399";
 $url1=MySQLGetData($sql);
