@@ -11,7 +11,7 @@ foreach($url1 as $k=>$v){
 $checkurl="https://icodrops.com/".$url1[$k]['name']."/";
 $httpcode= file_get_contents_httpcode($checkurl);
     if($httpcode==200){
-   echo $sql="update set icolink='$checkurl' where id=".$url1[$k]['id']."";
+   echo $sql="update ico_Analysis set icolink='$checkurl' where id=".$url1[$k]['id']."";
         MySQLRunSQL($sql);
     }
 }
