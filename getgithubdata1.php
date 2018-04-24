@@ -158,7 +158,7 @@ foreach($url as $kk=>$vv){
     if(strrpos($baseurl,"/")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
     }
-    $data=json_decode(curls($baseurl),true);;
+    continue;$data=json_decode(curls($baseurl),true);;
     if(isset($data['message'])){
     //continue;
        // echo $baseurl.",</br>";
@@ -270,7 +270,7 @@ function  gettotalcommits($user,$pro,$token){
         'User-Agent: Awesome-Octocat-App',
     );
     $curl = curl_init();
-    echo $url="https://api.github.com/graphql?anon=1000";
+    $url="https://api.github.com/graphql?anon=1000";
     //设置抓取的url
     curl_setopt($curl, CURLOPT_URL, $url);
     //curl_setopt($curl, CURLOPT_POST, 1);
