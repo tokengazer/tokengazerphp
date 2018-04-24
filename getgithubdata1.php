@@ -232,7 +232,6 @@ function  gettotalcommits($user,$pro,$token){
     if (substr($data, 0,3) == pack("CCC",0xef,0xbb,0xbf)) {
         echo $data = substr($data, 3);
     }
-    echo $data;
     return $data;
 
 }
