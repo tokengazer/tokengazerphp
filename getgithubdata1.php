@@ -111,8 +111,8 @@ foreach($url as $kk=>$vv){
      
 foreach($url as $kk=>$vv){
     foreach($url[$kk] as $kkk=>$vvv){
-        $mrc = curl_multi_exec($mh, $conn[$kk]);
-    $re=curl_multi_getcontent($conn[$kk]);
+        $mrc = curl_multi_exec($mh, $conn[$kk][$kkk]);
+    $re=curl_multi_getcontent($conn[$kk][$kkk]);
     $results=json_decode($re,true);;
     print_r($results);;
     if($results==0){
@@ -163,8 +163,8 @@ foreach($url as $kk=>$vv){
     //continue;
        // echo $baseurl.",</br>";
     }
-	curl_multi_remove_handle($mh,$conn[$kk]);   
-  curl_close($conn[$kk]);   
+	curl_multi_remove_handle($mh,$conn[$kk][$kkk]);   
+  curl_close($conn[$kk][$kkk]);   
 }} // 结束清理   
      
 curl_multi_close($mh);   
