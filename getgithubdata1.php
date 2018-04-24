@@ -56,6 +56,7 @@ for($i=0;$i<10;$i++){
      
 do {   
   $mrc = curl_multi_exec($mh, $active);
+    print_r($connlist);
     foreach($connlist as $dd=>$ee){
     $re=curl_multi_getcontent($ee);
         print_r($re);
