@@ -1,6 +1,6 @@
 <?php
 include('bootstraps.php');
-$sql="select id, Github_url from ico_Analysis where Github_url <> '' and Github_url <>'https://github.com/'limit 0,2 ";
+$sql="select id, Github_url from ico_Analysis where Github_url <> '' and Github_url <>'https://github.com/'limit 0,1 ";
 //$access_tokenlist=array('b26b6fe9c7beaba6edf83661c666d3ad5588b35a','764fca41598e100fb730e919f2c8793e4a0ceecf','e29a49e909d16af8b8585546e30f95ac0d073c7b','4e576749984599118e4d08c60cb671b1fb8b42cd','0bafb53c51a442f703305a6efa89110d9d1cb432','bf36187659ed6a982026b6b98b7b5c29b8c0ce58','000d0b14d5c3679189027db01830f15185acd80a','7fb8e14f38be5e329c5fd91f53500bddaa79c389','3d17e08990a655987ef012323d96781965b5bed8','af3fdfd6abbc63e62f14309883528ae54f3dfe21');
 $access_tokenlist=['80856b3c3c77107e184db763c9198242b814406e','babb77ef878d082ade36adb15cb23d4ac47d0a36','7ead54b12490c8f18c6bc3b7b77f8710f6fc45b0','4c18b27fc9bdbceb0e81865e829dfc7fcfc7ff68','94d25a5f6df38694be6ef8e770beb32b9d76dd52','aec5f39c839cabf8889c24f9587dd0156532ef71','21edef773aeaf7c2784fd0b91394437198220075','fe947f928280c8cc78a784fb53fbb5409b36699e','a68b6711a04bd1e94ce1f61c850041043cadcdb5','358743267e9c6c4d0983e33f7ca9115792a2b85f'];
 
@@ -53,68 +53,11 @@ foreach($url as $kk=>$vv){
     }
 }
      
-/*do {   
+do {   
   $mrc = curl_multi_exec($mh, $active);
-    $re=curl_multi_getcontent(1);
+    $re=curl_multi_getcontent($active);
     $results=json_decode($re,true);;
     print_r($results);;
-    if($results==0){
-    //continue;
-    }
-    //print_r(curls($baseurl));
-    $forks=$watchers=$stars=$commits=0;
-    $lastupdatetime="2000-04-10 0:0:0";
-    $commits=0;
-    $round=floor(rand(0,9));
-    $url[$kk][$kkk]['url'];
-    foreach($results as $cc=>$dd){
-        $name=$results[$cc]['name'];
-        $url=$results[$cc]['url'];
-        $resultss=curls($url,$access_tokenlist[$round]);
-        $getcommits=gettotalcommits($url[$kk][$kkk]['user'],$name,$access_tokenlist[$round]);
-        echo "我的名字是".$name;
-        $re=json_decode($resultss,true);
-    $forks+=$re['network_count'];
-        $stars+=$re['stargazers_count'];
-    $watchers+=$re['subscribers_count'];
-       $lastupdatetime=bijiaotimes($lastupdatetime,$results[$kk]['pushed_at']);
-        $commits=0;
-    /*for($i=0;$i<5;$i++){
-      $url="https://api.github.com/repos/bitcoin/bitcoin/contributors?page=".$i."&per_page=100";
-        $res=json_decode(curls($url),true);
-        foreach($res as $kkk=>$vvv){
-        $commits+=$res[$kkk]['contributions'];
-             $res[$kkk]['contributions']."<br/>";
-        }
-        if(count($res)==0){
-            echo $commits;
-        break 1;
-        }
-        
-    }}
-    $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$watchers.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$cc]['id'];
-    /*if($k==0){
-    break;
-    }*/
-    //MySQLRunSQL($sql);
-    /*$forks=$watches=$stars=$commits=0;
-    if(strrpos($baseurl,"/")==strlen($baseurl)-1){
-    $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
-    }
-    $data=json_decode(curls($baseurl),true);;
-    if(isset($data['message'])){*/
-    //continue;
-       // echo $baseurl.",</br>";
-    /*}
-} while ($mrc == CURLM_CALL_MULTI_PERFORM);*/
-
-     
-foreach($url as $kk=>$vv){
-    foreach($url[$kk] as $kkk=>$vvv){
-        $mrc = curl_multi_exec($mh, $conn[$kk][$kkk]);
-    $re=curl_multi_getcontent($conn[$kk][$kkk]);
-    $results=json_decode($re,true);;
-    print_r($mrc);;
     if($results==0){
     //continue;
     }
@@ -158,13 +101,18 @@ foreach($url as $kk=>$vv){
     if(strrpos($baseurl,"/")==strlen($baseurl)-1){
     $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
     }
-    continue;$data=json_decode(curls($baseurl),true);;
+    /*$data=json_decode(curls($baseurl),true);;
     if(isset($data['message'])){
     //continue;
        // echo $baseurl.",</br>";
-    }
-	curl_multi_remove_handle($mh,$conn[$kk][$kkk]);   
-  curl_close($conn[$kk][$kkk]);   
+    }*/
+} while ($mrc == CURLM_CALL_MULTI_PERFORM);
+
+     
+foreach($url as $kk=>$vv){
+    foreach($url[$kk] as $kkk=>$vvv){
+	curl_multi_remove_handle($mh,$conn[$kk]);   
+  curl_close($conn[$kk]);   
 }} // 结束清理   
      
 curl_multi_close($mh);   
@@ -270,7 +218,7 @@ function  gettotalcommits($user,$pro,$token){
         'User-Agent: Awesome-Octocat-App',
     );
     $curl = curl_init();
-    $url="https://api.github.com/graphql?anon=1000";
+    echo $url="https://api.github.com/graphql?anon=1000";
     //设置抓取的url
     curl_setopt($curl, CURLOPT_URL, $url);
     //curl_setopt($curl, CURLOPT_POST, 1);
