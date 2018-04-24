@@ -33,7 +33,7 @@ foreach($list as $k=>$v){
 $mh = curl_multi_init();  
 foreach($url as $kk=>$vv){
     foreach($url[$kk] as $kkk=>$vvv){
-	$conn[$kk] = curl_init($url[$kk][$kkk]['url']);   
+	echo $conn[$kk] = curl_init($url[$kk][$kkk]['url']);   
       curl_setopt($conn[$kk], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");   
       curl_setopt($conn[$kk], CURLOPT_HEADER ,0);   
       curl_setopt($conn[$kk], CURLOPT_CONNECTTIMEOUT,60);   
