@@ -41,7 +41,7 @@ for($i=0;$i<10;$i++){
                 if(count($url[$i])==$limit){
                 //continue;
                 }
-              $mrc = curl_multi_exec($mh, $active);
+              echo $mrc = curl_multi_exec($mh, $active);
     			echo $re=curl_multi_getcontent($conn[$i][$k]);
             
             
