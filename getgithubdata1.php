@@ -22,19 +22,17 @@ for($i=0;$i<10;$i++){
         }
 
         $baseurl="https://api.github.com/users/$baseurl/repos";
-        if($k<=($i+1)*$limit&&$k>$i*$limit){
+        if($k<=($i+1)*$limit+1&&$k>$i*$limit-1){
         $url[$i][$k]['url']=$baseurl;
             $url[$i][$k]['user']=$user;
             $url[$i][$k]['token']=$access_tokenlist[$i];
-            $conn[$k] = curl_init();
-            curl_setopt($conn[$k], CURLOPT_URL, $url[$i][$k]['url']);
-            
+            $conn[$k] = curl_init($url[$i][$k]['url']);   
       		curl_setopt($conn[$k], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");   
       		curl_setopt($conn[$k], CURLOPT_HEADER ,0);   
-        	curl_setopt($conn[$k], CURLOPT_RETURNTRANSFER, 0);
+        	curl_setopt($conn[$k], CURLOPT_RETURNTRANSFER, 1);
       		curl_setopt($conn[$k], CURLOPT_CONNECTTIMEOUT,60);   
       		curl_multi_add_handle ($mh,$conn[$k]); 
-            $connlist[$k]=$conn[$k];
+            $connlist[$i]=$conn[$k];
             $headers = array(
             'Authorization:token  '.$url[$i][$k]['token'].'',
             'Accept:application/vnd.github.hellcat-preview+json',
@@ -60,12 +58,13 @@ do {
   $mrc = curl_multi_exec($mh, $active);
 } while ($mrc == CURLM_CALL_MULTI_PERFORM);
 
-//foreach($url as $kk=>$vv){
+     
+foreach($url as $kk=>$vv){
     
-    foreach($conn as $dd=>$ee){
-        echo $re=curl_multi_getcontent($ee);
-        echo curl_error($ee);
-        curl_close($conn[$dd]);
+    print_r($connlist);
+    foreach($connlist as $dd=>$ee){
+        
+    $re=curl_multi_getcontent($connlist[$kk]);
         print_r($re);
     }
     $results=json_decode($mrc,true);;
@@ -119,11 +118,10 @@ do {
        // echo $baseurl.",</br>";
     }*/
     foreach($url[$kk] as $kkk=>$vvv){
-       /*echo $re=curl_multi_getcontent($conn[$k]);
-	curl_multi_remove_handle($mh,$conn[$k]);   
-  curl_close($conn[$k]); */  
-}
-//} // 结束清理   
+       echo $re=curl_multi_getcontent($conn[$kk][$kkk]);
+	curl_multi_remove_handle($mh,$conn[$kk][$kkk]);   
+  curl_close($conn[$kk]);   
+}} // 结束清理   
      
 curl_multi_close($mh);   
 
