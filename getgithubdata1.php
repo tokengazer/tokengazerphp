@@ -60,11 +60,10 @@ do {
 } while ($mrc == CURLM_CALL_MULTI_PERFORM);
 
      
-foreach($url as $kk=>$vv){
+//foreach($url as $kk=>$vv){
     
     foreach($connlist as $dd=>$ee){
-         print_r($connlist[$dd]);
-    	echo $re=curl_multi_getcontent($ee);
+        echo $re=curl_multi_getcontent($ee);
         curl_close($connlist[$dd]);
         print_r($re);
     }
@@ -122,7 +121,8 @@ foreach($url as $kk=>$vv){
        /*echo $re=curl_multi_getcontent($conn[$k]);
 	curl_multi_remove_handle($mh,$conn[$k]);   
   curl_close($conn[$k]); */  
-}} // 结束清理   
+}
+//} // 结束清理   
      
 curl_multi_close($mh);   
 
