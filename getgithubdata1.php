@@ -109,7 +109,7 @@ foreach($url as $kk=>$vv){
 } while ($mrc == CURLM_CALL_MULTI_PERFORM);*/
 
      
-foreach($url as $kk=>$vv){break;
+foreach($url as $kk=>$vv){
     foreach($url[$kk] as $kkk=>$vvv){
         $mrc = curl_multi_exec($mh, $conn[$kk]);
     $re=curl_multi_getcontent($conn[$kk]);
