@@ -31,7 +31,7 @@ for($i=0;$i<10;$i++){
             
       		curl_setopt($conn[$k], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");   
       		curl_setopt($conn[$k], CURLOPT_HEADER ,0);   
-        	curl_setopt($conn[$k], CURLOPT_RETURNTRANSFER, 1);
+        	curl_setopt($conn[$k], CURLOPT_RETURNTRANSFER, 0);
       		curl_setopt($conn[$k], CURLOPT_CONNECTTIMEOUT,60);   
       		curl_multi_add_handle ($mh,$conn[$k]); 
             $connlist[$k]=$conn[$k];
