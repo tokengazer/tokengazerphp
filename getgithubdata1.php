@@ -60,7 +60,6 @@ do {
   $mrc = curl_multi_exec($mh, $active);
 } while ($mrc == CURLM_CALL_MULTI_PERFORM);
 
-     print_r($connlist);
 //foreach($url as $kk=>$vv){
     
     foreach($conn as $dd=>$ee){
