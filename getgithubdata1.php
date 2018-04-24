@@ -61,9 +61,8 @@ do {
      
 foreach($url as $kk=>$vv){
     
-    print_r($connlist);
     foreach($connlist as $dd=>$ee){
-    $re=curl_multi_getcontent($connlist[$dd]);
+    echo 1;echo $re=curl_multi_getcontent($connlist[$dd]);
         print_r($re);
     }
     $results=json_decode($mrc,true);;
