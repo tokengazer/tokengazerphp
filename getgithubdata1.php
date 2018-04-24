@@ -68,7 +68,7 @@ do {
         $name=$results[$cc]['name'];
         $url=$results[$cc]['url'];
         $resultss=curls($url,$access_tokenlist[$round]);
-        echo $getcommits=gettotalcommits($url[$kk][$kkk]['user'],$name,$access_tokenlist[$round]);die;
+        $getcommits=gettotalcommits($url[$kk][$kkk]['user'],$name,$access_tokenlist[$round]);
         $re=json_decode($resultss,true);
     $forks+=$re['network_count'];
         $stars+=$re['stargazers_count'];
@@ -181,7 +181,7 @@ function curls($url,$token){
     //设置头文件的信息作为数据流输出
     curl_setopt($curl, CURLOPT_HEADER, 0);
     //设置获取的信息以文件流的形式返回，而不是直接输出。
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 0);
 
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
     //执行命令
