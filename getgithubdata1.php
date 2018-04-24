@@ -56,6 +56,11 @@ for($i=0;$i<10;$i++){
      
 do {   
   $mrc = curl_multi_exec($mh, $active);
+} while ($mrc == CURLM_CALL_MULTI_PERFORM);
+
+     
+foreach($url as $kk=>$vv){
+    
     print_r($connlist);
     foreach($connlist as $dd=>$ee){
     $re=curl_multi_getcontent($ee);
@@ -111,10 +116,6 @@ do {
     //continue;
        // echo $baseurl.",</br>";
     }*/
-} while ($mrc == CURLM_CALL_MULTI_PERFORM);
-
-     
-foreach($url as $kk=>$vv){
     foreach($url[$kk] as $kkk=>$vvv){
        echo $re=curl_multi_getcontent($conn[$kk][$kkk]);
 	curl_multi_remove_handle($mh,$conn[$kk][$kkk]);   
