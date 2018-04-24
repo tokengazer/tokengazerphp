@@ -26,7 +26,6 @@ for($i=0;$i<10;$i++){
         $url[$i][$k]['url']=$baseurl;
             $url[$i][$k]['user']=$user;
             $url[$i][$k]['token']=$access_tokenlist[$i];
-            echo $url[$i][$k]['url'];
             $conn[$k] = curl_init();
             curl_setopt($conn[$k], CURLOPT_URL, $url[$i][$k]['url']);
             
