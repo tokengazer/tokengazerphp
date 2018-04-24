@@ -12,7 +12,7 @@ $limit=ceil(count($list)/10);
 
 foreach($list as $k=>$v){
     //$list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
-        $baseurl=str_replace("https://github.com/","",$list[$k]['Github_url']);
+        echo $baseurl=str_replace("https://github.com/","",$list[$k]['Github_url']);
         if(strrpos($baseurl,",")==strlen($baseurl)-1){
         $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
         }
