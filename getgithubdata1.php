@@ -111,7 +111,8 @@ do {
      
 foreach($url as $kk=>$vv){
     foreach($url[$kk] as $kkk=>$vvv){
-	curl_multi_remove_handle($mh,$conn[$kk]);   
+       echo $re=curl_multi_getcontent($conn[$kk][$kkk]);
+	curl_multi_remove_handle($mh,$conn[$kk][$kkk]);   
   curl_close($conn[$kk]);   
 }} // 结束清理   
      
