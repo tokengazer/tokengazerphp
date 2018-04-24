@@ -10,7 +10,8 @@ $list=MySQLGetData($sql);
 
 $limit=ceil(count($list)/10);
 
-foreach($list as $k=>$v){
+for($i=0;$i<10;$i++){
+        foreach($list as $k=>$v){
     //$list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
         $baseurl=str_replace("https://github.com/","",$list[$k]['Github_url']);
         if(strrpos($baseurl,",")==strlen($baseurl)-1){
@@ -21,7 +22,6 @@ foreach($list as $k=>$v){
         }
 
         echo $baseurl="https://api.github.com/users/$baseurl/repos";
-        for($i=0;$i<10;$i++){
         if($k<=($i+1)*$limit&&$k>$i*$limit){
         $url[$i][$k]['url']=$baseurl;
             $url[$i][$k]['user']=$user;
