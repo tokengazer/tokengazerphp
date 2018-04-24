@@ -26,13 +26,14 @@ for($i=0;$i<10;$i++){
         $url[$i][$k]['url']=$baseurl;
             $url[$i][$k]['user']=$user;
             $url[$i][$k]['token']=$access_tokenlist[$i];
-            $conn[$k] = curl_init($url[$i][$k]['url']);   
+            $conn[$k] = curl_init($url[$i][$k]['url']);
+            $ch = curl_init();
       		curl_setopt($conn[$k], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");   
       		curl_setopt($conn[$k], CURLOPT_HEADER ,0);   
         	curl_setopt($conn[$k], CURLOPT_RETURNTRANSFER, 1);
       		curl_setopt($conn[$k], CURLOPT_CONNECTTIMEOUT,60);   
       		curl_multi_add_handle ($mh,$conn[$k]); 
-            $connlist[$k]=$conn[$k];
+            $connlist[$k]=$ch;
             $headers = array(
             'Authorization:token  '.$url[$i][$k]['token'].'',
             'Accept:application/vnd.github.hellcat-preview+json',
