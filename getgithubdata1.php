@@ -22,7 +22,7 @@ for($i=0;$i<10;$i++){
         }
 
         echo $baseurl="https://api.github.com/users/$baseurl/repos";
-        if($k<=($i+1)*$limit+1&&$k>$i*$limit){
+        if($k<=($i+1)*$limit+1&&$k>$i*$limit-1){
         $url[$i][$k]['url']=$baseurl;
             $url[$i][$k]['user']=$user;
             $url[$i][$k]['token']=$access_tokenlist[$i];
