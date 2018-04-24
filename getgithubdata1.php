@@ -8,7 +8,7 @@ $access_tokenlist=['80856b3c3c77107e184db763c9198242b814406e','babb77ef878d082ad
 //print_r($access_tokenlist);die;
 $list=MySQLGetData($sql);
 
-$limit=ceil(count($list)/10);
+echo $limit=ceil(count($list)/10);
 
 for($i=0;$i<10;$i++){
         foreach($list as $k=>$v){
