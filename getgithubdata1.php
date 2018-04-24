@@ -57,6 +57,7 @@ do {
   $mrc = curl_multi_exec($mh, $active);
     $re=curl_multi_getcontent(1);
     $results=json_decode($re,true);;
+    print_r($results);;
     if($results==0){
     //continue;
     }
