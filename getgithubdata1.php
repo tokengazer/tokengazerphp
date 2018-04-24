@@ -68,7 +68,7 @@ do {
     $watchers+=$re['subscribers_count'];
        $lastupdatetime=bijiaotimes($lastupdatetime,$results[$kk]['pushed_at']);
         $commits=0;
-    for($i=0;$i<5;$i++){
+    /*for($i=0;$i<5;$i++){
       $url="https://api.github.com/repos/bitcoin/bitcoin/contributors?page=".$i."&per_page=100";
         $res=json_decode(curls($url),true);
         foreach($res as $kkk=>$vvv){
@@ -80,7 +80,7 @@ do {
         break 1;
         }
         
-    }}
+    }*/}
      $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$watchers.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$cc]['id'];
     /*if($k==0){
     break;
