@@ -110,7 +110,7 @@ foreach($url as $kk=>$vv){
 
      
 foreach($url as $kk=>$vv){
-    foreach($url[$kk] as $kkk=>$vvv){
+    foreach($url[$kk] as $kkk=>$vvv){echo 1;
         $mrc = curl_multi_exec($mh, $conn[$kk][$kkk]);
     $re=curl_multi_getcontent($conn[$kk][$kkk]);
     $results=json_decode($re,true);;
