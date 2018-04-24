@@ -114,7 +114,7 @@ foreach($url as $kk=>$vv){
         $mrc = curl_multi_exec($mh, $conn[$kk][$kkk]);
     $re=curl_multi_getcontent($conn[$kk][$kkk]);
     $results=json_decode($re,true);;
-    print_r($results);;
+    print_r($mrc);;
     if($results==0){
     //continue;
     }
