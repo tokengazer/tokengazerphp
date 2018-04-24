@@ -40,7 +40,7 @@ foreach($url as $kk=>$vv){
 	$conn[$kk][$kkk] = curl_init($url[$kk][$kkk]['url']);   
       curl_setopt($conn[$kk][$kkk], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");   
       curl_setopt($conn[$kk][$kkk], CURLOPT_HEADER ,0);   
-        curl_setopt($conn[$kk][$kkk], CURLOPT_RETURNTRANSFER, 0);
+        curl_setopt($conn[$kk][$kkk], CURLOPT_RETURNTRANSFER,1);
       curl_setopt($conn[$kk][$kkk], CURLOPT_CONNECTTIMEOUT,60);   
       curl_multi_add_handle ($mh,$conn[$kk][$kkk]); 
         $headers = array(
