@@ -64,7 +64,6 @@ do {
 //foreach($url as $kk=>$vv){
     
     foreach($connlist as $dd=>$ee){
-        echo $ee;
         echo $re=curl_multi_getcontent($ee);
         echo curl_error($ee);
         curl_close($connlist[$dd]);
