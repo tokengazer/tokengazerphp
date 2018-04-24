@@ -56,7 +56,7 @@ foreach($url as $kk=>$vv){
 do {   
   $mrc = curl_multi_exec($mh, $active);
     $re=curl_multi_getcontent($active);
-    $results=json_decode($re,true);;
+    $results=json_decode($mrc,true);;
     print_r($results);;
     if($results==0){
     //continue;
