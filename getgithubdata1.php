@@ -118,9 +118,9 @@ foreach($url as $kk=>$vv){
        // echo $baseurl.",</br>";
     }*/
     foreach($url[$kk] as $kkk=>$vvv){
-       echo $re=curl_multi_getcontent($conn[$k]);
+       /*echo $re=curl_multi_getcontent($conn[$k]);
 	curl_multi_remove_handle($mh,$conn[$k]);   
-  curl_close($conn[$k]);   
+  curl_close($conn[$k]); */  
 }} // 结束清理   
      
 curl_multi_close($mh);   
