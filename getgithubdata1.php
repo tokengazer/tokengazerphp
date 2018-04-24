@@ -30,7 +30,7 @@ foreach($list as $k=>$v){
     }
     unset($list[$k]);
 }
-print_r($url);
+print_r($url);die;
 $mh = curl_multi_init();  
 foreach($url as $kk=>$vv){
     foreach($url[$kk] as $kkk=>$vvv){
