@@ -40,6 +40,7 @@ foreach($url as $kk=>$vv){
 	$conn[$kk][$kkk] = curl_init($url[$kk][$kkk]['url']);   
       curl_setopt($conn[$kk][$kkk], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");   
       curl_setopt($conn[$kk][$kkk], CURLOPT_HEADER ,0);   
+        curl_setopt($conn[$kk][$kkk],, CURLOPT_RETURNTRANSFER, 1);
       curl_setopt($conn[$kk][$kkk], CURLOPT_CONNECTTIMEOUT,60);   
       curl_multi_add_handle ($mh,$conn[$kk][$kkk]); 
         $headers = array(
@@ -67,7 +68,7 @@ do {
     foreach($results as $cc=>$dd){
         $name=$results[$cc]['name'];
         $url=$results[$cc]['url'];
-        $resultss=array();curls($url,$access_tokenlist[$round]);
+        $resultss=curls($url,$access_tokenlist[$round]);
         $getcommits=gettotalcommits($url[$kk][$kkk]['user'],$name,$access_tokenlist[$round]);
         $re=json_decode($resultss,true);
     $forks+=$re['network_count'];
