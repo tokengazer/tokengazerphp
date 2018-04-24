@@ -70,6 +70,7 @@ do {
         $url=$results[$cc]['url'];
         $resultss=curls($url,$access_tokenlist[$round]);
         $getcommits=gettotalcommits($url[$kk][$kkk]['user'],$name,$access_tokenlist[$round]);
+        echo $name;
         $re=json_decode($resultss,true);
     $forks+=$re['network_count'];
         $stars+=$re['stargazers_count'];
