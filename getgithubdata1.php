@@ -40,7 +40,7 @@ foreach($url as $kk=>$vv){
 	$conn[$kk][$kkk] = curl_init($url[$kk][$kkk]['url']);   
       curl_setopt($conn[$kk][$kkk], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");   
       curl_setopt($conn[$kk][$kkk], CURLOPT_HEADER ,0);   
-        curl_setopt($conn[$kk][$kkk], CURLOPT_RETURNTRANSFER,0);
+        curl_setopt($conn[$kk][$kkk], CURLOPT_RETURNTRANSFER, 0);
       curl_setopt($conn[$kk][$kkk], CURLOPT_CONNECTTIMEOUT,60);   
       curl_multi_add_handle ($mh,$conn[$kk][$kkk]); 
         $headers = array(
@@ -55,8 +55,8 @@ foreach($url as $kk=>$vv){
      
 do {   
   $re=curl_multi_exec($mh,$active); 
-    curl_multi_select($mh);
     $results=json_decode($re,true);;
+    print_r($results);
     if($results==0){
     continue;
     }
@@ -65,7 +65,7 @@ do {
     $lastupdatetime="2000-04-10 0:0:0";
     $commits=0;
     $round=floor(rand(0,9));
-    print_r($results);//echo $url[$kk][$kkk]['url'];
+    //print_r($results);echo $url[$kk][$kkk]['url'];
     foreach($results as $cc=>$dd){
         $name=$results[$cc]['name'];
         $url=$results[$cc]['url'];
@@ -105,7 +105,7 @@ do {
     //continue;
        // echo $baseurl.",</br>";
     }
-}  while ($running > 0);// 执行   
+} while ($active);  // 执行   
      
 foreach($url as $kk=>$vv){
     foreach($url[$kk] as $kkk=>$vvv){
