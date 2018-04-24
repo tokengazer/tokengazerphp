@@ -64,7 +64,7 @@ do {
     $lastupdatetime="2000-04-10 0:0:0";
     $commits=0;
     $round=floor(rand(0,9));
-    //print_r($results);echo $url[$kk][$kkk]['url'];
+    print_r($re);echo $url[$kk][$kkk]['url'];
     foreach($results as $cc=>$dd){
         $name=$results[$cc]['name'];
         $url=$results[$cc]['url'];
