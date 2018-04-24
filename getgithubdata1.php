@@ -55,6 +55,7 @@ foreach($url as $kk=>$vv){
      
 do {   
   $re=curl_multi_exec($mh,$active); 
+    curl_multi_select($mh);
     $results=json_decode($re,true);;
     if($results==0){
     continue;
@@ -104,7 +105,7 @@ do {
     //continue;
        // echo $baseurl.",</br>";
     }
-} while ($active);  // 执行   
+}  while ($running > 0);// 执行   
      
 foreach($url as $kk=>$vv){
     foreach($url[$kk] as $kkk=>$vvv){
