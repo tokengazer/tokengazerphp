@@ -9,7 +9,7 @@ $access_tokenlist=['80856b3c3c77107e184db763c9198242b814406e','babb77ef878d082ad
 $list=MySQLGetData($sql);
 
 $limit=ceil(count($list)/10);
-
+$mh = curl_multi_init(); 
 for($i=0;$i<10;$i++){
         foreach($list as $k=>$v){
     //$list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
@@ -26,34 +26,35 @@ for($i=0;$i<10;$i++){
         $url[$i][$k]['url']=$baseurl;
             $url[$i][$k]['user']=$user;
             $url[$i][$k]['token']=$access_tokenlist[$i];
-            if(count($url[$i])==$limit){
-            //continue;
+            $conn[$kk][$kkk] = curl_init($url[$i][$k]['url']);   
+      		curl_setopt($conn[$i][$k], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");   
+      		curl_setopt($conn[$i][$k], CURLOPT_HEADER ,0);   
+        	curl_setopt($conn[$i][$k], CURLOPT_RETURNTRANSFER, 1);
+      		curl_setopt($conn[$i][$k], CURLOPT_CONNECTTIMEOUT,60);   
+      		curl_multi_add_handle ($mh,$conn[$i][$k]); 
+            $headers = array(
+            'Authorization:token  '.$url[$i][$k]['token'].'',
+            'Accept:application/vnd.github.hellcat-preview+json',
+            'User-Agent: Awesome-Octocat-App',
+        );
+            curl_setopt($conn[$i][$k], CURLOPT_HTTPHEADER, $headers);
+                if(count($url[$i])==$limit){
+                //continue;
+                }
+              $mrc = curl_multi_exec($mh, $active);
+    			echo $re=curl_multi_getcontent($conn[$i][$k]);
+            
+            
+            
             }
-        }
     }
     unset($list[$k]);
 }
 //print_r($url);die;
-$mh = curl_multi_init();  
-foreach($url as $kk=>$vv){
-    foreach($url[$kk] as $kkk=>$vvv){
-	$conn[$kk][$kkk] = curl_init($url[$kk][$kkk]['url']);   
-      curl_setopt($conn[$kk][$kkk], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");   
-      curl_setopt($conn[$kk][$kkk], CURLOPT_HEADER ,0);   
-        curl_setopt($conn[$kk][$kkk], CURLOPT_RETURNTRANSFER, 1);
-      curl_setopt($conn[$kk][$kkk], CURLOPT_CONNECTTIMEOUT,60);   
-      curl_multi_add_handle ($mh,$conn[$kk][$kkk]); 
-        $headers = array(
-        'Authorization:token  '.$url[$kk][$kkk]['token'].'',
-        'Accept:application/vnd.github.hellcat-preview+json',
-        'User-Agent: Awesome-Octocat-App',
-    );
-        curl_setopt($conn[$kk][$kkk], CURLOPT_HTTPHEADER, $headers);
-        
-    }
-}
+ 
+
      
-do {   
+do {   break;
   $mrc = curl_multi_exec($mh, $active);
     $re=curl_multi_getcontent($active);
     $results=json_decode($mrc,true);;
