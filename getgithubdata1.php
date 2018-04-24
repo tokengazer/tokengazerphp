@@ -33,17 +33,17 @@ foreach($list as $k=>$v){
 $mh = curl_multi_init();  
 foreach($url as $kk=>$vv){
     foreach($url[$kk] as $kkk=>$vvv){
-	$conn[$kk] = curl_init($url[$kk][$kkk]['url']);   
-      curl_setopt($conn[$kk], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");   
-      curl_setopt($conn[$kk], CURLOPT_HEADER ,0);   
-      curl_setopt($conn[$kk], CURLOPT_CONNECTTIMEOUT,60);   
-      curl_multi_add_handle ($mh,$conn[$kk]); 
+	$conn[$kk][$kkk] = curl_init($url[$kk][$kkk]['url']);   
+      curl_setopt($conn[$kk][$kkk], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");   
+      curl_setopt($conn[$kk][$kkk], CURLOPT_HEADER ,0);   
+      curl_setopt($conn[$kk][$kkk], CURLOPT_CONNECTTIMEOUT,60);   
+      curl_multi_add_handle ($mh,$conn[$kk][$kkk]); 
         $headers = array(
         'Authorization:token  '.$url[$kk][$kkk]['token'].'',
         'Accept:application/vnd.github.hellcat-preview+json',
         'User-Agent: Awesome-Octocat-App',
     );
-        curl_setopt($conn[$kk], CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($conn[$kk][$kkk], CURLOPT_HTTPHEADER, $headers);
         
     }
 }
