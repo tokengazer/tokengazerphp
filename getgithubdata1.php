@@ -32,7 +32,7 @@ for($i=0;$i<10;$i++){
         	curl_setopt($conn[$k], CURLOPT_RETURNTRANSFER, 1);
       		curl_setopt($conn[$k], CURLOPT_CONNECTTIMEOUT,60);   
       		curl_multi_add_handle ($mh,$conn[$k]); 
-            $connlist[$i]=$conn[$k];
+            $connlist[$k]=$conn[$k];
             $headers = array(
             'Authorization:token  '.$url[$i][$k]['token'].'',
             'Accept:application/vnd.github.hellcat-preview+json',
@@ -118,9 +118,9 @@ foreach($url as $kk=>$vv){
        // echo $baseurl.",</br>";
     }*/
     foreach($url[$kk] as $kkk=>$vvv){
-       echo $re=curl_multi_getcontent($conn[$kk][$kkk]);
-	curl_multi_remove_handle($mh,$conn[$kk][$kkk]);   
-  curl_close($conn[$kk]);   
+       echo $re=curl_multi_getcontent($conn[$k]);
+	curl_multi_remove_handle($mh,$conn[$k]);   
+  curl_close($conn[$k]);   
 }} // 结束清理   
      
 curl_multi_close($mh);   
