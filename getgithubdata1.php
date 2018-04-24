@@ -53,8 +53,65 @@ foreach($url as $kk=>$vv){
     }
 }
      
-do {   
+/*do {   
   $mrc = curl_multi_exec($mh, $active);
+    $re=curl_multi_getcontent(1);
+    $results=json_decode($re,true);;
+    print_r($results);;
+    if($results==0){
+    //continue;
+    }
+    //print_r(curls($baseurl));
+    $forks=$watchers=$stars=$commits=0;
+    $lastupdatetime="2000-04-10 0:0:0";
+    $commits=0;
+    $round=floor(rand(0,9));
+    $url[$kk][$kkk]['url'];
+    foreach($results as $cc=>$dd){
+        $name=$results[$cc]['name'];
+        $url=$results[$cc]['url'];
+        $resultss=curls($url,$access_tokenlist[$round]);
+        $getcommits=gettotalcommits($url[$kk][$kkk]['user'],$name,$access_tokenlist[$round]);
+        echo "我的名字是".$name;
+        $re=json_decode($resultss,true);
+    $forks+=$re['network_count'];
+        $stars+=$re['stargazers_count'];
+    $watchers+=$re['subscribers_count'];
+       $lastupdatetime=bijiaotimes($lastupdatetime,$results[$kk]['pushed_at']);
+        $commits=0;
+    /*for($i=0;$i<5;$i++){
+      $url="https://api.github.com/repos/bitcoin/bitcoin/contributors?page=".$i."&per_page=100";
+        $res=json_decode(curls($url),true);
+        foreach($res as $kkk=>$vvv){
+        $commits+=$res[$kkk]['contributions'];
+             $res[$kkk]['contributions']."<br/>";
+        }
+        if(count($res)==0){
+            echo $commits;
+        break 1;
+        }
+        
+    }}
+    $sql="update ico_Analysis set GithubForks=".$forks.",GithubStars=".$stars.",GithubWatches=".$watchers.",Github_lastupdatetime='".$lastupdatetime."' where id=".$list[$cc]['id'];
+    /*if($k==0){
+    break;
+    }*/
+    //MySQLRunSQL($sql);
+    /*$forks=$watches=$stars=$commits=0;
+    if(strrpos($baseurl,"/")==strlen($baseurl)-1){
+    $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
+    }
+    $data=json_decode(curls($baseurl),true);;
+    if(isset($data['message'])){*/
+    //continue;
+       // echo $baseurl.",</br>";
+    /*}
+} while ($mrc == CURLM_CALL_MULTI_PERFORM);*/
+
+     
+foreach($url as $kk=>$vv){
+    foreach($url[$kk] as $kkk=>$vvv){
+        $mrc = curl_multi_exec($mh, $conn[$kk]);
     $re=curl_multi_getcontent(1);
     $results=json_decode($re,true);;
     print_r($results);;
@@ -106,11 +163,6 @@ do {
     //continue;
        // echo $baseurl.",</br>";
     }
-} while ($mrc == CURLM_CALL_MULTI_PERFORM);
-
-     
-foreach($url as $kk=>$vv){
-    foreach($url[$kk] as $kkk=>$vvv){
 	curl_multi_remove_handle($mh,$conn[$kk]);   
   curl_close($conn[$kk]);   
 }} // 结束清理   
