@@ -69,6 +69,7 @@ do {
         $name=$results[$cc]['name'];
         $url=$results[$cc]['url'];
         $resultss=curls($url,$access_tokenlist[$round]);
+        print_r($results);
         $getcommits=gettotalcommits($url[$kk][$kkk]['user'],$name,$access_tokenlist[$round]);
         $re=json_decode($resultss,true);
     $forks+=$re['network_count'];
