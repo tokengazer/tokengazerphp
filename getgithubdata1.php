@@ -33,7 +33,7 @@ foreach($list as $k=>$v){
 $mh = curl_multi_init();  
 foreach($url as $kk=>$vv){
     foreach($url[$kk] as $kkk=>$vvv){
-	echo $url[$kk][$kkk]['url'];$conn[$kk] = curl_init($url[$kk][$kkk]['url']);   
+	$conn[$kk] = curl_init($url[$kk][$kkk]['url']);   
       curl_setopt($conn[$kk], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");   
       curl_setopt($conn[$kk], CURLOPT_HEADER ,0);   
       curl_setopt($conn[$kk], CURLOPT_CONNECTTIMEOUT,60);   
@@ -56,7 +56,7 @@ do {
     $lastupdatetime="2000-04-10 0:0:0";
     $commits=0;
     $round=floor(rand(0,9));
-    print_r($results);
+    print_r($results);echo $url[$kk][$kkk]['url'];
     foreach($results as $cc=>$dd){
         $name=$results[$cc]['name'];
         $url=$results[$cc]['url'];
