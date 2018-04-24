@@ -32,6 +32,7 @@ for($i=0;$i<10;$i++){
         	curl_setopt($conn[$i][$k], CURLOPT_RETURNTRANSFER, 1);
       		curl_setopt($conn[$i][$k], CURLOPT_CONNECTTIMEOUT,60);   
       		curl_multi_add_handle ($mh,$conn[$i][$k]); 
+            $connlist[$i]=$conn[$i][$k];
             $headers = array(
             'Authorization:token  '.$url[$i][$k]['token'].'',
             'Accept:application/vnd.github.hellcat-preview+json',
@@ -41,8 +42,7 @@ for($i=0;$i<10;$i++){
                 if(count($url[$i])==$limit){
                 //continue;
                 }
-              echo $mrc = curl_multi_exec($mh, $active);
-    			echo $re=curl_multi_getcontent($conn[$i][$k]);
+              
             
             
             
@@ -54,9 +54,12 @@ for($i=0;$i<10;$i++){
  
 
      
-do {   break;
+do {   
   $mrc = curl_multi_exec($mh, $active);
-    $re=curl_multi_getcontent($active);
+    foreach($connlist as $dd=>$ee){
+    $re=curl_multi_getcontent($ee);
+        print_r($re);
+    }
     $results=json_decode($mrc,true);;
     print_r($re);;
     if($results==0){
