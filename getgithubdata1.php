@@ -21,7 +21,7 @@ for($i=0;$i<10;$i++){
         $user=$baseurl=substr($baseurl,0,strlen($baseurl)-1); 
         }
 
-        echo $baseurl="https://api.github.com/users/$baseurl/repos";
+        $baseurl="https://api.github.com/users/$baseurl/repos";
         if($k<=($i+1)*$limit+1&&$k>$i*$limit-1){
         $url[$i][$k]['url']=$baseurl;
             $url[$i][$k]['user']=$user;
