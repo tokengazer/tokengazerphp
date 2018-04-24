@@ -22,7 +22,7 @@ function exportExcel($expTitle,$expCellName,$expTableData=array(),$engcell){
     //设置excel属性
     $objActSheet = $excel->getActiveSheet();
     //根据有生成的excel多少列，$letter长度要大于等于这个值
-    $letter = array('A','B','C','D','E','F','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','AA','AB','AC','AD','AE','AF','AG','AH','AI','AJ','AK','AL','AM','AN','AO','AP','AQ','AR','AS','AT','AU','AV','AW','AX','AY','AZ','BA','BB');
+    $letter =$engcells;// array('A','B','C','D','E','F','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','AA','AB','AC','AD','AE','AF','AG','AH','AI','AJ','AK','AL','AM','AN','AO','AP','AQ','AR','AS','AT','AU','AV','AW','AX','AY','AZ','BA','BB');
     //设置当前的sheet
     $excel->setActiveSheetIndex(0);
     //设置sheet的name
