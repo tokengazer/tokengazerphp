@@ -8,7 +8,7 @@ $access_tokenlist=['80856b3c3c77107e184db763c9198242b814406e','babb77ef878d082ad
 //print_r($access_tokenlist);die;
 $list=MySQLGetData($sql);
 
-echo $limit=ceil(count($list)/10);die;
+$limit=ceil(count($list)/10);
 
 foreach($list as $k=>$v){
     //$list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
@@ -19,7 +19,7 @@ foreach($list as $k=>$v){
 
         $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0]."/repos";
         for($i=0;$i<10;$i++){
-        if($k<=($i+1)*$limit&&$k>$i*$limit){
+        if($k<($i+1)*$limit&&$k>$i*$limit){
         $url[$i][$k]['url']=$baseurl;
             $url[$i][$k]['user']=explode("/",$baseurl)[0];
             $url[$i][$k]['token']=$access_tokenlist[$i];
@@ -28,7 +28,7 @@ foreach($list as $k=>$v){
             }
         }
     }
-    
+    unset($list[$k]);
 }
 $mh = curl_multi_init();  
 foreach($url as $kk=>$vv){
