@@ -26,7 +26,7 @@ for($i=0;$i<10;$i++){
         $url[$i][$k]['url']=$baseurl;
             $url[$i][$k]['user']=$user;
             $url[$i][$k]['token']=$access_tokenlist[$i];
-            $conn[$kk][$kkk] = curl_init($url[$i][$k]['url']);   
+            $conn[$k] = curl_init($url[$i][$k]['url']);   
       		curl_setopt($conn[$k], CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)");   
       		curl_setopt($conn[$k], CURLOPT_HEADER ,0);   
         	curl_setopt($conn[$k], CURLOPT_RETURNTRANSFER, 1);
