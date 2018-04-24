@@ -19,7 +19,7 @@ foreach($list as $k=>$v){
 
         $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0]."/repos";
         for($i=0;$i<10;$i++){
-        if($k<($i+1)*$limit&&$k>$i*$limit){
+        if($k<=($i+1)*$limit&&$k>$i*$limit){
         $url[$i][$k]['url']=$baseurl;
             $url[$i][$k]['user']=explode("/",$baseurl)[0];
             $url[$i][$k]['token']=$access_tokenlist[$i];
