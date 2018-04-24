@@ -26,7 +26,7 @@ foreach($list as $k=>$v){
         $url[$i][$k]['url']=$baseurl;
             $url[$i][$k]['user']=$user;
             $url[$i][$k]['token']=$access_tokenlist[$i];
-            if(count($url[$i])==$limit){
+            if(count($url[$i])+1==$limit){
             continue;
             }
         }
