@@ -55,6 +55,9 @@ foreach($url as $kk=>$vv){
 do {   
   $re=curl_multi_exec($mh,$active); 
     $results=json_decode($re,true);;
+    if($results==0){
+    continue;
+    }
     //print_r(curls($baseurl));
     $forks=$watchers=$stars=$commits=0;
     $lastupdatetime="2000-04-10 0:0:0";
