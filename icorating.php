@@ -42,8 +42,13 @@ foreach($str2 as $k=>$v){
         if($name==''){
         continue;
         }
+        $sql="select count(*) from ico_Analysis where name='".$arr[$i]['name']."';";
+        $count=MySQLGetData($sql);
+    $count=$count[0]['count(*)'];
+        if($count==0){
     echo $sql='insert into ico_Analysis (name,logo,Github_url,DataSource) values("'.$arr[$i]['name'].'","'.trim($logo).'","'.$arr[$i]['githuburl'].'","icorating");';
     MySQLRunSQL($sql);
+        }
      $kv->get('products:'.$i);
     $i++;
        
