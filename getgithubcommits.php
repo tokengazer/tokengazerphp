@@ -16,8 +16,8 @@ $list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
    
     $re=json_decode(curls($baseurl,$token),true);
     foreach($re as $kk=>$vv){
-    $user=explode("/",$re[$kk]['fullname'])[0];
-        $pro=explode("/",$re[$kk]['fullname'])[1];
+    echo $user=explode("/",$re[$kk]['fullname'])[0];
+        echo $pro=explode("/",$re[$kk]['fullname'])[1];die;
         $token1=$access_token[floor(rand(0,10))];
         $res=gettotalcommits($user,$pro,$token);
         print_r($res);
