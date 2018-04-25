@@ -54,12 +54,13 @@ function curls($url,$token){
   }
 function  gettotalcommits($user,$pro,$token){
 
-    echo $data_string='{"query":"{\n  repository(owner: \"'.$user.'\", name: \"'.$pro.'\") {\n    name\n    refs(first: 100, refPrefix: \"refs/heads/\") {\n      edges {\n        node {\n          name\n          target {\n            ... on Commit {\n              id\n              history(first: 0) {\n                totalCount\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}","variables":{},"operationName":null}';
+    $data_string='{"query":"{\n  repository(owner: \"'.$user.'\", name: \"'.$pro.'\") {\n    name\n    refs(first: 100, refPrefix: \"refs/heads/\") {\n      edges {\n        node {\n          name\n          target {\n            ... on Commit {\n              id\n              history(first: 0) {\n                totalCount\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}","variables":{},"operationName":null}';
     $headers = array(
         'Authorization:token  '.$token.'',
+        'Accept:application/vnd.github.giant-sentry-fist-preview+json',
     );
     $curl = curl_init();
-    $url="https://api.github.com/graphql";
+    $url="https://api.github.com/graphql?anon=1000";
     //设置抓取的url
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, 1);
