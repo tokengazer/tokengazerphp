@@ -11,6 +11,7 @@ $list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
         if(strrpos($baseurl,",")==strlen($baseurl)-1){
         $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
         }
+    $token=$access_tokenlist[$round];
         echo $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0]."/repos";
     echo $token;
     print_r(curls($baseurl,$token));
