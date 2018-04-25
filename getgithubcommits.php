@@ -67,7 +67,7 @@ function  gettotalcommits($user,$pro,$token){
     curl_setopt($curl, CURLOPT_HEADER, 0);
     //设置获取的信息以文件流的形式返回，而不是直接输出。
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS,$data_string);
+    curl_setopt($curl, CURLOPT_POSTFIELDS,$data_string);
 
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
     //执行命令
