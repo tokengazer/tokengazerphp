@@ -1,6 +1,6 @@
 <?php
 include('bootstraps.php');
-$sql="select id, Github_url from ico_Analysis where Github_url <> '' and Github_url <>'https://github.com/' limit 0,1";
+$sql="select id, Github_url from ico_Analysis where Github_url <> '' and Github_url <>'https://github.com/' limit 0,5";
 $access_tokenlist=['80856b3c3c77107e184db763c9198242b814406e','babb77ef878d082ade36adb15cb23d4ac47d0a36','7ead54b12490c8f18c6bc3b7b77f8710f6fc45b0','4c18b27fc9bdbceb0e81865e829dfc7fcfc7ff68','94d25a5f6df38694be6ef8e770beb32b9d76dd52','aec5f39c839cabf8889c24f9587dd0156532ef71','21edef773aeaf7c2784fd0b91394437198220075','fe947f928280c8cc78a784fb53fbb5409b36699e','a68b6711a04bd1e94ce1f61c850041043cadcdb5','358743267e9c6c4d0983e33f7ca9115792a2b85f'];
 $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
@@ -14,10 +14,10 @@ $list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
     $token=$access_tokenlist[$round];
         $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0]."/repos";
    
-    $re=json_decode(curls($baseurl,$token),true);
+    $re=json_decode(curls($baseurl,$token),true)
     foreach($re as $kk=>$vv){
-    echo $user=explode("/",$re[$kk]['full_name'])[0];
-        echo $pro=explode("/",$re[$kk]['full_name'])[1];die;
+     $user=explode("/",$re[$kk]['full_name'])[0];
+     $pro=explode("/",$re[$kk]['full_name'])[1];
         $token1=$access_token[floor(rand(0,10))];
         $res=gettotalcommits($user,$pro,$token);
         print_r($res);
