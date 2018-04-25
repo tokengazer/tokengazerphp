@@ -1,6 +1,6 @@
 <?php
 include('bootstraps.php');
-$sql="select id, Github_url from ico_Analysis where Github_url <> '' and Github_url <>'https://github.com/' ";
+$sql="select id, Github_url from ico_Analysis where Github_url <> '' and Github_url <>'https://github.com/' limit 0,1";
 $access_tokenlist=['80856b3c3c77107e184db763c9198242b814406e','babb77ef878d082ade36adb15cb23d4ac47d0a36','7ead54b12490c8f18c6bc3b7b77f8710f6fc45b0','4c18b27fc9bdbceb0e81865e829dfc7fcfc7ff68','94d25a5f6df38694be6ef8e770beb32b9d76dd52','aec5f39c839cabf8889c24f9587dd0156532ef71','21edef773aeaf7c2784fd0b91394437198220075','fe947f928280c8cc78a784fb53fbb5409b36699e','a68b6711a04bd1e94ce1f61c850041043cadcdb5','358743267e9c6c4d0983e33f7ca9115792a2b85f'];
 $list=MySQLGetData($sql);
 foreach($list as $k=>$v){
@@ -54,7 +54,7 @@ function curls($url,$token){
   }
 function  gettotalcommits($user,$pro,$token){
 
-    $data_string='{"query":"{\n  repository(owner: \"'.$user.'\", name: \"'.$pro.'\") {\n    name\n    refs(first: 100, refPrefix: \"refs/heads/\") {\n      edges {\n        node {\n          name\n          target {\n            ... on Commit {\n              id\n              history(first: 0) {\n                totalCount\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}","variables":{},"operationName":null}';
+    echo $data_string='{"query":"{\n  repository(owner: \"'.$user.'\", name: \"'.$pro.'\") {\n    name\n    refs(first: 100, refPrefix: \"refs/heads/\") {\n      edges {\n        node {\n          name\n          target {\n            ... on Commit {\n              id\n              history(first: 0) {\n                totalCount\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}","variables":{},"operationName":null}';
     $headers = array(
         'Authorization:token  '.$token.'',
         'Accept:application/vnd.github.hellcat-preview+json',
