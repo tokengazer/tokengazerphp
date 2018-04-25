@@ -34,10 +34,10 @@ foreach($idlist as $kk=>$vv){
         }
     }
 }
-print_r($arr);die;
+
 $cell=explode(',',$cells);
 $engcells=$cell;
-exportExcel($name.date("Y-m-d")."csv",$engcells,array(),$engcells);
+exportExcel($name.date("Y-m-d")."csv",$engcells,$arr,$engcells);
 function exportExcel($expTitle,$expCellName,$expTableData=array(),$engcell){
     $excel = new PHPExcel();
 
@@ -70,30 +70,9 @@ function exportExcel($expTitle,$expCellName,$expTableData=array(),$engcell){
     }
     //单独设置D列宽度为15
     $objActSheet->getColumnDimension('D')->setWidth(15);
-    $getrows="select count(*) from TeamMember group by pid";
-    $count=MySQLGetData($getrows);
-    $count=$count[0]['count(*)'];
-    //这里$i初始值设置为2，$j初始值设置为0，自己体会原因
-    $pages=floor($count/1000)+1;
-    //echo $pages;die;
-    for($k=0;$k<$pages;$k++){
-        $start=$k*1000;
-        $sql="select distinct * from ico_Analysis limit $start,1000 ";
-        $expTableData=MySQLGetData($sql);
-        if($k==$pages-1){
-        $limit=count($expTableData);
-        }else{
-        $limit=($k+1)*1000+1;
-        } 
-        if($k==0){
-        $start=2;
-            $c=2;
-        }else{
-        $start=$k*1000;
-            $c=0;
-        }
-         ob_flush();
-    for ($i =2;$i <= $limit;$i++) {
+    
+    ob_flush();
+    for ($i =2;$i <= count($expTabelData);$i++) {
        $j = 0;
         foreach ($expTableData[$i - $c] as $key=>$value) {
             $objActSheet->setCellValue("$letter[$j]$i",$expTableData[$i -$c][$key]);
@@ -117,7 +96,7 @@ function exportExcel($expTitle,$expCellName,$expTableData=array(),$engcell){
     // 用户下载excel
     $objWriter = PHPExcel_IOFactory::createWriter($excel, 'CSV');
     $objWriter->save('php://output');
-        }
+       
     
     // 保存excel在服务器上
     //$objWriter = new PHPExcel_Writer_Excel2007($excel);
