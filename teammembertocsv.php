@@ -74,12 +74,12 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
     
     for ($i =2;$i <= count($expTabelData);$i++) {
        $j = 0;
-        foreach ($expTableData[$i - $c] as $key=>$value) {
-            $objActSheet->setCellValue("$letter[$j]$i",$expTableData[$i -$c][$key]);
+        foreach ($expTableData[$i - 2] as $key=>$value) {
+            $objActSheet->setCellValue("$letter[$j]$i",$expTableData[$i -2][$key]);
             unset($value);
             $j++;
         	}
-            unset($expTableData[$i -$c][$key]);
+            unset($expTableData[$i -2][$key]);
         
         
     	}
@@ -91,7 +91,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
         header('Content-Type: application/vnd.ms-excel');
     //下载的excel文件名称，为Excel5，后缀为xls，不过影响似乎不大
     $savefile=$expTitle;
-    header('Content-Disposition: attachment;filename="' . $savefile . '.CSV"');
+    header('Content-Disposition: attachment;filename=Teammemberlist"' . $savefile . '.CSV"');
     header('Cache-Control: max-age=0');
     // 用户下载excel
     $objWriter = PHPExcel_IOFactory::createWriter($excel, 'CSV');
