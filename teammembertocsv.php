@@ -72,7 +72,7 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
     $objActSheet->getColumnDimension('D')->setWidth(15);
     
     for ($i =2;$i <= count($expTabelData);$i++) {
-       $j = 0;
+       $j = 0;echo count($expTabelData);die;
         foreach ($expTableData[$i - 2] as $key=>$value) {
             $objActSheet->setCellValue("$letter[$j]$i",$expTableData[$i -2][$key]);
             unset($value);
