@@ -13,13 +13,13 @@ $list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
         }
     $token=$access_tokenlist[$round];
         $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0]."/repos";
-   
+   $totalcounts=0;
+        
     $re=json_decode(curls($baseurl,$token),true);
     foreach($re as $kk=>$vv){
      $user=explode("/",$re[$kk]['full_name'])[0];
      $pro=explode("/",$re[$kk]['full_name'])[1];
         $token1=$access_token[floor(rand(0,10))];
-        $totalcounts=0;
         $res=json_decode(gettotalcommits($user,$pro,$token),true);
         print_r($res);
         foreach($res['data']['repository']['refs']['edges'] as $cc=>$dd){
