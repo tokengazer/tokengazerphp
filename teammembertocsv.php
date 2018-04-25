@@ -37,7 +37,7 @@ foreach($idlist as $kk=>$vv){
 
 $cell=explode(',',$cells);
 $engcells=$cell;
-exportExcel($name.date("Y-m-d")."csv",$engcells,$arr,$engcells);
+exportExcel($name.date("Y-m-d"),$engcells,$arr,$engcells);
 function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
     $excel = new PHPExcel();
 
