@@ -29,8 +29,8 @@ $list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
         }
         
     }
-    echo $totalcounts;
-    die;
+    $sql="update ico_Analysis set GithubCommits=$totalcounts where id=".$v['id'];
+    MySQLRunSQL($sql);
    
 }
 function curls($url,$token){
