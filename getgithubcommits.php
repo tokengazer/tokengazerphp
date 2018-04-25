@@ -20,7 +20,7 @@ $list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
         $pro=explode("/",$re[$kk]['fullname'])[1];
         $token1=$access_token[floor(rand(0,10))];
         $res=gettotalcommits($user,$pro,$token);
-        print_r($res;)
+        print_r($res);
     }
     
    
