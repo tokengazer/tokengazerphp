@@ -14,7 +14,7 @@ $list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
     $token=$access_tokenlist[$round];
         $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0]."/repos";
    
-    $re=json_decode(curls($baseurl,$token),true)
+    $re=json_decode(curls($baseurl,$token),true);
     foreach($re as $kk=>$vv){
      $user=explode("/",$re[$kk]['full_name'])[0];
      $pro=explode("/",$re[$kk]['full_name'])[1];
