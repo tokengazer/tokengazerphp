@@ -38,7 +38,7 @@ foreach($idlist as $kk=>$vv){
 $cell=explode(',',$cells);
 $engcells=$cell;
 exportExcel($name.date("Y-m-d")."csv",$engcells,$arr,$engcells);
-function exportExcel($expTitle,$expCellName,$expTableData=array(),$engcell){
+function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
     $excel = new PHPExcel();
 
     //设置excel属性
