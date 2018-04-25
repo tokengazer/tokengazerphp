@@ -12,9 +12,9 @@ include('bootstraps.php');
 include("PHPExcel/PHPExcel.php");
 
 //$data=MySQLGetData($sql);
-$cells="id,name,logo,ticker,DataSource,Current_market_value,Current_Single_Price,Current_Circulation,Circulation_unit,Total_Count,Twitter_Fanscount,Facebook_Friends,Telegram_fans,Github_url,GithubCommits,GithubStars,GithubWatches,GithubForks,Github_lastupdatetime,Ico_time,ICO_Price_Usd,ICO_Price_ETH,ICO_Distribution_Ratio,Presales,ICO_Total_Amount,ICO_TotalCount,perhour,perday,perweek,ICO_HardCap,ICO_Raise_money,Business,Technology,Team,Token,Operation,members,origin,whitepaper,website,cannotareas,Platform,icolink,linkedin,AcceptedCurrencies,TokenStandard,TokenType,AdditionalTokenEmission,AvailableforTokenSale,facebookurl,twitterurl,telegramurl,whitelist";
+$cells="id,name,logo,ticker,DataSource,Current_market_value,Current_Single_Price,Current_Circulation,Circulation_unit,Total_Count,perhour,perday,perweek,Twitter_Fanscount,Facebook_Friends,Telegram_fans,Github_url,GithubCommits,GithubStars,GithubWatches,GithubForks,Github_lastupdatetime,Ico_time,ICO_Price_Usd,ICO_Price_ETH,ICO_Distribution_Ratio,Presales,ICO_Total_Amount,ICO_TotalCount,perhour,perday,perweek,ICO_HardCap,ICO_Raise_money,Business,Technology,Team,Token,Operation,members,origin,whitepaper,website,cannotareas,Platform,icolink,linkedin,AcceptedCurrencies,TokenStandard,TokenType,AdditionalTokenEmission,AvailableforTokenSale,facebookurl,twitterurl,telegramurl,whitelist";
 $cell=explode(',',$cells);
-$engcells=explode(",","id,name,logo,explodeticker,DataSource,Current_market_value,Current_Single_Price,Current_Circulation,Circulation_unit,Total_Count,Twitter_Fanscount,Facebook_Friends,Telegram_fans,Github_url,GithubCommits,GithubStars,GithubWatches,GithubForks,Github_lastupdatetime,Ico_time,ICO_Price_Usd,ICO_Price_ETH,ICO_Distribution_Ratio,Presales,ICO_Total_Amount,ICO_TotalCount,perhour,perday,perweek,ICO_HardCap,ICO_Raise_money,Business,Technology,Team,Token,Operation,members,origin,whitepaper,website,cannotareas,Platform,icolink,linkedin,AcceptedCurrencies,TokenStandard,TokenType,AdditionalTokenEmission,AvailableforTokenSale,facebookurl,twitterurl,telegramurl,whitelist");
+$engcells=explode(",","id,name,logo,ticker,DataSource,Current_market_value,Current_Single_Price,Current_Circulation,Circulation_unit,Total_Count,perhour,perday,perweek,Twitter_Fanscount,Facebook_Friends,Telegram_fans,Github_url,GithubCommits,GithubStars,GithubWatches,GithubForks,Github_lastupdatetime,Ico_time,ICO_Price_Usd,ICO_Price_ETH,ICO_Distribution_Ratio,Presales,ICO_Total_Amount,ICO_TotalCount,perhour,perday,perweek,ICO_HardCap,ICO_Raise_money,Business,Technology,Team,Token,Operation,members,origin,whitepaper,website,cannotareas,Platform,icolink,linkedin,AcceptedCurrencies,TokenStandard,TokenType,AdditionalTokenEmission,AvailableforTokenSale,facebookurl,twitterurl,telegramurl,whitelist");
 exportExcel($name.date("Y-m-d")."csv",$engcells,array(),$engcells);
 function exportExcel($expTitle,$expCellName,$expTableData=array(),$engcell){
     $excel = new PHPExcel();
@@ -22,7 +22,7 @@ function exportExcel($expTitle,$expCellName,$expTableData=array(),$engcell){
     //设置excel属性
     $objActSheet = $excel->getActiveSheet();
     //根据有生成的excel多少列，$letter长度要大于等于这个值
-    $letter =array('A','B','C','D','E','F','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','AA','AB','AC','AD','AE','AF','AG','AH','AI','AJ','AK','AL','AM','AN','AO','AP','AQ','AR','AS','AT','AU','AV','AW','AX','AY','AZ','BA','BB');
+    $letter =array('A','B','C','D','E','F','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','AA','AB','AC','AD','AE','AF','AG','AH','AI','AJ','AK','AL','AM','AN','AO','AP','AQ','AR','AS','AT','AU','AV','AW','AX','AY','AZ','BA','BB','BC','BD','BE');
     //设置当前的sheet
     $excel->setActiveSheetIndex(0);
     //设置sheet的name
