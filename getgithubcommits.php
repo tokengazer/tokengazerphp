@@ -57,7 +57,7 @@ function  gettotalcommits($user,$pro,$token){
     echo $data_string='{"query":"{\n  repository(owner: \"bitcoin\", name: \"bips\") {\n    name\n    refs(first: 100, refPrefix: \"refs/heads/\") {\n      edges {\n        node {\n          name\n          target {\n            ... on Commit {\n              id\n              history(first: 0) {\n                totalCount\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}","variables":{},"operationName":null}';
     $headers = array(
         'Authorization:token  '.$token.'',
-        'Accept:application/vnd.github.hellcat-preview+json',
+        'Accept:application/vnd.github.giant-sentry-fist-preview+json',
         'User-Agent: Awesome-Octocat-App',
     );
     $curl = curl_init();
