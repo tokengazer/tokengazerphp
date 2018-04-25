@@ -21,7 +21,7 @@ $list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
         $token1=$access_token[floor(rand(0,10))];
         $totalcounts=0;
         $res=json_decode(gettotalcommits($user,$pro,$token),true);
-        //print_r($res);
+        print_r($res);
         foreach($res['data']['refs']['edges'] as $cc=>$dd){print_r($dd);
         if($dd['node']['name']=='master'){
         $totalcounts+=$dd['node']['target']['history']['totalCount'];
