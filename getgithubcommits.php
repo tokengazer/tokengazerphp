@@ -19,10 +19,18 @@ $list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
      $user=explode("/",$re[$kk]['full_name'])[0];
      $pro=explode("/",$re[$kk]['full_name'])[1];
         $token1=$access_token[floor(rand(0,10))];
-        $res=gettotalcommits($user,$pro,$token);
-        print_r($res);die;
+        $totalcounts=0;
+        $res=json_decode(gettotalcommits($user,$pro,$token),true);
+        print_r($res);
+        foreach($res['data']['refs']['edges'] as $cc=>$dd){
+        if($v['node']['name']=='master'){
+        $totalcounts+=$v['node']['target']['history']['totalCount'];
+        }
+        }
+        
     }
-    
+    echo $totalcounts;
+    die;
    
 }
 function curls($url,$token){
