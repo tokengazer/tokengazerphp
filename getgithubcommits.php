@@ -58,7 +58,6 @@ function  gettotalcommits($user,$pro,$token){
     $headers = array(
         'Authorization:token  '.$token.'',
         'Accept:application/vnd.github.giant-sentry-fist-preview+json',
-        'User-Agent: Awesome-Octocat-App',
     );
     $curl = curl_init();
     $url="https://api.github.com/graphql?anon=1000";
