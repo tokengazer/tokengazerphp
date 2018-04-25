@@ -22,9 +22,9 @@ $list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
         $totalcounts=0;
         $res=json_decode(gettotalcommits($user,$pro,$token),true);
         print_r($res);
-        foreach($res['data']['refs']['edges'] as $cc=>$dd){print_r($dd);
-        if($dd['node']['name']=='master'){
-        $totalcounts+=$dd['node']['target']['history']['totalCount'];
+        foreach($res['data']['refs']['edges'] as $cc=>$dd){
+        if($res['data']['refs']['edges'][$cc]['node']['name']=='master'){
+        $totalcounts+=$res['data']['refs']['edges'][$cc]['node']['target']['history']['totalCount'];
         }
         }
         
