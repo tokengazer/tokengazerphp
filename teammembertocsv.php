@@ -70,7 +70,6 @@ function exportExcel($expTitle,$expCellName,$expTableData,$engcell){
     }
     //单独设置D列宽度为15
     $objActSheet->getColumnDimension('D')->setWidth(15);
-    echo count($expTabelData);die;
     for ($i =2;$i <= count($expTabelData);$i++) {
        $j = 0;echo count($expTabelData);die;
         foreach ($expTableData[$i - 2] as $key=>$value) {
