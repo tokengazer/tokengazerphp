@@ -12,6 +12,7 @@ $list[$k]['Github_url']=str_replace(",","",$list[$k]['Github_url']);
         $baseurl=substr($baseurl,0,strlen($baseurl)-1); 
         }
         echo $baseurl="https://api.github.com/users/".explode("/",$baseurl)[0]."/repos";
+    echo $token;
     print_r(curls($baseurl,$token));
     
    
