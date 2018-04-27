@@ -8,7 +8,6 @@
 include('bootstraps.php');
 $sql="select * from ico_Analysis where Current_market_value<>'';";
 $list=MySQLGetData($sql);
-print_r($list);
 foreach($list as $kk=>$vv){
     $url="https://www.feixiaohao.com/currencies/".$list[$kk]['name']."/";
     //$url="https://www.feixiaohao.com/currencies/icon/";
@@ -21,5 +20,5 @@ foreach($list as $kk=>$vv){
 
         echo $sql="update ico_Analysis set presale='$td' where id=".$list[$kk]['id'];
         MySQLRunSQL($sql);
-    }die;
+    }
 }
