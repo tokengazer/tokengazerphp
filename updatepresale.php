@@ -12,8 +12,8 @@ foreach($list as $kk=>$vv){
     //$url="https://www.feixiaohao.com/currencies/".$list[$kk]['name']."/";
     $url="https://www.feixiaohao.com/currencies/EOS/";
     $html=file_get_contents_https($url);
-    if(strstr("<table class=iCOtable>",$html)) {echo 1;
-        $table = explode("<table class=\"iCOtable\">", $html)[1];
+    if(strstr($html,"<table class=iCOtable>")) {echo 1;
+        $table = explode("<table class=iCOtable>", $html)[1];
         $tr = explode("<tr>", $table)[2];
         echo $td = explode("<td>", explode("</td>", $tr)[2])[0];
 
