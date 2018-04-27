@@ -16,7 +16,7 @@ foreach($list as $kk=>$vv){
         $table = explode("<table class=iCOtable>", $html)[1];
                                                 
         $tr = explode("<tr>", $table)[2];print_r($tr);
-        echo $td = explode("<td>", explode("<td>", $tr)[2])[0];
+        echo $td = explode("<td>", explode("<td>", $tr)[3])[0];
 
         echo $sql="update ico_Analysis set presale='$td' where id=".$list[$kk]['id'];
         MySQLRunSQL($sql);
