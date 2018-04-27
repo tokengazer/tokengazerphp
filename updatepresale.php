@@ -14,8 +14,8 @@ foreach($list as $kk=>$vv){
     $html=file_get_contents_https($url);
     if(strstr($html,"<table class=iCOtable>")) {echo 1;
         $table = explode("<table class=iCOtable>", $html)[1];
-                                                print_r($table);
-        $tr = explode("<tr>", $table)[2];
+                                                
+        $tr = explode("<tr>", $table)[2];print_r($tr);
         echo $td = explode("<td>", explode("</td>", $tr)[2])[0];
 
         echo $sql="update ico_Analysis set presale='$td' where id=".$list[$kk]['id'];
