@@ -9,8 +9,8 @@ include('bootstraps.php');
 $sql="select * from ico_Analysis where Current_market_value<>'';";
 $list=MySQLGetData($sql);
 foreach($list as $kk=>$vv){
-    //$url="https://www.feixiaohao.com/currencies/".$list[$kk]['name']."/";
-    $url="https://www.feixiaohao.com/currencies/icon/";
+    $url="https://www.feixiaohao.com/currencies/".$list[$kk]['name']."/";
+    //$url="https://www.feixiaohao.com/currencies/icon/";
     $html=file_get_contents_https($url);
     if(strstr($html,"<table class=iCOtable>")) {echo 1;
         $table = explode("<table class=iCOtable>", $html)[1];
