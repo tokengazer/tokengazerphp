@@ -37,8 +37,7 @@ foreach($dataarr as $kk=>$vv){
         }
     }
 }
-echo $datahtml;
-die;
+
 foreach($list as $k=>$v){
     //$name=trim(explode("(",$list[$k]['name'])[0]);
 //$ticker=explode(")",explode("(",$list[$k]['name'])[1])[0];
